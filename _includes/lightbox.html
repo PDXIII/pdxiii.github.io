@@ -1,0 +1,11 @@
+<div class="preview row">
+  {% for item in post.lightbox | array_to_sentence_string %}  	
+  	<div class="previewtile col-xl-2  col-sm-4 col-xs-6">
+  	  <a href="{{ site.baseurl }}/assets/images/{{ item }}" 
+  	  	data-lightbox="{{ post.title }}"
+  	  	title=" {{ post.caption[forloop.index0] }}">
+  	    <img class="previewimage img-rounded img-responsive" src="{{ site.baseurl }}/assets/images/thumbs/{{ item }}"/>
+  	  </a>
+  	</div>
+  {% endfor %}
+</div>

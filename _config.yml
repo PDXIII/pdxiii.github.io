@@ -1,0 +1,5 @@
+markdown: rdiscount
+pygments: true
+exclude: [ignore, less, README]
+baseurl: 
+
