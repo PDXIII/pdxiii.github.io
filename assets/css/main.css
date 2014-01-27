@@ -6237,3 +6237,11 @@ footer p span {
   width: .5em;
   display: inline-block;
 }
+#dragDiv {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.attribute {
+  text-align: center;
+}
