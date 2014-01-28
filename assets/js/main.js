@@ -30,14 +30,14 @@
 				'<p><small><%= stargazers_count %> <i class="fa fa-star"></i></small></p>' +
 			'</div>'
 		);
-		$.getJSON(request, function(json){
+		$.getJSON(request, function(json) {
 			var repositories = json;
 			if(repositories.length == 0) { 
 				var errorMsg = '<p>No repos!</p></div>'; 
 			}
 			else {
 				$.each(repositories, function(index) {
-					if(repositories[index].homepage && repositories[index].homepage.indexOf("pdxiii") != -1 ){
+					if(repositories[index].homepage && repositories[index].homepage.indexOf("pdxiii") != -1 ) {
 						var output = myTemplate(repositories[index]);
 						$('#myGHPages').append(output);
 					}
@@ -53,7 +53,7 @@
 		})
 	}
 
-	function parseFontSize (_fontSize){
+	function parseFontSize (_fontSize) {
 		var fontSize = _fontSize.split('px')[0];
 		var fontFloat = parseFloat(fontSize);
 		return fontFloat
@@ -71,52 +71,128 @@
 		})
 	}
 
-	$(document).ready(function(){
+	function getDirection (_ui) {
+		// could be left right up down
+		var direction = [];
+		// horizontal
+		if( Math.abs(_ui.originalPosition.left - _ui.position.left) > Math.abs(_ui.originalPosition.top - _ui.position.top)){
+			direction.push('x');
+			// left
+			if (_ui.originalPosition.left > _ui.position.left) {
+				direction.push('left');
+			}
+			// right
+			else{
+				direction.push('right');
+			}
+		}
+		//vertikal
+		else{
+			direction.push('y');
+			// up
+			if (_ui.originalPosition.top > _ui.position.top) {
+				direction.push('up');
+			}
+			// down
+			else{
+				direction.push('down');
+			}
+		}
+		// console.log(direction);
+		return direction;
+	}
+
+	$(document).ready(function() {
 		//	following functions are page specific
 
 		var bodyID = document.body.id;
-		console.log(bodyID);
-		if(bodyID ==='home'){
+		// console.log(bodyID);
+		if(bodyID ==='home') {
 			var username = 'PDXIII';
 
 			displayUserData(username);
 			displayGHPages(username);
 		}
 
-		if(bodyID === 'side04'){
+		if(bodyID === 'side04') {
 			var direction;
-			var originalPosition;
 
 			$('#dragDiv').position({
-				my: 'center top',
-				at: 'center top',
+				my: 'center center',
+				at: 'center center',
 				of: '#dragArea'
 			})
 			.draggable({ 
-				axis: 'x', 
+				// axis: 'x', 
 				containment: 'parent',
 				cursor: 'hand',
-				drag: function (event, ui){
-					originalPosition = ui.originalPosition.left;
-					ui.originalPosition.left > ui.position.left ? direction = '#attributeLeft' : direction = '#attributeRight';
-				}
-			})
-			.bind('drag', function(){
-				var fontIncreasement = Math.abs(originalPosition - parseFontSize($(this).css('left')));
-				increaseFontSize(direction, fontIncreasement);
-				console.log('left position: ' + $(this).css('left'));
-				console.log('right position: ' + $(this).css('right'));
-			})
-			.bind('dragstop', function(){
-				$(this).animate({
-					left: originalPosition
+				start: function (event, ui) {
+
 				},
-				{
-					duration: 'slow',
-					easing: 'easeOutElastic'
-				});
-				decreaseFontSize(direction);
-				direction = null;
+				drag: function (event, ui) {
+					var distance;
+					direction = getDirection(ui);
+					$(this).draggable( "option", "axis", direction[0] );
+
+					if(direction[0] === 'x'){
+						distance = Math.abs(ui.originalPosition.left - parseFontSize($(this).css('left')));
+					}
+					else{
+						distance = Math.abs(ui.originalPosition.top - parseFontSize($(this).css('top')));
+					}
+					if(distance > 50){
+						$(this).css({
+							backgroundColor: 'black'
+						});
+					}
+
+					increaseFontSize('#attribute-' + direction[1], distance/2);
+					// console.log('left position: ' + $(this).css('left'));
+					// console.log('right position: ' + $(this).css('right'));
+				},
+				stop: function (event, ui) {
+					$(this).animate({
+						top: ui.originalPosition.top,
+						left: ui.originalPosition.left,
+						backgroundColor: 'red'
+					},
+					{
+						duration: 'slow',
+						easing: 'easeOutElastic'
+					});
+					decreaseFontSize('#attribute-' + direction[1]);
+					direction = null;
+					$('.attribute').removeAttr('style');
+				}
+			});
+
+			$(document).keydown(function(e){
+				switch (e.keyCode){
+					case 37:
+						console.log( 'left pressed' );
+						break;
+					case 39:
+						console.log( 'right pressed' );
+						break;
+					case 38:
+						console.log( 'up pressed' );
+						break;
+					case 40:
+						console.log( 'down pressed' );
+						break;
+					case 65:
+						console.log( 'left pressed' );
+						break;
+					case 68:
+						console.log( 'right pressed' );
+						break;
+					case 87:
+						console.log( 'up pressed' );
+						break;
+					case 83:
+						console.log( 'down pressed' );
+						break;
+				}
 			});
 		}
 	});

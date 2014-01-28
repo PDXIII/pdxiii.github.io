@@ -6245,3 +6245,7 @@ footer p span {
 .attribute {
   text-align: center;
 }
+#dragArea,
+.attribute-row {
+  height: 300px;
+}
