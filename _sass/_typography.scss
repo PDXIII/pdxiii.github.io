@@ -1,0 +1,56 @@
+// Variables
+
+$font-base: "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+
+$font-base-italic: "CamingoCode-Italic", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+
+$font-base-bold: "CamingoCode-Bold", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+
+$font-base-bold-italic: "CamingoCode-BoldItalic", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+
+$line-height-copy: 1.5;
+$line-height-heading: 1.3;
+
+$letter-spacing-copy: 0.1em;
+$letter-spacing-versal: 0.3em;
+
+// Mixins
+
+@mixin type-shorthand ( $font-stack, 
+                        $line-height,
+                        $letter-spacing ) {
+  font-family: $font-stack;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin type-style-default {
+  @include type-shorthand ( $font-base,
+                            $line-height-copy,
+                            $letter-spacing-copy );
+}
+
+@mixin type-style-bold {
+  @include type-shorthand ($font-base-bold, $line-height-copy, $letter-spacing-copy);
+}
+
+@mixin type-style-italic {
+  @include type-shorthand ($font-base-italic, $line-height-copy, $letter-spacing-copy);
+}
+
+// Styling
+
+body {
+  @include type-style-default;
+}
+
+pre, code {
+  @include type-style-default;
+}
+
+a {
+  // text-decoration: none;
+  // display: inline-block;
+  // background-color: yellow;
+  // padding: 0.5rem
+}

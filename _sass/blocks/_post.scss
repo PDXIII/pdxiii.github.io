@@ -1,0 +1,10 @@
+.post {
+  @include outer-container;
+  padding: $container-padding;
+
+h1 {
+  @include type-style-bold;
+  font-size: modular-scale(2);
+  text-align: center;      
+}
+}

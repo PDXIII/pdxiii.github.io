@@ -1,0 +1,26 @@
+<header class="site-header">
+
+  {% if page.type == "index" %}
+  <div class="hero">
+  	<div class="hero-inner">
+      <a href="{{ site.baseurl }}/" class="hero-logo">
+        <span class="icon icon--pdxiii">
+            {% include icon-pdxiii.svg %}
+        </span>
+      </a>
+  		<div class="hero-copy">
+        <h1 class="site-title">
+          {{ site.title }}
+        </h1>
+        <p class="lead desciption">
+          {{ site.description }}
+        </p>	
+  		</div>
+  	</div>
+  </div>
+  {% else %}
+  <div class="simple-header">    
+    <a href="{{ site.baseurl }}/" class="home-link">Home</a>
+  </div>
+  {% endif %}
+</header>

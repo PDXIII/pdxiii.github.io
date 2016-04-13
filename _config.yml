@@ -1,5 +1,28 @@
-markdown: rdiscount
-pygments: true
-exclude: [ignore, less, README]
-baseurl: 
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
+# Site settings
+title: on GitHub
+email: sekan.pete@gmail.com
+description: > 
+  On this page you can keep track of my GitHub and coding activities.
+disclaimer: >
+  All code written by me is published under MIT licence. Other libraries, graphics, fonts and images may underly some sort of copyright. So please check it out before you use them.
+#baseurl: "/UsingUnfolding"
+baseurl: ""
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: PDXIII
+github_username:  PDXIII
+official_website: "http://petersekan.de/"
+
+# Build settings
+markdown: kramdown
+
+# Costum settings
+collections: 
+  tutorials:
+    output: true

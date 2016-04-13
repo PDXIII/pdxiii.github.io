@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>on GitHub</title>
+    <description>On this page you can keep track of my GitHub and coding activities.
+</description>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 13 Apr 2016 20:17:53 +0200</pubDate>
+    <lastBuildDate>Wed, 13 Apr 2016 20:17:53 +0200</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Welcome to my new coding blog!</title>
+        <description>&lt;p&gt;Hi there, nice to see you! Since quite some time now I have this GitHub page but it is very ugly and not very informative. So it called for a change. And because I was already thinking about my own jekyll theme for all my GitHub pages I think it isn’t the worst when I start with this one.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-can-be-expected&quot;&gt;What can be expected?&lt;/h1&gt;
+&lt;p&gt;Well, on this page I would like to write about my latest coding activities, why I created a new repository, the latest update of a project, filed an issue or something like that. Maybe I can get someones attention. If not this should serve as a personal coding journal. Therefor will be a blog section on the upper part of the page and on the bottom part I would like to use the GitHub API to generate an activity list, where you can see what I have pushed/starred/filed/etc.&lt;/p&gt;
+
+&lt;p&gt;So, I am pretty excited what this will be. If you like it or not, please don’t hesitate and drop me a line by using one of the contact options in the footer section.&lt;/p&gt;
+
+&lt;p&gt;Bye bye,&lt;/p&gt;
+
+&lt;p&gt;Pete&lt;/p&gt;
+</description>
+        <pubDate>Thu, 24 Mar 2016 14:20:10 +0100</pubDate>
+        <link>http://yourdomain.com/update/2016/03/24/welcome-to-my-new-coding-blog.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/update/2016/03/24/welcome-to-my-new-coding-blog.html</guid>
+        
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>

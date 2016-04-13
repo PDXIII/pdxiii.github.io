@@ -1,0 +1,11 @@
+$text-color-light: #f5f5f5;
+$text-color-dark: #333;
+$text-color-default: $text-color-dark;
+
+$background-color-light: $text-color-light;
+$background-color-dark: $text-color-dark;
+$background-color-default: $background-color-light;
+
+$max-width: 55rem !global;
+
+$container-padding: 0 1rem 2rem 1rem;

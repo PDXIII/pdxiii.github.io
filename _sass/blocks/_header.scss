@@ -1,0 +1,55 @@
+.hero {  
+
+  background-color: $background-color-dark;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 3em;
+
+  .hero-logo span {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1em;
+
+    svg {
+      @include size(9rem);
+      path {
+        fill: $text-color-light;
+      }
+    }
+  }
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    margin: auto;
+    padding: 3.5em;
+    text-align: center;
+    
+
+    .hero-copy {
+      color: $text-color-light;
+      text-align: center;
+      
+      h1 {
+        margin-bottom: 0.5em;
+        font-size: modular-scale(3);
+      }
+
+      p {
+        margin: 0 auto 3em auto; 
+      }
+    }
+  }
+}
+
+.simple-header {
+  @include size(100%, auto);
+  padding: $container-padding;
+}
+.home-link {
+  // position: absolute;
+  // top: 2rem;
+  // left: 1rem;
+  font-size: modular-scale(1);
+}

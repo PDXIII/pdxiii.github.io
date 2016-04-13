@@ -1,0 +1,34 @@
+section {
+  @include outer-container;
+  
+  padding: $container-padding;
+  
+  .section-title {
+    @include type-style-bold;
+    font-size: modular-scale(1);
+    text-align: center; 
+  }
+  
+  ul {
+    padding: 0;
+    
+    li {
+      list-style: none;
+    }
+  }
+  
+  .article-header {
+    
+    h1 {
+      @include type-style-bold;
+      font-size: modular-scale(2);
+      text-align: center;      
+    }    
+  }
+  
+  .read-on-link {
+    text-align: right;
+    display: block;
+  }
+  
+}

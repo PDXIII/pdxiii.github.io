@@ -1,0 +1,27 @@
+<section class="post-section">
+
+  <h2 class="section-title">News</h2>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        
+        <article class="post-preview">
+          <header class="article-header">
+            <h1>
+              <a class="header-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h1>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          </header>
+          <div class="article-content">
+            {{ post.excerpt }}
+          </div>
+        </article>
+        <a href="{{ post.url | prepend: site.baseurl }}" class="read-on-link">read on</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+
+</section>

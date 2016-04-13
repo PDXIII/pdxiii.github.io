@@ -1,0 +1,32 @@
+<script id= "thisTemplate" type="text/html">
+  <p><%= created_at %></p>
+  <p><%= type %></p>
+  <p><%= repo.name %></p>
+  <p><%= repo.url %></p> 
+  <hr>
+</script>
+
+<script id="starredRepo" type="text/html">
+  <p>
+    On <%= formatedTime %> I starred <a href="<%= repoURL %>"><%= repoName %></a> by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. I think it is pretty cool!
+  </p>
+</script>
+
+<script id="filedIssue" type="text/html">
+  <p>
+      On <%= formatedTime %> I filed <a href="<%= issueURL %>">issue no. <%= issueNumber %></a>at the <a href="<%= repoURL %>"><%= repoName %> project </a> by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. Take a look, maybe you’ve got the answer.
+  </p>
+</script>
+
+<script id="pushEvent" type="text/html">
+  <p>
+      On <%= formatedTime %> I pushed some code to my  <a href="<%= repoURL %>"><%= repoName %> project.</a>  
+  </p>
+</script>
+
+
+<script id="default" type="text/html">
+  <p>
+    On <%= formatedTime %> I did something strange!  
+  </p>
+</script>
