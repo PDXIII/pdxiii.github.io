@@ -57,14 +57,30 @@
 
   <ul class="post-list">
     
-      <li>
-        
+      <li>        
+        <article class="post-preview">
+          <header class="article-header">
+            <h1>
+              <a class="header-link" href="/update/2016/03/24/added-github-activities.html">Added My GitHub Activities</a>
+            </h1>
+            <span class="post-meta">79 words, written on Mar 24, 2016</span>
+          </header>
+          <div class="article-content">
+            <p>Yes! Finally I have it done. As you might have recognized on the front page you can see <strong>My Latest GitHub Activities!</strong> For this task I used good ol’ jQuery, underscore.js and moment.js.</p>
+
+
+          </div>
+        </article>
+        <a href="/update/2016/03/24/added-github-activities.html" class="read-on-link">read on</a>
+      </li>
+    
+      <li>        
         <article class="post-preview">
           <header class="article-header">
             <h1>
               <a class="header-link" href="/update/2016/03/24/welcome-to-my-new-coding-blog.html">Welcome to my new coding blog!</a>
             </h1>
-            <span class="post-meta">Mar 24, 2016</span>
+            <span class="post-meta">189 words, written on Mar 24, 2016</span>
           </header>
           <div class="article-content">
             <p>Hi there, nice to see you! Since quite some time now I have this GitHub page but it is very ugly and not very informative. So it called for a change. And because I was already thinking about my own jekyll theme for all my GitHub pages I think it isn’t the worst when I start with this one.</p>
@@ -84,43 +100,43 @@
   <hr class="devider">
   
   <section class="gh-activity-section">
-  <h2 class="section-title">Activity</h2> 
+  <h2 class="section-title">Latest Activities on Github</h2> 
 
   <ul id="gh-activity-container" class="activity-list">
       <!-- runtime generated activity list items go here -->
   </ul> 
 
-  <script id= "thisTemplate" type="text/html">
-  <p><%= created_at %></p>
-  <p><%= type %></p>
-  <p><%= repo.name %></p>
-  <p><%= repo.url %></p> 
-  <hr>
+  <script id="watchEvent" type="text/html">
+<li>
+  <p>
+    <%= formatedTime %> I starred <a href="<%= repoURL %>"><%= repoName %></a> by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. I think it is pretty cool!
+  </p>
+</li>
 </script>
 
-<script id="starredRepo" type="text/html">
+<script id="issueEvent" type="text/html">
+<li>
   <p>
-    On <%= formatedTime %> I starred <a href="<%= repoURL %>"><%= repoName %></a> by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. I think it is pretty cool!
+      <%= formatedTime %> I filed <a href="<%= issueURL %>">issue no.<%= issueNumber %></a> at the <a href="<%= repoURL %>"><%= repoName %></a> project by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. Take a look, maybe you’ve got the answer.
   </p>
-</script>
-
-<script id="filedIssue" type="text/html">
-  <p>
-      On <%= formatedTime %> I filed <a href="<%= issueURL %>">issue no. <%= issueNumber %></a>at the <a href="<%= repoURL %>"><%= repoName %> project </a> by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. Take a look, maybe you’ve got the answer.
-  </p>
+</li>
 </script>
 
 <script id="pushEvent" type="text/html">
-  <p>
-      On <%= formatedTime %> I pushed some code to my  <a href="<%= repoURL %>"><%= repoName %> project.</a>  
-  </p>
+  <li>
+    <p>
+        <%= formatedTime %> I pushed some code to my  <a href="<%= repoURL %>"><%= repoName %></a> project.
+    </p>
+  </li>
 </script>
 
 
 <script id="default" type="text/html">
-  <p>
-    On <%= formatedTime %> I did something strange!  
-  </p>
+  <li>
+    <p>
+      <%= formatedTime %> I did something strange!  
+    </p>
+  </li>
 </script>
 </section>
   

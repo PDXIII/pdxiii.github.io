@@ -4,14 +4,13 @@
 
   <ul class="post-list">
     {% for post in site.posts %}
-      <li>
-        
+      <li>        
         <article class="post-preview">
           <header class="article-header">
             <h1>
               <a class="header-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </h1>
-            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <span class="post-meta">{{ post.content | number_of_words }} words, written on {{ post.date | date: "%b %-d, %Y" }}</span>
           </header>
           <div class="article-content">
             {{ post.excerpt }}

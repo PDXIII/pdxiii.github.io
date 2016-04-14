@@ -1,32 +1,32 @@
-<script id= "thisTemplate" type="text/html">
-  <p><%= created_at %></p>
-  <p><%= type %></p>
-  <p><%= repo.name %></p>
-  <p><%= repo.url %></p> 
-  <hr>
+<script id="watchEvent" type="text/html">
+<li>
+  <p>
+    <%= formatedTime %> I starred <a href="<%= repoURL %>"><%= repoName %></a> by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. I think it is pretty cool!
+  </p>
+</li>
 </script>
 
-<script id="starredRepo" type="text/html">
+<script id="issueEvent" type="text/html">
+<li>
   <p>
-    On <%= formatedTime %> I starred <a href="<%= repoURL %>"><%= repoName %></a> by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. I think it is pretty cool!
+      <%= formatedTime %> I filed <a href="<%= issueURL %>">issue no.<%= issueNumber %></a> at the <a href="<%= repoURL %>"><%= repoName %></a> project by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. Take a look, maybe you’ve got the answer.
   </p>
-</script>
-
-<script id="filedIssue" type="text/html">
-  <p>
-      On <%= formatedTime %> I filed <a href="<%= issueURL %>">issue no. <%= issueNumber %></a>at the <a href="<%= repoURL %>"><%= repoName %> project </a> by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. Take a look, maybe you’ve got the answer.
-  </p>
+</li>
 </script>
 
 <script id="pushEvent" type="text/html">
-  <p>
-      On <%= formatedTime %> I pushed some code to my  <a href="<%= repoURL %>"><%= repoName %> project.</a>  
-  </p>
+  <li>
+    <p>
+        <%= formatedTime %> I pushed some code to my  <a href="<%= repoURL %>"><%= repoName %></a> project.
+    </p>
+  </li>
 </script>
 
 
 <script id="default" type="text/html">
-  <p>
-    On <%= formatedTime %> I did something strange!  
-  </p>
+  <li>
+    <p>
+      <%= formatedTime %> I did something strange!  
+    </p>
+  </li>
 </script>
