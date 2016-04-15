@@ -17,12 +17,12 @@
       <li><h3>Content</h3></li>
       <li><a href="{{ site.baseurl }}/">Home</a></li>
       <li><a href="{{ site.baseurl }}/about/">About</a></li>
-      <li><a href="{{ site.baseurl }}/">Imprint</a></li>
+      <li><a href="{{ site.baseurl }}/readme/">Imprint</a></li>
     </ul>
   </div>
   
   <hr>
   
-  <p>{{ site.disclaimer }}</p>
+  <p>{{ site.disclaimer | markdownify}}</p>
 </div>
 </footer>

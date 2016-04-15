@@ -3,3 +3,10 @@
   text-align: center;
   display: block;
 }
+
+.post-meta-date,
+.post-meta-word-count{
+  @include type-style-italic;
+  display: inline-block;
+  text-align: left;
+}

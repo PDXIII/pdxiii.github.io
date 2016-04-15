@@ -11,7 +11,7 @@ email: sekan.pete@gmail.com
 description: > 
   On this page you can keep track of my GitHub and coding activities.
 disclaimer: >
-  All code written by Peter Sekan aka PDXIII is published under MIT licence. Other libraries, graphics, fonts and images may underly some sort of copyright. So please check it out before you use them.
+  All code written by Peter Sekan aka PDXIII is published under [MIT License](/license/). Other libraries, graphics, fonts and images may underly some sort of copyright. So please check it out before you use them.
 baseurl: ""
 url: "https://pdxiii.github.io" # the base hostname & protocol for your site
 twitter_username: PDXIII

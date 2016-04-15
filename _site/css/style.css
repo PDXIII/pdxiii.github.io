@@ -26,28 +26,30 @@ pre, code {
   line-height: 1.5;
   letter-spacing: 0.1em; }
 
+a {
+  color: currentColor; }
+
 .hero {
-  background-color: #333;
+  background-color: #f5f5f5;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 3em; }
-  .hero .hero-logo span {
-    width: 50%;
-    margin: auto;
-    margin-bottom: 1em; }
-    .hero .hero-logo span svg {
-      height: 9rem;
-      width: 9rem; }
-      .hero .hero-logo span svg path {
-        fill: #f5f5f5; }
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 60vh; }
+  .hero.dark {
+    background-color: #333;
+    color: #f5f5f5; }
   .hero .hero-inner {
+    width: 80%;
     max-width: 55rem;
     margin-left: auto;
     margin-right: auto;
-    margin: auto;
-    padding: 3.5em;
-    text-align: center; }
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around; }
     .hero .hero-inner::after {
       clear: both;
       content: "";
@@ -56,21 +58,37 @@ pre, code {
       clear: both;
       content: "";
       display: block; }
-    .hero .hero-inner .hero-copy {
-      color: #f5f5f5;
-      text-align: center; }
-      .hero .hero-inner .hero-copy h1 {
-        margin-bottom: 0.5em;
-        font-size: 1.95313em; }
-      .hero .hero-inner .hero-copy p {
-        margin: 0 auto 3em auto; }
 
-.simple-header {
-  height: auto;
-  width: 100%;
-  padding: 0 1rem 2rem 1rem; }
+.hero-copy {
+  text-align: center; }
+  .hero-copy h1 {
+    margin-bottom: 0.5em;
+    font-size: 1.95313em; }
+  .hero-copy p {
+    margin: 0 auto 3em auto; }
+
+.hero-img,
+.hero-logo {
+  height: 9rem;
+  width: 9rem;
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden; }
+  .hero-img img,
+  .hero-logo img {
+    height: 100%; }
+  .hero-img span svg,
+  .hero-logo span svg {
+    height: 9rem;
+    width: 9rem; }
+    .hero-img span svg path,
+    .hero-logo span svg path {
+      fill: #f5f5f5; }
 
 .home-link {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
   font-size: 1.25em; }
 
 .footer {
@@ -179,12 +197,41 @@ section {
     font-size: 1.5625em;
     text-align: center; }
 
+.post-list-item {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  border: solid 1px #333;
+  padding: 1em;
+  margin-bottom: -1px; }
+
+.post-meta-date,
+.post-meta-word-count {
+  width: 20%; }
+
+.post-title.small {
+  width: 50%;
+  margin: 0; }
+
 .post-meta {
   font-family: "CamingoCode-Italic", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
   line-height: 1.5;
   letter-spacing: 0.1em;
   text-align: center;
   display: block; }
+
+.post-meta-date,
+.post-meta-word-count {
+  font-family: "CamingoCode-Italic", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  text-align: left; }
+
+div.devider {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3em; }
 
 body {
   margin: 0;

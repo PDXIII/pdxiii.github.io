@@ -6,29 +6,29 @@
   */
   
   function selectTemplate (_activity) {
-
+    
     var myTemplate;
-        
+    
     switch (_activity.type) {
-        
+      
       case 'IssuesEvent':
-        myTemplate = _.template($('#issueEvent').html());
-        break;
+      myTemplate = _.template($('#issueEvent').html());
+      break;
       
       case 'WatchEvent':
-        myTemplate = _.template($('#watchEvent').html());
-        break;
+      myTemplate = _.template($('#watchEvent').html());
+      break;
       
       case 'PushEvent':
-        myTemplate = _.template($('#pushEvent').html());
-        break;
-        
+      myTemplate = _.template($('#pushEvent').html());
+      break;
+      
       default:
-        myTemplate = _.template($('#default').html());
-        break;
+      myTemplate = _.template($('#default').html());
+      break;
       
     }
-
+    
     return myTemplate(_activity);
   }
   
@@ -38,19 +38,20 @@
   */
   
   function parseActivityJSON ( _activityJSON ) {
-
+    
     var activityObj = {};
     var repoSplit = _activityJSON.repo.name.split('/');
-    activityObj.type = _activityJSON.type;
-    // activityObj.formatedTime = moment(_activityJSON.created_at).format('MMM Do YYYY');
-    activityObj.formatedTime = moment(_activityJSON.created_at).calendar(null, {
+    activityObj.type = _activityJSON.type,
+    momentFormatSettings = {
       sameDay: '[Today]',
       nextDay: '[Tomorrow]',
       nextWeek: 'dddd',
       lastDay: '[Yesterday]',
       lastWeek: '[Last] dddd',
       sameElse: '[On] MMM D, YYYY'
-    });
+    };
+    // activityObj.formatedTime = moment(_activityJSON.created_at).format('MMM Do YYYY');
+    activityObj.formatedTime = moment(_activityJSON.created_at).calendar(null, momentFormatSettings );
     activityObj.repoOwner = repoSplit[0];
     activityObj.repoOwnerURL = 'https://github.com/' + repoSplit[0];
     activityObj.repoName = repoSplit[1];
@@ -63,7 +64,7 @@
     
     // print original GH Event object
     // console.log(_activityJSON);
-
+    
     // print customized object
     // console.log(activityObj);
     
@@ -75,24 +76,24 @@
   * gets JSON from GitHub about user events
   * appends received information to DOM
   */ 
-   
+  
   function displayActivities (_username, _$container) {
-
+    
     var request = 'https://api.github.com/users/' 
-      + _username + '/events/public',
-        activities = [];
+    + _username + '/events/public',
+    activities = [];
     
     $.getJSON(request, function (json) {
-
+      
       if(json.message == "Not Found" || json.name == '') {
-
+        
         _$container.append('<h2>No Info Found</h2>');
       }
       else {
         
         $.each( json, function (index){
           
-          if (index <= 10) {
+          if (index <= 5) {
             
             var output = selectTemplate(parseActivityJSON(json[index]));
             activities.push(output);
@@ -103,15 +104,24 @@
       _$container.append(activities.join(''));
     });
   }
-
+  
+  
+  function gitHubVoodoo () {
+    // console.log('gitHubVoodoo!');
+    
+    var ghUserName = 'PDXIII',
+    $activityContainer = $('#gh-activity-container');
+    
+    if ( $('body').hasClass('index')){
+      displayActivities( ghUserName, $activityContainer );
+    }
+    
+  }
+  
   // main function
   
-  function init () {
-
-	  var ghUserName = 'PDXIII',
-      $activityContainer = $('#gh-activity-container');
-      
-      displayActivities( ghUserName, $activityContainer );  
+  function init () {  
+    gitHubVoodoo();
   }
   
   init();
