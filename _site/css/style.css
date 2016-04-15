@@ -1,9 +1,14 @@
+@import url("//hello.myfonts.net/count/30e6ba");
 html {
   box-sizing: border-box; }
 
 *, *::after, *::before {
   box-sizing: inherit; }
 
+@font-face {
+  font-family: 'XXIIGroberPinsel-Regular';
+  src: url("../fonts/30E6BA_0_0.eot");
+  src: url("../fonts/30E6BA_0_0.eot?#iefix") format("embedded-opentype"), url("../fonts/30E6BA_0_0.woff2") format("woff2"), url("../fonts/30E6BA_0_0.woff") format("woff"), url("../fonts/30E6BA_0_0.ttf") format("truetype"); }
 @font-face {
   font-family: 'CamingoCode-Regular';
   src: format("woff"), url("../fonts/Jan Fromm - CamingoCode Regular.ttf"); }
@@ -28,6 +33,27 @@ pre, code {
 
 a {
   color: currentColor; }
+
+h1 {
+  font-family: "XXIIGroberPinsel-Regular", "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+  line-height: 1.3;
+  letter-spacing: 0.1em; }
+
+.repoName,
+.repoOwner,
+.header-link,
+.read-on-link {
+  font-family: "XXIIGroberPinsel-Regular", "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-bottom: solid 1px #e8c047; }
+  .repoName:hover,
+  .repoOwner:hover,
+  .header-link:hover,
+  .read-on-link:hover {
+    color: #e8c047;
+    border-color: #333; }
 
 .hero {
   background-color: #f5f5f5;
@@ -63,7 +89,7 @@ a {
   text-align: center; }
   .hero-copy h1 {
     margin-bottom: 0.5em;
-    font-size: 1.95313em; }
+    font-size: 2.44141em; }
   .hero-copy p {
     margin: 0 auto 3em auto; }
 
@@ -171,15 +197,18 @@ section {
     padding: 0; }
     section ul li {
       list-style: none; }
-  section .article-header h1 {
-    font-family: "CamingoCode-Bold", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
-    line-height: 1.5;
-    letter-spacing: 0.1em;
-    font-size: 1.5625em;
-    text-align: center; }
-  section .read-on-link {
-    text-align: right;
-    display: block; }
+  section article {
+    position: relative;
+    padding-bottom: 2em; }
+
+.article-header h1 {
+  font-size: 1.95313em;
+  text-align: center; }
+
+.read-on-link {
+  position: absolute;
+  right: 1em;
+  bottom: 1em; }
 
 .post {
   max-width: 55rem;

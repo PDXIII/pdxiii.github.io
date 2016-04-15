@@ -8,6 +8,8 @@ $font-base-bold: "CamingoCode-Bold", Consolas, Monaco, "Lucida Console", "Lucida
 
 $font-base-bold-italic: "CamingoCode-BoldItalic", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
 
+$font-script-type: "XXIIGroberPinsel-Regular", "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+
 $line-height-copy: 1.5;
 $line-height-heading: 1.3;
 
@@ -38,6 +40,12 @@ $letter-spacing-versal: 0.3em;
   @include type-shorthand ($font-base-italic, $line-height-copy, $letter-spacing-copy);
 }
 
+@mixin type-style-headline-hand {
+  @include type-shorthand ( $font-script-type,
+                            $line-height-heading,
+                            $letter-spacing-copy);
+}
+
 // Styling
 
 body {
@@ -49,11 +57,24 @@ pre, code {
 }
 
 a {
-  // text-decoration: none;
-  // display: inline-block;
-  // background-color: yellow;
-  // padding: 0.5rem
-  
   color: currentColor;
-  // border-bottom: solid 1px yellow; 
 }
+
+h1 {
+  @include type-style-headline-hand;
+}
+
+.repoName,
+.repoOwner,
+.header-link,
+.read-on-link {
+  @include type-style-headline-hand;
+  text-decoration: none;
+  border-bottom: solid 1px $header-link-hover-color;
+  
+  &:hover {
+    color: $header-link-hover-color;
+    border-color: $text-color-dark;
+  }
+}
+

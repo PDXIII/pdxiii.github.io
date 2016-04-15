@@ -1,7 +1,7 @@
 <script id="watchEvent" type="text/html">
 <li>
   <p>
-    <%= formatedTime %> I starred <a href="<%= repoURL %>"><%= repoName %></a> by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. I think it is pretty cool!
+    <%= formatedTime %> I starred <a class="repoName" href="<%= repoURL %>"><%= repoName %></a> by <a class="repoOwner" href="<%= repoOwnerURL %>"><%= repoOwner %></a>. I think it is pretty cool!
   </p>
 </li>
 </script>
@@ -9,7 +9,7 @@
 <script id="issueEvent" type="text/html">
 <li>
   <p>
-      <%= formatedTime %> I filed <a href="<%= issueURL %>">issue &#8470;<%= issueNumber %></a> at the <a href="<%= repoURL %>"><%= repoName %></a> project by <a href="<%= repoOwnerURL %>"><%= repoOwner %></a>. Take a look, maybe you’ve got the answer.
+      <%= formatedTime %> I filed <a href="<%= issueURL %>">issue &#8470;<%= issueNumber %></a> at the <a class="repoName" href="<%= repoURL %>"><%= repoName %></a> project by <a class="repoOwner" href="<%= repoOwnerURL %>"><%= repoOwner %></a>. Take a look, maybe you’ve got the answer.
   </p>
 </li>
 </script>
@@ -17,7 +17,7 @@
 <script id="pushEvent" type="text/html">
   <li>
     <p>
-        <%= formatedTime %> I pushed some code to my  <a href="<%= repoURL %>"><%= repoName %></a> project.
+        <%= formatedTime %> I pushed some code to my  <a class="repoName" href="<%= repoURL %>"><%= repoName %></a> project.
     </p>
   </li>
 </script>

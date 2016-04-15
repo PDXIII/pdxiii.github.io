@@ -1,5 +1,5 @@
 <section class="post-section">
-
+  
   <h2 class="section-title">News</h2>
   
   <div class="feature">
@@ -15,11 +15,11 @@
       <div class="article-content">
         {{ post.excerpt }}
       </div>
+      <a href="{{ post.url | prepend: site.baseurl }}" class="read-on-link">read on</a>
     </article>
-    <a href="{{ post.url | prepend: site.baseurl }}" class="read-on-link">read on</a>
     {% endfor %}
   </div>
-
+  
   <ul class="post-list">
     {% for post in site.posts offset:1 %}
     <li>
@@ -37,7 +37,7 @@
     </li>
     {% endfor %}
   </ul>
-
+  
   <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
-
+  
 </section>

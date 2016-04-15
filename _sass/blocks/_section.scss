@@ -17,18 +17,20 @@ section {
     }
   }
   
-  .article-header {
-    
-    h1 {
-      @include type-style-bold;
-      font-size: modular-scale(2);
-      text-align: center;      
-    }    
+  article {
+    position: relative;
+    padding-bottom: 2em
   }
+}
+
+.article-header {
   
-  .read-on-link {
-    text-align: right;
-    display: block;
-  }
-  
+  h1 {
+    font-size: modular-scale(3);
+    text-align: center;      
+  }    
+}
+
+.read-on-link {
+  @include position(absolute, null 1em 1em null);
 }
