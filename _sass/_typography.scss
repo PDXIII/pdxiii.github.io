@@ -34,10 +34,12 @@ $letter-spacing-versal: 0.3em;
 
 @mixin type-style-bold {
   @include type-shorthand ($font-base-bold, $line-height-copy, $letter-spacing-copy);
+  font-weight: bold;
 }
 
 @mixin type-style-italic {
   @include type-shorthand ($font-base-italic, $line-height-copy, $letter-spacing-copy);
+  font-style: italic;
 }
 
 @mixin type-style-headline-hand {
