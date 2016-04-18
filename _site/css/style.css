@@ -72,12 +72,12 @@ html {
   src: url("../fonts/30E964_4_0.eot");
   src: url("../fonts/30E964_4_0.eot?#iefix") format("embedded-opentype"), url("../fonts/30E964_4_0.woff2") format("woff2"), url("../fonts/30E964_4_0.woff") format("woff"), url("../fonts/30E964_4_0.ttf") format("truetype"); }
 body {
-  font-family: "CamingoCode", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+  font-family: "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
   line-height: 1.5;
   letter-spacing: 0.1em; }
 
 pre, code {
-  font-family: "CamingoCode", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+  font-family: "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
   line-height: 1.5;
   letter-spacing: 0.1em; }
 
@@ -210,7 +210,7 @@ h1 {
     .footer li a:focus, .footer li a:hover {
       color: whitesmoke; }
   .footer li h3 {
-    font-family: "CamingoCode", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+    font-family: "CamingoCode-Bold", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
     line-height: 1.5;
     letter-spacing: 0.1em;
     color: #f5f5f5;
@@ -238,7 +238,7 @@ section {
     content: "";
     display: block; }
   section .section-title {
-    font-family: "CamingoCode", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+    font-family: "CamingoCode-Bold", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
     line-height: 1.5;
     letter-spacing: 0.1em;
     font-size: 1.25em;
@@ -270,7 +270,7 @@ section {
     content: "";
     display: block; }
   .post h1 {
-    font-family: "CamingoCode", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+    font-family: "CamingoCode-Bold", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
     line-height: 1.5;
     letter-spacing: 0.1em;
     font-size: 1.5625em;
@@ -293,7 +293,7 @@ section {
   margin: 0; }
 
 .post-meta {
-  font-family: "CamingoCode", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+  font-family: "CamingoCode-Italic", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
   line-height: 1.5;
   letter-spacing: 0.1em;
   text-align: center;
@@ -301,7 +301,7 @@ section {
 
 .post-meta-date,
 .post-meta-word-count {
-  font-family: "CamingoCode", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+  font-family: "CamingoCode-Italic", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
   line-height: 1.5;
   letter-spacing: 0.1em;
   display: inline-block;
