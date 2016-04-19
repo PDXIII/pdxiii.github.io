@@ -24,13 +24,13 @@
     {% for post in site.posts offset:1 %}
     <li>
       <article class="post-list-item">
-        <span class="post-meta-date">
+        <span class="post-meta-date left-align">
           {{ post.date | date: "%b %-d, %Y" }}
         </span>
         <h1 class="post-title small">
           <a class="header-link small" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h1>
-        <span class="post-meta-word-count">
+        <span class="post-meta-word-count right-align">
           {{ post.content | number_of_words }} words
         </span>
       </article>

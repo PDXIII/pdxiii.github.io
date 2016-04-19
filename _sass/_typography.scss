@@ -62,15 +62,21 @@ a {
   color: currentColor;
 }
 
-h1 {
+h1, 
+.header-link {
   @include type-style-headline-hand;
 }
 
 .repoName,
 .repoOwner,
-.header-link,
 .read-on-link {
   @include type-style-bold;
+}
+
+.repoName,
+.repoOwner,
+.read-on-link,
+.header-link {
   text-decoration: none;
   border-bottom: solid 1px $header-link-hover-color;
   
@@ -80,3 +86,14 @@ h1 {
   }
 }
 
+.left-align {
+  text-align: left;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.center-align {
+  text-align: center;
+}
