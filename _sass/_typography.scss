@@ -70,7 +70,7 @@ h1 {
 .repoOwner,
 .header-link,
 .read-on-link {
-  @include type-style-headline-hand;
+  @include type-style-bold;
   text-decoration: none;
   border-bottom: solid 1px $header-link-hover-color;
   
