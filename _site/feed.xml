@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PDXIII on GitHub</title>
+    <description>On this page you can keep track of my GitHub and coding activities.
+</description>
+    <link>https://pdxiii.github.io/</link>
+    <atom:link href="https://pdxiii.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 21 Apr 2016 14:43:17 +0200</pubDate>
+    <lastBuildDate>Thu, 21 Apr 2016 14:43:17 +0200</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Added Some Pages and Google Analytics</title>
+        <description>&lt;p&gt;Okay, I needed some content, so I had to add an About, a Read Me and a License Page. And I added Google Analytics. So, now I will track every single user.&lt;/p&gt;
+
+&lt;p&gt;I think I have to update my legal disclaimer now. If you don’t want to get tracked, I did some research for you and present a list of &lt;em&gt;do not track&lt;/em&gt; tactics for the browser of your choice.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://addons.mozilla.org/de/firefox/addon/donottrackplus/&quot;&gt;Mozilla Firefox add-on&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://chrome.google.com/webstore/detail/do-not-track/ckdcpbflcbeillmamogkpmdhnbeggfja&quot;&gt;Google Chrome add-on&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://support.google.com/chrome/answer/2790761?hl=en&quot;&gt;Google Chrome settings guide mobile and desktop&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://appletoolbox.com/2014/02/safari-do-not-track-settings/&quot;&gt;Settings guide for Safari mobile and desktop&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 15 Apr 2016 19:00:00 +0200</pubDate>
+        <link>https://pdxiii.github.io/update/2016/04/15/added-pages-and-GA.html</link>
+        <guid isPermaLink="true">https://pdxiii.github.io/update/2016/04/15/added-pages-and-GA.html</guid>
+        
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Added My GitHub Activities</title>
+        <description>&lt;p&gt;Yes! Finally I have it done. As you might have recognized on the front page you can see &lt;strong&gt;My Latest GitHub Activities!&lt;/strong&gt; For this task I used &lt;a href=&quot;https://jquery.com&quot;&gt;good ol’ jQuery&lt;/a&gt;, &lt;a href=&quot;http://underscorejs.org&quot;&gt;underscore.js&lt;/a&gt; and &lt;a href=&quot;http://momentjs.com&quot;&gt;moment.js&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-why&quot;&gt;But why?&lt;/h2&gt;
+
+&lt;p&gt;Because I can! No, just kidding. I always thought about my personal GitHub page as informative as it can be. And not a page just like “Hello World! I am Pete an Interface Designer from Berlin and this is my blog”. No, my page should consist of content, that I provide and some dynamically generated content, provided by the &lt;a href=&quot;https://developer.github.com/v3/&quot;&gt;GitHub API&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;in-depth&quot;&gt;In Depth&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Get the data&lt;/li&gt;
+  &lt;li&gt;Handle the data&lt;/li&gt;
+  &lt;li&gt;Nicer timestamps with [moment.js][moment.js]&lt;/li&gt;
+  &lt;li&gt;Templating with &lt;a href=&quot;http://underscorejs.org&quot;&gt;underscore.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Displaying data in HTML&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;get-the-data&quot;&gt;Get the Data&lt;/h3&gt;
+
+&lt;p&gt;In my code, the function which handles the task to display my GitHub activities caries the soundfull name  &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt;. It receives two arguments. First is the user name, the other is a DOM element selected with &lt;a href=&quot;https://jquery.com&quot;&gt;jQuery&lt;/a&gt;, that will later contain the activities as HTML code.&lt;/p&gt;
+
+&lt;p&gt;First of all, a AJAX call is made against GitHub’s User Event Stream &lt;code class=&quot;highlighter-rouge&quot;&gt;https://api.github.com/users/[GITHUB_USER_NAME]/events/public&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If the AJAX call is successful, the received data is limited to the latest five events. Each event is passed to the function &lt;code class=&quot;highlighter-rouge&quot;&gt;parseActivityJSON&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;See the whole function here:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function displayActivities (_username, _$container) {
+
+  var requestURL = &#39;https://api.github.com/users/&#39; 
++ _username + &#39;/events/public&#39;,
+  activities = [];
+
+  $.getJSON(requestURL, function (json) {
+  
+    if(json.message == &quot;Not Found&quot; || json.name == &#39;&#39;) {
+    
+      _$container.append(&#39;&amp;lt;h2&amp;gt;No Info Found&amp;lt;/h2&amp;gt;&#39;);
+    }
+    else {
+    
+      $.each( json, function (index){
+      
+        if (index &amp;lt;= 5) {
+        
+          var output = selectTemplate(parseActivityJSON(json[index]));
+          activities.push(output);
+        }
+      });
+    
+      _$container.append(activities.join(&#39;&#39;));
+    }
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;handle-the-data&quot;&gt;Handle the Data&lt;/h3&gt;
+
+&lt;p&gt;The purpose of the function &lt;code class=&quot;highlighter-rouge&quot;&gt;parseActivityJSON&lt;/code&gt; is to uniform the event data and make it easier to handle. For example there is some some string split and concat going on, to build URLs to the repository or the repository owner.&lt;/p&gt;
+
+&lt;p&gt;At least the function returns an object, which can be imagined like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var activityObj = {
+  type = string,
+  formatedTime = string,
+  repoOwner = string,
+  repoOwnerURL = string,
+  repoName = string,
+  repoURL = string,
+  // if this event is of the type &#39;IssuesEvent&#39;
+  issueURL = string,
+  issueNumber = integer
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Before we follow this objects return to the &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; function, we take a look what happen to the timestamp.&lt;/p&gt;
+
+&lt;h3 id=&quot;nicer-timestamps-with-momentjsmomentjs&quot;&gt;Nicer timestamps with [Moment.js][moment.js]&lt;/h3&gt;
+
+&lt;p&gt;Of course I could have just used the given format of the event’s timestamp, but I trying to create messages that can be read most human as possible. The right library for this job is &lt;a href=&quot;http://momentjs.com&quot;&gt;moment.js&lt;/a&gt;, especially with its &lt;code class=&quot;highlighter-rouge&quot;&gt;calendar()&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;p&gt;The desired format can be defined in a kind of dictionary:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;momentFormatSettings = {
+   sameDay: &#39;[Today]&#39;,
+   nextDay: &#39;[Tomorrow]&#39;,
+  nextWeek: &#39;dddd&#39;,
+   lastDay: &#39;[Yesterday]&#39;,
+  lastWeek: &#39;[Last] dddd&#39;,
+  sameElse: &#39;[On] MMM D, YYYY&#39;
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And later the given timestamp will be parsed with the &lt;code class=&quot;highlighter-rouge&quot;&gt;calendar&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var formatedTime = moment(givenTimestamp).calendar(null,momentFormatSettings );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can now return to the &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; function with our nicely formated &lt;strong&gt;activityObj&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;templating-with-underscorejsunderscorejs&quot;&gt;Templating with &lt;a href=&quot;http://underscorejs.org&quot;&gt;Underscore.js&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;And from &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; our &lt;strong&gt;activityObj&lt;/strong&gt; is directly passed into the &lt;code class=&quot;highlighter-rouge&quot;&gt;selectTemplate&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;p&gt;One big advantage of [underscore.js][underscore] is, that you can store your template in your HTML code and just select it with &lt;a href=&quot;https://jquery.com&quot;&gt;jQuery&lt;/a&gt;. The provided templates look nice in your HTML and don’t pollute your javascript code. The variables need to be enclosed like this &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;%= VARIABLE %&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script id=&quot;watchEvent&quot; type=&quot;text/html&quot;&amp;gt;
+&amp;lt;li&amp;gt;
+  &amp;lt;p&amp;gt;
+    &amp;lt;%= formatedTime %&amp;gt; I starred &amp;lt;a class=&quot;repoName&quot; href=&quot;&amp;lt;%= repoURL %&amp;gt;&quot;&amp;gt;&amp;lt;%= repoName %&amp;gt;&amp;lt;/a&amp;gt; by &amp;lt;a class=&quot;repoOwner&quot; href=&quot;&amp;lt;%= repoOwnerURL %&amp;gt;&quot;&amp;gt;&amp;lt;%= repoOwner %&amp;gt;&amp;lt;/a&amp;gt;. I think it is pretty cool!
+  &amp;lt;/p&amp;gt;
+&amp;lt;/li&amp;gt;
+&amp;lt;/script&amp;gt;
+
+&amp;lt;script id=&quot;issueEvent&quot; type=&quot;text/html&quot;&amp;gt;
+&amp;lt;li&amp;gt;
+  &amp;lt;p&amp;gt;
+      &amp;lt;%= formatedTime %&amp;gt; I filed &amp;lt;a href=&quot;&amp;lt;%= issueURL %&amp;gt;&quot;&amp;gt;issue &amp;amp;#8470;&amp;lt;%= issueNumber %&amp;gt;&amp;lt;/a&amp;gt; at the &amp;lt;a class=&quot;repoName&quot; href=&quot;&amp;lt;%= repoURL %&amp;gt;&quot;&amp;gt;&amp;lt;%= repoName %&amp;gt;&amp;lt;/a&amp;gt; project by &amp;lt;a class=&quot;repoOwner&quot; href=&quot;&amp;lt;%= repoOwnerURL %&amp;gt;&quot;&amp;gt;&amp;lt;%= repoOwner %&amp;gt;&amp;lt;/a&amp;gt;. Take a look, maybe you’ve got the answer.
+  &amp;lt;/p&amp;gt;
+&amp;lt;/li&amp;gt;
+&amp;lt;/script&amp;gt;
+
+&amp;lt;script id=&quot;pushEvent&quot; type=&quot;text/html&quot;&amp;gt;
+  &amp;lt;li&amp;gt;
+    &amp;lt;p&amp;gt;
+        &amp;lt;%= formatedTime %&amp;gt; I pushed some code to my  &amp;lt;a class=&quot;repoName&quot; href=&quot;&amp;lt;%= repoURL %&amp;gt;&quot;&amp;gt;&amp;lt;%= repoName %&amp;gt;&amp;lt;/a&amp;gt; project.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/li&amp;gt;
+&amp;lt;/script&amp;gt;
+
+
+&amp;lt;script id=&quot;default&quot; type=&quot;text/html&quot;&amp;gt;
+  &amp;lt;li&amp;gt;
+    &amp;lt;p&amp;gt;
+      &amp;lt;%= formatedTime %&amp;gt; I have done something top secret on GitHub. If I would tell you, I had to kill you! Sorry, pal!  
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/li&amp;gt;
+&amp;lt;/script&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;By looking at the &lt;strong&gt;type&lt;/strong&gt; of thes object, the &lt;code class=&quot;highlighter-rouge&quot;&gt;selectTemplate&lt;/code&gt; function picks the right template from the HTML.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function selectTemplate (_activity) {
+  
+  var myTemplate;
+  
+  switch (_activity.type) {
+    
+    case &#39;IssuesEvent&#39;:
+    myTemplate = _.template($(&#39;#issueEvent&#39;).html());
+    break;
+    
+    case &#39;WatchEvent&#39;:
+    myTemplate = _.template($(&#39;#watchEvent&#39;).html());
+    break;
+    
+    case &#39;PushEvent&#39;:
+    myTemplate = _.template($(&#39;#pushEvent&#39;).html());
+    break;
+    
+    default:
+    myTemplate = _.template($(&#39;#default&#39;).html());
+    break;
+    
+  }
+  
+  return myTemplate(_activity);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;displaying-data-in-html&quot;&gt;Displaying Data in HTML&lt;/h3&gt;
+
+&lt;p&gt;Finally the HTML of our &lt;strong&gt;activityObj&lt;/strong&gt; returns to the &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; function and is added to the &lt;strong&gt;activites&lt;/strong&gt; array, which afterwards is joined and added to the containing DOM element.&lt;/p&gt;
+
+&lt;h2 id=&quot;thats-it&quot;&gt;That’s it&lt;/h2&gt;
+
+&lt;p&gt;I am a little proud of the outcome and I like the tool set. I just have scratched the capabilities of &lt;a href=&quot;http://underscorejs.org&quot;&gt;underscore.js&lt;/a&gt;, but even just for templating it is awesome. And the features of &lt;a href=&quot;http://momentjs.com&quot;&gt;moment.js&lt;/a&gt; allow more than I used in this example.&lt;/p&gt;
+
+&lt;p&gt;I think there will be more to come!&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 14 Apr 2016 15:20:10 +0200</pubDate>
+        <link>https://pdxiii.github.io/update/2016/04/14/added-github-activities.html</link>
+        <guid isPermaLink="true">https://pdxiii.github.io/update/2016/04/14/added-github-activities.html</guid>
+        
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to my new coding blog!</title>
+        <description>&lt;p&gt;Hi there, nice to see you! Since quite some time now I have this GitHub page but it is very ugly and not very informative. So it called for a change. And because I was already thinking about my own jekyll theme for all my GitHub pages I think it isn’t the worst when I start with this one.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-can-be-expected&quot;&gt;What can be expected?&lt;/h2&gt;
+
+&lt;p&gt;Well, on this page I would like to write about my latest coding activities, why I created a new repository, the latest update of a project, filed an issue or something like that. Maybe I can get someones attention. If not this should serve as a personal coding journal. Therefor will be a blog section on the upper part of the page and on the bottom part I would like to use the GitHub API to generate an activity list, where you can see what I have pushed/starred/filed/etc.&lt;/p&gt;
+
+&lt;p&gt;So, I am pretty excited what this will be. If you like it or not, please don’t hesitate and drop me a line by using one of the contact options in the footer section.&lt;/p&gt;
+
+&lt;p&gt;Bye bye,&lt;/p&gt;
+
+&lt;p&gt;Pete&lt;/p&gt;
+</description>
+        <pubDate>Thu, 24 Mar 2016 14:20:10 +0100</pubDate>
+        <link>https://pdxiii.github.io/update/2016/03/24/welcome-to-my-new-coding-blog.html</link>
+        <guid isPermaLink="true">https://pdxiii.github.io/update/2016/03/24/welcome-to-my-new-coding-blog.html</guid>
+        
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>
