@@ -56,6 +56,13 @@ pre, code {
   @include type-style-default;
 }
 
+pre {
+  padding: 1rem;
+  background-color: $code-background-color;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
 a {
   color: currentColor;
 }
@@ -64,6 +71,7 @@ h1 {
   @include type-style-headline-hand;
 }
 
+p a,
 .repoName,
 .repoOwner,
 .header-link,

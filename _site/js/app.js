@@ -50,7 +50,7 @@
       lastWeek: '[Last] dddd',
       sameElse: '[On] MMM D, YYYY'
     };
-    // activityObj.formatedTime = moment(_activityJSON.created_at).format('MMM Do YYYY');
+
     activityObj.formatedTime = moment(_activityJSON.created_at).calendar(null, momentFormatSettings );
     activityObj.repoOwner = repoSplit[0];
     activityObj.repoOwnerURL = 'https://github.com/' + repoSplit[0];
@@ -79,11 +79,11 @@
   
   function displayActivities (_username, _$container) {
     
-    var request = 'https://api.github.com/users/' 
+    var requestURL = 'https://api.github.com/users/' 
     + _username + '/events/public',
     activities = [];
     
-    $.getJSON(request, function (json) {
+    $.getJSON(requestURL, function (json) {
       
       if(json.message == "Not Found" || json.name == '') {
         
@@ -99,9 +99,9 @@
             activities.push(output);
           }
         });
+        
+        _$container.append(activities.join(''));
       }
-      
-      _$container.append(activities.join(''));
     });
   }
   

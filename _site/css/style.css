@@ -47,30 +47,30 @@ html {
   font-family: 'CamingoCode';
   font-weight: normal;
   font-style: italic;
-  src: url("http://petersekan.de/webfonts/30E945_0_0.eot");
-  src: url("http://petersekan.de/webfonts/30E945_0_0.eot?#iefix") format("embedded-opentype"), url("http://petersekan.de/webfonts/30E945_0_0.woff2") format("woff2"), url("http://petersekan.de/webfonts/30E945_0_0.woff") format("woff"), url("http://petersekan.de/webfonts/30E945_0_0.ttf") format("truetype"); }
+  src: url("../fonts/30E945_0_0.eot");
+  src: url("../fonts/30E945_0_0.eot?#iefix") format("embedded-opentype"), url("../fonts/30E945_0_0.woff2") format("woff2"), url("../fonts/30E945_0_0.woff") format("woff"), url("../fonts/30E945_0_0.ttf") format("truetype"); }
 @font-face {
   font-family: 'CamingoCode';
   font-weight: normal;
   font-style: normal;
-  src: url("http://petersekan.de/webfonts/30E945_1_0.eot");
-  src: url("http://petersekan.de/webfonts/30E945_1_0.eot?#iefix") format("embedded-opentype"), url("http://petersekan.de/webfonts/30E945_1_0.woff2") format("woff2"), url("http://petersekan.de/webfonts/30E945_1_0.woff") format("woff"), url("http://petersekan.de/webfonts/30E945_1_0.ttf") format("truetype"); }
+  src: url("../fonts/30E945_1_0.eot");
+  src: url("../fonts/30E945_1_0.eot?#iefix") format("embedded-opentype"), url("../fonts/30E945_1_0.woff2") format("woff2"), url("../fonts/30E945_1_0.woff") format("woff"), url("../fonts/30E945_1_0.ttf") format("truetype"); }
 @font-face {
   font-family: 'CamingoCode';
   font-weight: bold;
   font-style: normal;
-  src: url("http://petersekan.de/webfonts/30E945_2_0.eot");
-  src: url("http://petersekan.de/webfonts/30E945_2_0.eot?#iefix") format("embedded-opentype"), url("http://petersekan.de/webfonts/30E945_2_0.woff2") format("woff2"), url("http://petersekan.de/webfonts/30E945_2_0.woff") format("woff"), url("http://petersekan.de/webfonts/30E945_2_0.ttf") format("truetype"); }
+  src: url("../fonts/30E945_2_0.eot");
+  src: url("../fonts/30E945_2_0.eot?#iefix") format("embedded-opentype"), url("../fonts/30E945_2_0.woff2") format("woff2"), url("../fonts/30E945_2_0.woff") format("woff"), url("../fonts/30E945_2_0.ttf") format("truetype"); }
 @font-face {
   font-family: 'CamingoCode';
   font-weight: bold;
   font-style: italic;
-  src: url("http://petersekan.de/webfonts/30E945_3_0.eot");
-  src: url("http://petersekan.de/webfonts/30E945_3_0.eot?#iefix") format("embedded-opentype"), url("http://petersekan.de/webfonts/30E945_3_0.woff2") format("woff2"), url("http://petersekan.de/webfonts/30E945_3_0.woff") format("woff"), url("http://petersekan.de/webfonts/30E945_3_0.ttf") format("truetype"); }
+  src: url("../fonts/30E945_3_0.eot");
+  src: url("../fonts/30E945_3_0.eot?#iefix") format("embedded-opentype"), url("../fonts/30E945_3_0.woff2") format("woff2"), url("../fonts/30E945_3_0.woff") format("woff"), url("../fonts/30E945_3_0.ttf") format("truetype"); }
 @font-face {
   font-family: 'XXIIGroberPinsel-Regular';
-  src: url("http://petersekan.de/webfonts/30E945_4_0.eot");
-  src: url("http://petersekan.de/webfonts/30E945_4_0.eot?#iefix") format("embedded-opentype"), url("http://petersekan.de/webfonts/30E945_4_0.woff2") format("woff2"), url("http://petersekan.de/webfonts/30E945_4_0.woff") format("woff"), url("http://petersekan.de/webfonts/30E945_4_0.ttf") format("truetype"); }
+  src: url("../fonts/30E945_4_0.eot");
+  src: url("../fonts/30E945_4_0.eot?#iefix") format("embedded-opentype"), url("../fonts/30E945_4_0.woff2") format("woff2"), url("../fonts/30E945_4_0.woff") format("woff"), url("../fonts/30E945_4_0.ttf") format("truetype"); }
 body {
   font-family: "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
   line-height: 1.5;
@@ -81,6 +81,12 @@ pre, code {
   line-height: 1.5;
   letter-spacing: 0.1em; }
 
+pre {
+  padding: 1rem;
+  background-color: #f3dfa2;
+  overflow: hidden;
+  white-space: pre-wrap; }
+
 a {
   color: currentColor; }
 
@@ -89,6 +95,7 @@ h1 {
   line-height: 1.3;
   letter-spacing: 0.1em; }
 
+p a,
 .repoName,
 .repoOwner,
 .header-link,
@@ -98,6 +105,7 @@ h1 {
   letter-spacing: 0.1em;
   text-decoration: none;
   border-bottom: solid 1px #e8c047; }
+  p a:hover,
   .repoName:hover,
   .repoOwner:hover,
   .header-link:hover,
@@ -264,7 +272,8 @@ section {
   max-width: 55rem;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 1rem 2rem 1rem; }
+  padding: 0 1rem 2rem 1rem;
+  overflow: hidden; }
   .post::after {
     clear: both;
     content: "";

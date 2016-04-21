@@ -65,18 +65,191 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Yes! Finally I have it done. As you might have recognized on the front page you can see <strong>My Latest GitHub Activities!</strong> For this task I used good ol’ jQuery, underscore.js and moment.js.</p>
+    <p>Yes! Finally I have it done. As you might have recognized on the front page you can see <strong>My Latest GitHub Activities!</strong> For this task I used <a href="https://jquery.com">good ol’ jQuery</a>, <a href="http://underscorejs.org">underscore.js</a> and <a href="http://momentjs.com">moment.js</a>.</p>
+
+<h2 id="but-why">But why?</h2>
+
+<p>Because I can! No, just kidding. I always thought about my personal GitHub page as informative as it can be. And not a page just like “Hello World! I am Pete an Interface Designer from Berlin and this is my blog”. No, my page should consist of content, that I provide and some dynamically generated content, provided by the <a href="https://developer.github.com/v3/">GitHub API</a>.</p>
 
 <h2 id="in-depth">In Depth</h2>
 
-<p>Here comes an in depth section, but for the moment, this is just this small paragraph and a to do list:</p>
+<ol>
+  <li>Get the data</li>
+  <li>Handle the data</li>
+  <li>Nicer timestamps with [moment.js][moment.js]</li>
+  <li>Templating with <a href="http://underscorejs.org">underscore.js</a></li>
+  <li>Displaying data in HTML</li>
+</ol>
 
-<ul>
-  <li>make links to the library.</li>
-  <li>make the post loop look better.</li>
-  <li>do some css work</li>
-  <li>and finally publish this shit.</li>
-</ul>
+<h3 id="get-the-data">Get the Data</h3>
+
+<p>In my code, the function which handles the task to display my GitHub activities caries the soundfull name  <code class="highlighter-rouge">displayActivities</code>. It receives two arguments. First is the user name, the other is a DOM element selected with <a href="https://jquery.com">jQuery</a>, that will later contain the activities as HTML code.</p>
+
+<p>First of all, a AJAX call is made against GitHub’s User Event Stream <code class="highlighter-rouge">https://api.github.com/users/[GITHUB_USER_NAME]/events/public</code>.</p>
+
+<p>If the AJAX call is successful, the received data is limited to the latest five events. Each event is passed to the function <code class="highlighter-rouge">parseActivityJSON</code>.</p>
+
+<p>See the whole function here:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function displayActivities (_username, _$container) {
+
+  var requestURL = 'https://api.github.com/users/' 
++ _username + '/events/public',
+  activities = [];
+
+  $.getJSON(requestURL, function (json) {
+  
+    if(json.message == "Not Found" || json.name == '') {
+    
+      _$container.append('&lt;h2&gt;No Info Found&lt;/h2&gt;');
+    }
+    else {
+    
+      $.each( json, function (index){
+      
+        if (index &lt;= 5) {
+        
+          var output = selectTemplate(parseActivityJSON(json[index]));
+          activities.push(output);
+        }
+      });
+    
+      _$container.append(activities.join(''));
+    }
+  });
+}
+</code></pre>
+</div>
+
+<h3 id="handle-the-data">Handle the Data</h3>
+
+<p>The purpose of the function <code class="highlighter-rouge">parseActivityJSON</code> is to uniform the event data and make it easier to handle. For example there is some some string split and concat going on, to build URLs to the repository or the repository owner.</p>
+
+<p>At least the function returns an object, which can be imagined like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var activityObj = {
+  type = string,
+  formatedTime = string,
+  repoOwner = string,
+  repoOwnerURL = string,
+  repoName = string,
+  repoURL = string,
+  // if this event is of the type 'IssuesEvent'
+  issueURL = string,
+  issueNumber = integer
+}
+</code></pre>
+</div>
+
+<p>Before we follow this objects return to the <code class="highlighter-rouge">displayActivities</code> function, we take a look what happen to the timestamp.</p>
+
+<h3 id="nicer-timestamps-with-momentjsmomentjs">Nicer timestamps with [Moment.js][moment.js]</h3>
+
+<p>Of course I could have just used the given format of the event’s timestamp, but I trying to create messages that can be read most human as possible. The right library for this job is <a href="http://momentjs.com">moment.js</a>, especially with its <code class="highlighter-rouge">calendar()</code> function.</p>
+
+<p>The desired format can be defined in a kind of dictionary:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>momentFormatSettings = {
+   sameDay: '[Today]',
+   nextDay: '[Tomorrow]',
+  nextWeek: 'dddd',
+   lastDay: '[Yesterday]',
+  lastWeek: '[Last] dddd',
+  sameElse: '[On] MMM D, YYYY'
+};
+</code></pre>
+</div>
+
+<p>And later the given timestamp will be parsed with the <code class="highlighter-rouge">calendar</code> function:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var formatedTime = moment(givenTimestamp).calendar(null,momentFormatSettings );
+</code></pre>
+</div>
+
+<p>We can now return to the <code class="highlighter-rouge">displayActivities</code> function with our nicely formated <strong>activityObj</strong>.</p>
+
+<h3 id="templating-with-underscorejsunderscorejs">Templating with <a href="http://underscorejs.org">Underscore.js</a></h3>
+
+<p>And from <code class="highlighter-rouge">displayActivities</code> our <strong>activityObj</strong> is directly passed into the <code class="highlighter-rouge">selectTemplate</code> function.</p>
+
+<p>One big advantage of [underscore.js][underscore] is, that you can store your template in your HTML code and just select it with <a href="https://jquery.com">jQuery</a>. The provided templates look nice in your HTML and don’t pollute your javascript code. The variables need to be enclosed like this <code class="highlighter-rouge">&lt;%= VARIABLE %&gt;</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script id="watchEvent" type="text/html"&gt;
+&lt;li&gt;
+  &lt;p&gt;
+    &lt;%= formatedTime %&gt; I starred &lt;a class="repoName" href="&lt;%= repoURL %&gt;"&gt;&lt;%= repoName %&gt;&lt;/a&gt; by &lt;a class="repoOwner" href="&lt;%= repoOwnerURL %&gt;"&gt;&lt;%= repoOwner %&gt;&lt;/a&gt;. I think it is pretty cool!
+  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/script&gt;
+
+&lt;script id="issueEvent" type="text/html"&gt;
+&lt;li&gt;
+  &lt;p&gt;
+      &lt;%= formatedTime %&gt; I filed &lt;a href="&lt;%= issueURL %&gt;"&gt;issue &amp;#8470;&lt;%= issueNumber %&gt;&lt;/a&gt; at the &lt;a class="repoName" href="&lt;%= repoURL %&gt;"&gt;&lt;%= repoName %&gt;&lt;/a&gt; project by &lt;a class="repoOwner" href="&lt;%= repoOwnerURL %&gt;"&gt;&lt;%= repoOwner %&gt;&lt;/a&gt;. Take a look, maybe you’ve got the answer.
+  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/script&gt;
+
+&lt;script id="pushEvent" type="text/html"&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+        &lt;%= formatedTime %&gt; I pushed some code to my  &lt;a class="repoName" href="&lt;%= repoURL %&gt;"&gt;&lt;%= repoName %&gt;&lt;/a&gt; project.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/script&gt;
+
+
+&lt;script id="default" type="text/html"&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;%= formatedTime %&gt; I have done something top secret on GitHub. If I would tell you, I had to kill you! Sorry, pal!  
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/script&gt; 
+</code></pre>
+</div>
+
+<p>By looking at the <strong>type</strong> of thes object, the <code class="highlighter-rouge">selectTemplate</code> function picks the right template from the HTML.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function selectTemplate (_activity) {
+  
+  var myTemplate;
+  
+  switch (_activity.type) {
+    
+    case 'IssuesEvent':
+    myTemplate = _.template($('#issueEvent').html());
+    break;
+    
+    case 'WatchEvent':
+    myTemplate = _.template($('#watchEvent').html());
+    break;
+    
+    case 'PushEvent':
+    myTemplate = _.template($('#pushEvent').html());
+    break;
+    
+    default:
+    myTemplate = _.template($('#default').html());
+    break;
+    
+  }
+  
+  return myTemplate(_activity);
+}
+</code></pre>
+</div>
+
+<h3 id="displaying-data-in-html">Displaying Data in HTML</h3>
+
+<p>Finally the HTML of our <strong>activityObj</strong> returns to the <code class="highlighter-rouge">displayActivities</code> function and is added to the <strong>activites</strong> array, which afterwards is joined and added to the containing DOM element.</p>
+
+<h2 id="thats-it">That’s it</h2>
+
+<p>I am a little proud of the outcome and I like the tool set. I just have scratched the capabilities of <a href="http://underscorejs.org">underscore.js</a>, but even just for templating it is awesome. And the features of <a href="http://momentjs.com">moment.js</a> allow more than I used in this example.</p>
+
+<p>I think there will be more to come!</p>
+
 
   </div>
   <div class="devider">&#182;</div>
