@@ -48,6 +48,10 @@ $letter-spacing-versal: 0.3em;
                             $letter-spacing-copy);
 }
 
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+}
+
 // Styling
 
 body {
@@ -74,13 +78,14 @@ h1,
   @include type-style-headline-hand;
 }
 
-p a,
+a,
 .repoName,
 .repoOwner,
 .read-on-link {
   @include type-style-bold;
 }
 
+a,
 .repoName,
 .repoOwner,
 .read-on-link,

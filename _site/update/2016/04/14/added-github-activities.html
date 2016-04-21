@@ -76,7 +76,7 @@
 <ol>
   <li>Get the data</li>
   <li>Handle the data</li>
-  <li>Nicer timestamps with [moment.js][moment.js]</li>
+  <li>Nicer timestamps with <a href="http://momentjs.com">moment.js</a></li>
   <li>Templating with <a href="http://underscorejs.org">underscore.js</a></li>
   <li>Displaying data in HTML</li>
 </ol>
@@ -91,35 +91,33 @@
 
 <p>See the whole function here:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>function displayActivities (_username, _$container) {
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">displayActivities</span> <span class="p">(</span><span class="nx">_username</span><span class="p">,</span> <span class="nx">_$container</span><span class="p">)</span> <span class="p">{</span>
 
-  var requestURL = 'https://api.github.com/users/' 
-+ _username + '/events/public',
-  activities = [];
+  <span class="kd">var</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="s1">'https://api.github.com/users/'</span> 
+<span class="o">+</span> <span class="nx">_username</span> <span class="o">+</span> <span class="s1">'/events/public'</span><span class="p">,</span>
+  <span class="nx">activities</span> <span class="o">=</span> <span class="p">[];</span>
 
-  $.getJSON(requestURL, function (json) {
+  <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
   
-    if(json.message == "Not Found" || json.name == '') {
+    <span class="k">if</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">message</span> <span class="o">==</span> <span class="s2">"Not Found"</span> <span class="o">||</span> <span class="nx">json</span><span class="p">.</span><span class="nx">name</span> <span class="o">==</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
     
-      _$container.append('&lt;h2&gt;No Info Found&lt;/h2&gt;');
-    }
-    else {
+      <span class="nx">_$container</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">'&lt;h2&gt;No Info Found&lt;/h2&gt;'</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
     
-      $.each( json, function (index){
+      <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span> <span class="nx">json</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">index</span><span class="p">){</span>
       
-        if (index &lt;= 5) {
+        <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
         
-          var output = selectTemplate(parseActivityJSON(json[index]));
-          activities.push(output);
-        }
-      });
+          <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">selectTemplate</span><span class="p">(</span><span class="nx">parseActivityJSON</span><span class="p">(</span><span class="nx">json</span><span class="p">[</span><span class="nx">index</span><span class="p">]));</span>
+          <span class="nx">activities</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
     
-      _$container.append(activities.join(''));
-    }
-  });
-}
-</code></pre>
-</div>
+      <span class="nx">_$container</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">activities</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">''</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">}</span></code></pre></figure>
 
 <h3 id="handle-the-data">Handle the Data</h3>
 
@@ -127,19 +125,17 @@
 
 <p>At least the function returns an object, which can be imagined like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var activityObj = {
-  type = string,
-  formatedTime = string,
-  repoOwner = string,
-  repoOwnerURL = string,
-  repoName = string,
-  repoURL = string,
-  // if this event is of the type 'IssuesEvent'
-  issueURL = string,
-  issueNumber = integer
-}
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">activityObj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">type</span> <span class="o">=</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="nx">formatedTime</span> <span class="o">=</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="nx">repoOwner</span> <span class="o">=</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="nx">repoOwnerURL</span> <span class="o">=</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="nx">repoName</span> <span class="o">=</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="nx">repoURL</span> <span class="o">=</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="c1">// if this event is of the type 'IssuesEvent'</span>
+  <span class="nx">issueURL</span> <span class="o">=</span> <span class="nx">string</span><span class="p">,</span>
+  <span class="nx">issueNumber</span> <span class="o">=</span> <span class="nx">integer</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>Before we follow this objects return to the <code class="highlighter-rouge">displayActivities</code> function, we take a look what happen to the timestamp.</p>
 
@@ -149,22 +145,18 @@
 
 <p>The desired format can be defined in a kind of dictionary:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>momentFormatSettings = {
-   sameDay: '[Today]',
-   nextDay: '[Tomorrow]',
-  nextWeek: 'dddd',
-   lastDay: '[Yesterday]',
-  lastWeek: '[Last] dddd',
-  sameElse: '[On] MMM D, YYYY'
-};
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">momentFormatSettings</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="na">sameDay</span><span class="p">:</span> <span class="s1">'[Today]'</span><span class="p">,</span>
+   <span class="na">nextDay</span><span class="p">:</span> <span class="s1">'[Tomorrow]'</span><span class="p">,</span>
+  <span class="na">nextWeek</span><span class="p">:</span> <span class="s1">'dddd'</span><span class="p">,</span>
+   <span class="na">lastDay</span><span class="p">:</span> <span class="s1">'[Yesterday]'</span><span class="p">,</span>
+  <span class="na">lastWeek</span><span class="p">:</span> <span class="s1">'[Last] dddd'</span><span class="p">,</span>
+  <span class="na">sameElse</span><span class="p">:</span> <span class="s1">'[On] MMM D, YYYY'</span>
+<span class="p">};</span></code></pre></figure>
 
 <p>And later the given timestamp will be parsed with the <code class="highlighter-rouge">calendar</code> function:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var formatedTime = moment(givenTimestamp).calendar(null,momentFormatSettings );
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">formatedTime</span> <span class="o">=</span> <span class="nx">moment</span><span class="p">(</span><span class="nx">givenTimestamp</span><span class="p">).</span><span class="nx">calendar</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="nx">momentFormatSettings</span> <span class="p">);</span></code></pre></figure>
 
 <p>We can now return to the <code class="highlighter-rouge">displayActivities</code> function with our nicely formated <strong>activityObj</strong>.</p>
 
@@ -174,71 +166,66 @@
 
 <p>One big advantage of [underscore.js][underscore] is, that you can store your template in your HTML code and just select it with <a href="https://jquery.com">jQuery</a>. The provided templates look nice in your HTML and don’t pollute your javascript code. The variables need to be enclosed like this <code class="highlighter-rouge">&lt;%= VARIABLE %&gt;</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script id="watchEvent" type="text/html"&gt;
-&lt;li&gt;
-  &lt;p&gt;
-    &lt;%= formatedTime %&gt; I starred &lt;a class="repoName" href="&lt;%= repoURL %&gt;"&gt;&lt;%= repoName %&gt;&lt;/a&gt; by &lt;a class="repoOwner" href="&lt;%= repoOwnerURL %&gt;"&gt;&lt;%= repoOwner %&gt;&lt;/a&gt;. I think it is pretty cool!
-  &lt;/p&gt;
-&lt;/li&gt;
-&lt;/script&gt;
-
-&lt;script id="issueEvent" type="text/html"&gt;
-&lt;li&gt;
-  &lt;p&gt;
-      &lt;%= formatedTime %&gt; I filed &lt;a href="&lt;%= issueURL %&gt;"&gt;issue &amp;#8470;&lt;%= issueNumber %&gt;&lt;/a&gt; at the &lt;a class="repoName" href="&lt;%= repoURL %&gt;"&gt;&lt;%= repoName %&gt;&lt;/a&gt; project by &lt;a class="repoOwner" href="&lt;%= repoOwnerURL %&gt;"&gt;&lt;%= repoOwner %&gt;&lt;/a&gt;. Take a look, maybe you’ve got the answer.
-  &lt;/p&gt;
-&lt;/li&gt;
-&lt;/script&gt;
-
-&lt;script id="pushEvent" type="text/html"&gt;
-  &lt;li&gt;
-    &lt;p&gt;
-        &lt;%= formatedTime %&gt; I pushed some code to my  &lt;a class="repoName" href="&lt;%= repoURL %&gt;"&gt;&lt;%= repoName %&gt;&lt;/a&gt; project.
-    &lt;/p&gt;
-  &lt;/li&gt;
-&lt;/script&gt;
-
-
-&lt;script id="default" type="text/html"&gt;
-  &lt;li&gt;
-    &lt;p&gt;
-      &lt;%= formatedTime %&gt; I have done something top secret on GitHub. If I would tell you, I had to kill you! Sorry, pal!  
-    &lt;/p&gt;
-  &lt;/li&gt;
-&lt;/script&gt; 
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"watchEvent"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/html"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;%=</span> <span class="nx">formatedTime</span> <span class="o">%&gt;</span> <span class="nx">I</span> <span class="nx">starred</span> <span class="o">&lt;</span><span class="nx">a</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"repoName"</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"&lt;%= repoURL %&gt;"</span><span class="o">&gt;&lt;%=</span> <span class="nx">repoName</span> <span class="o">%&gt;&lt;</span><span class="sr">/a&gt; by &lt;a class="repoOwner" href="&lt;%= repoOwnerURL %&gt;"&gt;&lt;%= repoOwner %&gt;&lt;/</span><span class="nx">a</span><span class="o">&gt;</span><span class="p">.</span> <span class="nx">I</span> <span class="nx">think</span> <span class="nx">it</span> <span class="nx">is</span> <span class="nx">pretty</span> <span class="nx">cool</span><span class="o">!</span>
+  <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"issueEvent"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/html"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+      <span class="o">&lt;%=</span> <span class="nx">formatedTime</span> <span class="o">%&gt;</span> <span class="nx">I</span> <span class="nx">filed</span> <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"&lt;%= issueURL %&gt;"</span><span class="o">&gt;</span><span class="nx">issue</span> <span class="o">&amp;</span><span class="err">#</span><span class="mi">8470</span><span class="p">;</span><span class="o">&lt;%=</span> <span class="nx">issueNumber</span> <span class="o">%&gt;&lt;</span><span class="sr">/a&gt; at the &lt;a class="repoName" href="&lt;%= repoURL %&gt;"&gt;&lt;%= repoName %&gt;&lt;/</span><span class="nx">a</span><span class="o">&gt;</span> <span class="nx">project</span> <span class="nx">by</span> <span class="o">&lt;</span><span class="nx">a</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"repoOwner"</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"&lt;%= repoOwnerURL %&gt;"</span><span class="o">&gt;&lt;%=</span> <span class="nx">repoOwner</span> <span class="o">%&gt;&lt;</span><span class="sr">/a&gt;. Take a look, maybe you’ve got the answer</span><span class="err">.
+</span>  <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"pushEvent"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/html"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+        <span class="o">&lt;%=</span> <span class="nx">formatedTime</span> <span class="o">%&gt;</span> <span class="nx">I</span> <span class="nx">pushed</span> <span class="nx">some</span> <span class="nx">code</span> <span class="nx">to</span> <span class="nx">my</span>  <span class="o">&lt;</span><span class="nx">a</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"repoName"</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"&lt;%= repoURL %&gt;"</span><span class="o">&gt;&lt;%=</span> <span class="nx">repoName</span> <span class="o">%&gt;&lt;</span><span class="sr">/a&gt; project</span><span class="err">.
+</span>    <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"default"</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text/html"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+      <span class="o">&lt;%=</span> <span class="nx">formatedTime</span> <span class="o">%&gt;</span> <span class="nx">I</span> <span class="nx">have</span> <span class="nx">done</span> <span class="nx">something</span> <span class="nx">top</span> <span class="nx">secret</span> <span class="nx">on</span> <span class="nx">GitHub</span><span class="p">.</span> <span class="nx">If</span> <span class="nx">I</span> <span class="nx">would</span> <span class="nx">tell</span> <span class="nx">you</span><span class="p">,</span> <span class="nx">I</span> <span class="nx">had</span> <span class="nx">to</span> <span class="nx">kill</span> <span class="nx">you</span><span class="o">!</span> <span class="nx">Sorry</span><span class="p">,</span> <span class="nx">pal</span><span class="o">!</span>  
+    <span class="o">&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/script&gt; </span></code></pre></figure>
 
 <p>By looking at the <strong>type</strong> of thes object, the <code class="highlighter-rouge">selectTemplate</code> function picks the right template from the HTML.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>function selectTemplate (_activity) {
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">selectTemplate</span> <span class="p">(</span><span class="nx">_activity</span><span class="p">)</span> <span class="p">{</span>
   
-  var myTemplate;
+  <span class="kd">var</span> <span class="nx">myTemplate</span><span class="p">;</span>
   
-  switch (_activity.type) {
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">_activity</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
     
-    case 'IssuesEvent':
-    myTemplate = _.template($('#issueEvent').html());
-    break;
+    <span class="k">case</span> <span class="s1">'IssuesEvent'</span><span class="err">:</span>
+    <span class="nx">myTemplate</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'#issueEvent'</span><span class="p">).</span><span class="nx">html</span><span class="p">());</span>
+    <span class="k">break</span><span class="p">;</span>
     
-    case 'WatchEvent':
-    myTemplate = _.template($('#watchEvent').html());
-    break;
+    <span class="k">case</span> <span class="s1">'WatchEvent'</span><span class="err">:</span>
+    <span class="nx">myTemplate</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'#watchEvent'</span><span class="p">).</span><span class="nx">html</span><span class="p">());</span>
+    <span class="k">break</span><span class="p">;</span>
     
-    case 'PushEvent':
-    myTemplate = _.template($('#pushEvent').html());
-    break;
+    <span class="k">case</span> <span class="s1">'PushEvent'</span><span class="err">:</span>
+    <span class="nx">myTemplate</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'#pushEvent'</span><span class="p">).</span><span class="nx">html</span><span class="p">());</span>
+    <span class="k">break</span><span class="p">;</span>
     
-    default:
-    myTemplate = _.template($('#default').html());
-    break;
+    <span class="nl">default</span><span class="p">:</span>
+    <span class="nx">myTemplate</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'#default'</span><span class="p">).</span><span class="nx">html</span><span class="p">());</span>
+    <span class="k">break</span><span class="p">;</span>
     
-  }
+  <span class="p">}</span>
   
-  return myTemplate(_activity);
-}
-</code></pre>
-</div>
+  <span class="k">return</span> <span class="nx">myTemplate</span><span class="p">(</span><span class="nx">_activity</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
 <h3 id="displaying-data-in-html">Displaying Data in HTML</h3>
 

@@ -15,7 +15,7 @@ Because I can! No, just kidding. I always thought about my personal GitHub page 
 
 1. Get the data
 2. Handle the data
-3. Nicer timestamps with [moment.js][moment.js]
+3. Nicer timestamps with [moment.js][momentjs]
 4. Templating with [underscore.js][underscorejs]
 5. Displaying data in HTML
 
@@ -30,33 +30,35 @@ If the AJAX call is successful, the received data is limited to the latest five 
 
 See the whole function here:
 
-    function displayActivities (_username, _$container) {
+{% highlight javascript %}
+function displayActivities (_username, _$container) {
+
+  var requestURL = 'https://api.github.com/users/' 
++ _username + '/events/public',
+  activities = [];
+
+  $.getJSON(requestURL, function (json) {
+  
+    if(json.message == "Not Found" || json.name == '') {
     
-      var requestURL = 'https://api.github.com/users/' 
-    + _username + '/events/public',
-      activities = [];
+      _$container.append('<h2>No Info Found</h2>');
+    }
+    else {
     
-      $.getJSON(requestURL, function (json) {
+      $.each( json, function (index){
       
-        if(json.message == "Not Found" || json.name == '') {
+        if (index <= 5) {
         
-          _$container.append('<h2>No Info Found</h2>');
-        }
-        else {
-        
-          $.each( json, function (index){
-          
-            if (index <= 5) {
-            
-              var output = selectTemplate(parseActivityJSON(json[index]));
-              activities.push(output);
-            }
-          });
-        
-          _$container.append(activities.join(''));
+          var output = selectTemplate(parseActivityJSON(json[index]));
+          activities.push(output);
         }
       });
+    
+      _$container.append(activities.join(''));
     }
+  });
+}
+{% endhighlight %}
 
 ### Handle the Data
 
@@ -64,17 +66,19 @@ The purpose of the function ```parseActivityJSON``` is to uniform the event data
 
 At least the function returns an object, which can be imagined like this:
 
-    var activityObj = {
-      type = string,
-      formatedTime = string,
-      repoOwner = string,
-      repoOwnerURL = string,
-      repoName = string,
-      repoURL = string,
-      // if this event is of the type 'IssuesEvent'
-      issueURL = string,
-      issueNumber = integer
-    }
+{% highlight javascript %}
+var activityObj = {
+  type = string,
+  formatedTime = string,
+  repoOwner = string,
+  repoOwnerURL = string,
+  repoName = string,
+  repoURL = string,
+  // if this event is of the type 'IssuesEvent'
+  issueURL = string,
+  issueNumber = integer
+}
+{% endhighlight %}
 
 Before we follow this objects return to the ```displayActivities``` function, we take a look what happen to the timestamp.
 
@@ -84,18 +88,22 @@ Of course I could have just used the given format of the event’s timestamp, bu
 
 The desired format can be defined in a kind of dictionary:
 
-    momentFormatSettings = {
-       sameDay: '[Today]',
-       nextDay: '[Tomorrow]',
-      nextWeek: 'dddd',
-       lastDay: '[Yesterday]',
-      lastWeek: '[Last] dddd',
-      sameElse: '[On] MMM D, YYYY'
-    };
+{% highlight javascript %}
+momentFormatSettings = {
+   sameDay: '[Today]',
+   nextDay: '[Tomorrow]',
+  nextWeek: 'dddd',
+   lastDay: '[Yesterday]',
+  lastWeek: '[Last] dddd',
+  sameElse: '[On] MMM D, YYYY'
+};
+{% endhighlight %}
 
 And later the given timestamp will be parsed with the ```calendar``` function:
 
-    var formatedTime = moment(givenTimestamp).calendar(null,momentFormatSettings );
+{% highlight javascript %}
+var formatedTime = moment(givenTimestamp).calendar(null,momentFormatSettings );
+{% endhighlight %}
 
 We can now return to the ```displayActivities``` function with our nicely formated **activityObj**.
 
@@ -105,68 +113,70 @@ And from ```displayActivities``` our **activityObj** is directly passed into the
 
 One big advantage of [underscore.js][underscore] is, that you can store your template in your HTML code and just select it with [jQuery][jQuery]. The provided templates look nice in your HTML and don’t pollute your javascript code. The variables need to be enclosed like this ```<%= VARIABLE %>```
 
-    <script id="watchEvent" type="text/html">
-    <li>
-      <p>
-        <%= formatedTime %> I starred <a class="repoName" href="<%= repoURL %>"><%= repoName %></a> by <a class="repoOwner" href="<%= repoOwnerURL %>"><%= repoOwner %></a>. I think it is pretty cool!
-      </p>
-    </li>
-    </script>
+{% highlight javascript%}
+<script id="watchEvent" type="text/html">
+<li>
+  <p>
+    <%= formatedTime %> I starred <a class="repoName" href="<%= repoURL %>"><%= repoName %></a> by <a class="repoOwner" href="<%= repoOwnerURL %>"><%= repoOwner %></a>. I think it is pretty cool!
+  </p>
+</li>
+</script>
 
-    <script id="issueEvent" type="text/html">
-    <li>
-      <p>
-          <%= formatedTime %> I filed <a href="<%= issueURL %>">issue &#8470;<%= issueNumber %></a> at the <a class="repoName" href="<%= repoURL %>"><%= repoName %></a> project by <a class="repoOwner" href="<%= repoOwnerURL %>"><%= repoOwner %></a>. Take a look, maybe you’ve got the answer.
-      </p>
-    </li>
-    </script>
+<script id="issueEvent" type="text/html">
+<li>
+  <p>
+      <%= formatedTime %> I filed <a href="<%= issueURL %>">issue &#8470;<%= issueNumber %></a> at the <a class="repoName" href="<%= repoURL %>"><%= repoName %></a> project by <a class="repoOwner" href="<%= repoOwnerURL %>"><%= repoOwner %></a>. Take a look, maybe you’ve got the answer.
+  </p>
+</li>
+</script>
 
-    <script id="pushEvent" type="text/html">
-      <li>
-        <p>
-            <%= formatedTime %> I pushed some code to my  <a class="repoName" href="<%= repoURL %>"><%= repoName %></a> project.
-        </p>
-      </li>
-    </script>
+<script id="pushEvent" type="text/html">
+  <li>
+    <p>
+        <%= formatedTime %> I pushed some code to my  <a class="repoName" href="<%= repoURL %>"><%= repoName %></a> project.
+    </p>
+  </li>
+</script>
 
-
-    <script id="default" type="text/html">
-      <li>
-        <p>
-          <%= formatedTime %> I have done something top secret on GitHub. If I would tell you, I had to kill you! Sorry, pal!  
-        </p>
-      </li>
-    </script> 
-
+<script id="default" type="text/html">
+  <li>
+    <p>
+      <%= formatedTime %> I have done something top secret on GitHub. If I would tell you, I had to kill you! Sorry, pal!  
+    </p>
+  </li>
+</script> 
+{% endhighlight %}
 
 By looking at the **type** of thes object, the ```selectTemplate``` function picks the right template from the HTML.
 
-    function selectTemplate (_activity) {
-      
-      var myTemplate;
-      
-      switch (_activity.type) {
-        
-        case 'IssuesEvent':
-        myTemplate = _.template($('#issueEvent').html());
-        break;
-        
-        case 'WatchEvent':
-        myTemplate = _.template($('#watchEvent').html());
-        break;
-        
-        case 'PushEvent':
-        myTemplate = _.template($('#pushEvent').html());
-        break;
-        
-        default:
-        myTemplate = _.template($('#default').html());
-        break;
-        
-      }
-      
-      return myTemplate(_activity);
-    }
+{% highlight javascript %}
+function selectTemplate (_activity) {
+  
+  var myTemplate;
+  
+  switch (_activity.type) {
+    
+    case 'IssuesEvent':
+    myTemplate = _.template($('#issueEvent').html());
+    break;
+    
+    case 'WatchEvent':
+    myTemplate = _.template($('#watchEvent').html());
+    break;
+    
+    case 'PushEvent':
+    myTemplate = _.template($('#pushEvent').html());
+    break;
+    
+    default:
+    myTemplate = _.template($('#default').html());
+    break;
+    
+  }
+  
+  return myTemplate(_activity);
+}
+{% endhighlight %}
 
 ### Displaying Data in HTML
 
