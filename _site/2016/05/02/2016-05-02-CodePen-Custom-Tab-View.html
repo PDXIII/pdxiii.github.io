@@ -1,0 +1,94 @@
+<h2 id="the-task">The Task</h2>
+
+<blockquote>
+  <p>We need to make a list of files look cool.</p>
+</blockquote>
+
+<ol>
+  <li>Toggle the files as tiles and list view.</li>
+  <li>We need to be able to toggle between list and tile view on the screen.</li>
+  <li>Bonus: add a filter or search method</li>
+  <li>Visually we are going for if Microsoft had a baby with Apple</li>
+  <li>All client side stuff / hard coding is cool</li>
+  <li>Should be responsive</li>
+  <li>Layout as you think best</li>
+  <li>Style as you wish</li>
+  <li>Namespacing things… it’s important</li>
+</ol>
+
+<h2 id="the-result">The Result</h2>
+
+<p>You can see the result online at <a href="http://s.codepen.io/PDXIII/debug/XdxbYw">CodePen.io</a>. 
+What you see is a <strong>customized tab view with a search field</strong> above. 
+The <strong>search field</strong> responses immediately to the given input. So, if you start typing, items in the tab views not matching the given string are sorted out.
+Below the <strong>search field</strong> you see the interface for the <strong>tab views</strong>. For simplicity I decided to use buttons labeled just with icons which represents the according view best. 
+Finally under the buttons you find the <strong>tab views</strong>. The first one is <strong>the list view</strong> the other one is <strong>the tile view</strong>.</p>
+
+<h3 id="the-list-view">The List View</h3>
+
+<p>The list view is represented by a classic table. In your briefing you asked for thumbnail images in the list view. I could have done that, but in my opinion it isn’t suitable in this context (I mean what would a thumbnail of an excel file look like?) and I found it more challenging to pick a matching file icon for the particular file type. 
+So, you see an icon, the name and the size for each file in a row.</p>
+
+<h3 id="the-tile-view">The Tile View</h3>
+
+<p>The tile view uses random background images of birds delivered by Lorem Flickr, that is the reason why it takes some time until all images are visible. Additional to that the tiles provide the same information like the list items, the file icon is just a little bit larger. For the background images I used css blend mode, which isn’t all browser compatible but looks pretty cool!</p>
+
+<h2 id="the-process">The Process</h2>
+
+<p>I started this little experiment in <strong>CodePen</strong> which is quite handy to quickly test stuff, because you don’t have to care about several things in the beginning like boilerplate stuff and importing libraries.</p>
+
+<p>One of the main problems while designing data driven structures is the data itself. In the past I used to spend a lot of time editing JSON files to fulfill the needs of the particular project until I found <strong>JSON Generator</strong>. This tool makes designing random data an ease. If you need random images you can combine <strong>JSON Generator</strong> with <strong>Lorem Flickr</strong> which provides random images.</p>
+
+<p>To handle this kind of data I made good experience with <strong>Underscore.js</strong>. It is a small but very powerful library. I use it mainly for templating.</p>
+
+<p>Now it was time to work on the visual representation of the data. <strong>Bootstrap</strong> has all the components for this interface. So I went for the <strong>tab</strong> and <strong>search field</strong> component (and some other component, which are only for decoration like the <strong>jumbotron</strong> in the header).</p>
+
+<p>Now it was time to think about the filter method. I made a quick research on available jQuery plugins and found, among others, <strong>HideSeek</strong>, which promised to be easy to implement, and kept this promise. Maybe there are better ones out there, but this could be tested in further iterations.</p>
+
+<p>Because <strong>Helvetica</strong> isn’t suitable for anything, especially for web and interface design, I needed to change that. I didn’t had to care about long copy text, so I went for to display fonts just for an interesting typographical mix: <strong>Montserrat</strong> for headlines and primary information and <strong>Fairplay Display</strong> for secondary information and table labeling.</p>
+
+<p>For better a faster editing the source code it was time to export the project from <strong>CodePen</strong> to my computer. For projects at this scale I use <strong>Codekit</strong> for CSS compilation and Javascript linting.</p>
+
+<p>I our quick and dirty interview Makis told me that <strong>Less</strong> is the CSS preprocessor of your choice. I wrote some mixins for quickly adding the right font for the particular element or class and one which take care about choosing the right file icon, which are provided by <strong>Font Awesome</strong> like the icons in the tab navigation.</p>
+
+<p>After I have chosen a color theme which was influenced by this sneaker:</p>
+
+<p><img src="http://i.ebayimg.com/images/g/WBsAAOSw-RRXBsuG/s-l1600.jpg" alt="Nike Dunk SB Tiffany" /></p>
+
+<p>I moved the code back to <strong>CodePen</strong> just to have another good looking experiment in my portfolio.</p>
+
+<h3 id="resources">Resources</h3>
+
+<h4 id="libraries--frameworks">Libraries &amp; Frameworks</h4>
+
+<ul>
+  <li><a href="http://v4-alpha.getbootstrap.com/">Bootstrap · The world’s most popular mobile-first and responsive front-end framework.</a></li>
+  <li><a href="http://underscorejs.org/">Underscore.js</a></li>
+  <li><a href="http://vdw.github.io/HideSeek/">HideSeek: A simple, mobile-friendly, yet customizable quick/live search jQuery plugin.</a></li>
+</ul>
+
+<h4 id="fonts">Fonts</h4>
+
+<ul>
+  <li><a href="https://fortawesome.github.io/Font-Awesome/">Font Awesome, the iconic font and CSS toolkit</a></li>
+  <li><a href="https://www.google.com/fonts/specimen/Playfair+Display">Google Font Playfair Display</a></li>
+  <li><a href="https://www.google.com/fonts/specimen/Montserrat">Google Font Montserrat</a></li>
+</ul>
+
+<h4 id="tools">Tools</h4>
+
+<ul>
+  <li><a href="http://codepen.io/">CodePen</a></li>
+  <li><a href="http://beta.json-generator.com/4y_QDzceZ">JSON Generator – tool for generating random JSON data</a></li>
+  <li><a href="http://loremflickr.com/">LoremFlickr: free placeholder images</a></li>
+  <li><a href="http://lesscss.org/">Less.js</a></li>
+  <li><a href="http://incident57.com/codekit/">CodeKit: THE Mac App For Web Developers</a></li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I really enjoyed the task! Even if Makis doesn’t, but like this kind of testing more then looking into CVs or diplomas. I don’t know if the style is »… if Microsoft had a baby with Apple«, I would describe it more like »Edward Tufte discovered the fun of colors«, but anyway I would like to thank you for this opportunity!</p>
+
+<p><strong>Best regards,</strong><br />
+<em>Pete</em></p>
+

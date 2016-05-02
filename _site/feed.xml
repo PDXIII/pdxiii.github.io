@@ -6,9 +6,123 @@
 </description>
     <link>https://pdxiii.github.io/</link>
     <atom:link href="https://pdxiii.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 21 Apr 2016 15:43:53 +0200</pubDate>
-    <lastBuildDate>Thu, 21 Apr 2016 15:43:53 +0200</lastBuildDate>
+    <pubDate>Mon, 02 May 2016 12:31:16 +0200</pubDate>
+    <lastBuildDate>Mon, 02 May 2016 12:31:16 +0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Custom Tab View</title>
+        <description>&lt;p&gt;Recently, I had the chance to applied for a job as ui designer and  creative coder at a SAAS start up. Instead of an long interview and asking for my diploma,
+the head of design gave my the opportunity to proof my design and coding skills in a small challenge.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-task&quot;&gt;The Task&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We need to make a list of files look cool.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Toggle the files as tiles and list view.&lt;/li&gt;
+  &lt;li&gt;We need to be able to toggle between list and tile view on the screen.&lt;/li&gt;
+  &lt;li&gt;Bonus: add a filter or search method&lt;/li&gt;
+  &lt;li&gt;Visually we are going for if Microsoft had a baby with Apple&lt;/li&gt;
+  &lt;li&gt;All client side stuff / hard coding is cool&lt;/li&gt;
+  &lt;li&gt;Should be responsive&lt;/li&gt;
+  &lt;li&gt;Layout as you think best&lt;/li&gt;
+  &lt;li&gt;Style as you wish&lt;/li&gt;
+  &lt;li&gt;Namespacing things… it’s important&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;the-result&quot;&gt;The Result&lt;/h2&gt;
+
+&lt;!-- [See the Demo](http://s.codepen.io/PDXIII/debug/XdxbYw)  
+[Try the CodePen](http://codepen.io/PDXIII/pen/XdxbYw)  
+[Get the Gist](https://gist.github.com/PDXIII/6ebeffaa42ef53cf04b3a1112893598e) --&gt;
+
+&lt;p&gt;The result used to be a &lt;strong&gt;CodePen&lt;/strong&gt; which temporarly does not work, because CodePen blocked the data import. But if you like to try it, you can get the &lt;a href=&quot;https://gist.github.com/PDXIII/6ebeffaa42ef53cf04b3a1112893598e&quot;&gt;Gist&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;What you see is a &lt;strong&gt;customized tab view with a search field&lt;/strong&gt; above. 
+The &lt;strong&gt;search field&lt;/strong&gt; responses immediately to the given input. So, if you start typing, items in the tab views not matching the given string are sorted out.
+Below the &lt;strong&gt;search field&lt;/strong&gt; you see the interface for the &lt;strong&gt;tab views&lt;/strong&gt;. For simplicity I decided to use buttons labeled just with icons which represents the according view best. 
+Finally under the buttons you find the &lt;strong&gt;tab views&lt;/strong&gt;. The first one is &lt;strong&gt;the list view&lt;/strong&gt; the other one is &lt;strong&gt;the tile view&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-list-view&quot;&gt;The List View&lt;/h3&gt;
+
+&lt;p&gt;The list view is represented by a classic table. In your briefing you asked for thumbnail images in the list view. I could have done that, but in my opinion it isn’t suitable in this context (I mean what would a thumbnail of an excel file look like?) and I found it more challenging to pick a matching file icon for the particular file type. 
+So, you see an icon, the name and the size for each file in a row.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-tile-view&quot;&gt;The Tile View&lt;/h3&gt;
+
+&lt;p&gt;The tile view uses random background images of birds delivered by Lorem Flickr, that is the reason why it takes some time until all images are visible. Additional to that the tiles provide the same information like the list items, the file icon is just a little bit larger. For the background images I used css blend mode, which isn’t all browser compatible but looks pretty cool!&lt;/p&gt;
+
+&lt;h2 id=&quot;the-process&quot;&gt;The Process&lt;/h2&gt;
+
+&lt;p&gt;I started this little experiment in &lt;strong&gt;CodePen&lt;/strong&gt; which is quite handy to quickly test stuff, because you don’t have to care about several things in the beginning like boilerplate stuff and importing libraries.&lt;/p&gt;
+
+&lt;p&gt;One of the main problems while designing data driven structures is the data itself. In the past I used to spend a lot of time editing JSON files to fulfill the needs of the particular project until I found &lt;strong&gt;JSON Generator&lt;/strong&gt;. This tool makes designing random data an ease. If you need random images you can combine &lt;strong&gt;JSON Generator&lt;/strong&gt; with &lt;strong&gt;Lorem Flickr&lt;/strong&gt; which provides random images.&lt;/p&gt;
+
+&lt;p&gt;To handle this kind of data I made good experience with &lt;strong&gt;Underscore.js&lt;/strong&gt;. It is a small but very powerful library. I use it mainly for templating.&lt;/p&gt;
+
+&lt;p&gt;Now it was time to work on the visual representation of the data. &lt;strong&gt;Bootstrap&lt;/strong&gt; has all the components for this interface. So I went for the &lt;strong&gt;tab&lt;/strong&gt; and &lt;strong&gt;search field&lt;/strong&gt; component (and some other component, which are only for decoration like the &lt;strong&gt;jumbotron&lt;/strong&gt; in the header).&lt;/p&gt;
+
+&lt;p&gt;Now it was time to think about the filter method. I made a quick research on available jQuery plugins and found, among others, &lt;strong&gt;HideSeek&lt;/strong&gt;, which promised to be easy to implement, and kept this promise. Maybe there are better ones out there, but this could be tested in further iterations.&lt;/p&gt;
+
+&lt;p&gt;Because &lt;strong&gt;Helvetica&lt;/strong&gt; isn’t suitable for anything, especially for web and interface design, I needed to change that. I didn’t had to care about long copy text, so I went for to display fonts just for an interesting typographical mix: &lt;strong&gt;Montserrat&lt;/strong&gt; for headlines and primary information and &lt;strong&gt;Fairplay Display&lt;/strong&gt; for secondary information and table labeling.&lt;/p&gt;
+
+&lt;p&gt;For better a faster editing the source code it was time to export the project from &lt;strong&gt;CodePen&lt;/strong&gt; to my computer. For projects at this scale I use &lt;strong&gt;Codekit&lt;/strong&gt; for CSS compilation and Javascript linting.&lt;/p&gt;
+
+&lt;p&gt;In this task &lt;strong&gt;Less&lt;/strong&gt; is the CSS preprocessor of choice. I wrote some mixins for quickly adding the right font for the particular element or class and one which takes care about choosing the right file icon, which are provided by &lt;strong&gt;Font Awesome&lt;/strong&gt; like the icons in the tab navigation.&lt;/p&gt;
+
+&lt;p&gt;After I have chosen a color theme which was influenced by this sneaker:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.ebayimg.com/images/g/WBsAAOSw-RRXBsuG/s-l1600.jpg&quot; alt=&quot;Nike Dunk SB Tiffany&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I moved the code back to &lt;strong&gt;CodePen&lt;/strong&gt; just to have another good looking experiment in my portfolio.&lt;/p&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;h4 id=&quot;libraries--frameworks&quot;&gt;Libraries &amp;amp; Frameworks&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://v4-alpha.getbootstrap.com/&quot;&gt;Bootstrap · The world’s most popular mobile-first and responsive front-end framework.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://underscorejs.org/&quot;&gt;Underscore.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://vdw.github.io/HideSeek/&quot;&gt;HideSeek: A simple, mobile-friendly, yet customizable quick/live search jQuery plugin.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;fonts&quot;&gt;Fonts&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://fortawesome.github.io/Font-Awesome/&quot;&gt;Font Awesome, the iconic font and CSS toolkit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/fonts/specimen/Playfair+Display&quot;&gt;Google Font Playfair Display&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/fonts/specimen/Montserrat&quot;&gt;Google Font Montserrat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;tools&quot;&gt;Tools&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://codepen.io/&quot;&gt;CodePen&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://beta.json-generator.com/4y_QDzceZ&quot;&gt;JSON Generator – tool for generating random JSON data&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://loremflickr.com/&quot;&gt;LoremFlickr: free placeholder images&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://lesscss.org/&quot;&gt;Less.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://incident57.com/codekit/&quot;&gt;CodeKit: THE Mac App For Web Developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I really enjoyed the task! Even if Makis doesn’t, but like this kind of testing more then looking into CVs or diplomas. I don’t know if the style is »… if Microsoft had a baby with Apple«, I would describe it more like »Edward Tufte discovered the fun of colors«, but anyway I would like to thank you for this opportunity!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Best regards,&lt;/strong&gt;&lt;br /&gt;
+&lt;em&gt;Pete&lt;/em&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 May 2016 11:10:10 +0200</pubDate>
+        <link>https://pdxiii.github.io/update/2016/05/02/Custom-Tab-View.html</link>
+        <guid isPermaLink="true">https://pdxiii.github.io/update/2016/05/02/Custom-Tab-View.html</guid>
+        
+        
+        <category>update</category>
+        
+      </item>
     
       <item>
         <title>Added Some Pages and Google Analytics</title>
@@ -52,9 +166,9 @@
 
 &lt;h3 id=&quot;get-the-data&quot;&gt;Get the Data&lt;/h3&gt;
 
-&lt;p&gt;In my code, the function which handles the task to display my GitHub activities caries the soundfull name  &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt;. It receives two arguments. First is the user name, the other is a DOM element selected with &lt;a href=&quot;https://jquery.com&quot;&gt;jQuery&lt;/a&gt;, that will later contain the activities as HTML code.&lt;/p&gt;
+&lt;p&gt;In my code, the function which handles the task to display my GitHub activities carries the sound full name  &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt;. It receives two arguments. First is the username, the other is a DOM element selected with &lt;a href=&quot;https://jquery.com&quot;&gt;jQuery&lt;/a&gt;, that will later contain the activities as HTML code.&lt;/p&gt;
 
-&lt;p&gt;First of all, a AJAX call is made against GitHub’s User Event Stream &lt;code class=&quot;highlighter-rouge&quot;&gt;https://api.github.com/users/[GITHUB_USER_NAME]/events/public&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First of all, an AJAX call is made against GitHub’s User Event Stream &lt;code class=&quot;highlighter-rouge&quot;&gt;https://api.github.com/users/[GITHUB_USER_NAME]/events/public&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;If the AJAX call is successful, the received data is limited to the latest five events. Each event is passed to the function &lt;code class=&quot;highlighter-rouge&quot;&gt;parseActivityJSON&lt;/code&gt;.&lt;/p&gt;
 
@@ -90,7 +204,7 @@
 
 &lt;h3 id=&quot;handle-the-data&quot;&gt;Handle the Data&lt;/h3&gt;
 
-&lt;p&gt;The purpose of the function &lt;code class=&quot;highlighter-rouge&quot;&gt;parseActivityJSON&lt;/code&gt; is to uniform the event data and make it easier to handle. For example there is some some string split and concat going on, to build URLs to the repository or the repository owner.&lt;/p&gt;
+&lt;p&gt;The purpose of the function &lt;code class=&quot;highlighter-rouge&quot;&gt;parseActivityJSON&lt;/code&gt; is to uniform the event data and make it easier to handle. For example, there is some string split and concat going on, to build URLs to the repository or the repository owner.&lt;/p&gt;
 
 &lt;p&gt;At least the function returns an object, which can be imagined like this:&lt;/p&gt;
 
@@ -106,11 +220,11 @@
   &lt;span class=&quot;nx&quot;&gt;issueNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;integer&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Before we follow this objects return to the &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; function, we take a look what happen to the timestamp.&lt;/p&gt;
+&lt;p&gt;Before we follow this object returning back to the &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; function, we take a look what happen to the timestamp.&lt;/p&gt;
 
-&lt;h3 id=&quot;nicer-timestamps-with-momentjsmomentjs&quot;&gt;Nicer timestamps with [Moment.js][moment.js]&lt;/h3&gt;
+&lt;h3 id=&quot;nicer-timestamps-with-momentjsmomentjs&quot;&gt;Nicer timestamps with &lt;a href=&quot;http://momentjs.com&quot;&gt;Moment.js&lt;/a&gt;&lt;/h3&gt;
 
-&lt;p&gt;Of course I could have just used the given format of the event’s timestamp, but I trying to create messages that can be read most human as possible. The right library for this job is &lt;a href=&quot;http://momentjs.com&quot;&gt;moment.js&lt;/a&gt;, especially with its &lt;code class=&quot;highlighter-rouge&quot;&gt;calendar()&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;Of course, I could have just used the given format of the event’s timestamp, but I trying to create messages that can be read most human as possible. The right library for this job is &lt;a href=&quot;http://momentjs.com&quot;&gt;moment.js&lt;/a&gt;, especially with its &lt;code class=&quot;highlighter-rouge&quot;&gt;calendar()&lt;/code&gt; function.&lt;/p&gt;
 
 &lt;p&gt;The desired format can be defined in a kind of dictionary:&lt;/p&gt;
 
@@ -127,7 +241,7 @@
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;formatedTime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;givenTimestamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;calendar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;momentFormatSettings&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;We can now return to the &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; function with our nicely formated &lt;strong&gt;activityObj&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;We can now return to the &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; function with our nicely formatted &lt;strong&gt;activityObj&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;templating-with-underscorejsunderscorejs&quot;&gt;Templating with &lt;a href=&quot;http://underscorejs.org&quot;&gt;Underscore.js&lt;/a&gt;&lt;/h3&gt;
 
@@ -167,7 +281,7 @@
 &lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/li&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
 &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&amp;gt; &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;By looking at the &lt;strong&gt;type&lt;/strong&gt; of thes object, the &lt;code class=&quot;highlighter-rouge&quot;&gt;selectTemplate&lt;/code&gt; function picks the right template from the HTML.&lt;/p&gt;
+&lt;p&gt;By looking at the &lt;strong&gt;type&lt;/strong&gt; of the object, the &lt;code class=&quot;highlighter-rouge&quot;&gt;selectTemplate&lt;/code&gt; function picks the right template from the HTML.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectTemplate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;_activity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   
@@ -198,7 +312,7 @@
 
 &lt;h3 id=&quot;displaying-data-in-html&quot;&gt;Displaying Data in HTML&lt;/h3&gt;
 
-&lt;p&gt;Finally the HTML of our &lt;strong&gt;activityObj&lt;/strong&gt; returns to the &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; function and is added to the &lt;strong&gt;activites&lt;/strong&gt; array, which afterwards is joined and added to the containing DOM element.&lt;/p&gt;
+&lt;p&gt;Finally the HTML of our &lt;strong&gt;activityObj&lt;/strong&gt; returns to the &lt;code class=&quot;highlighter-rouge&quot;&gt;displayActivities&lt;/code&gt; function and is added to the &lt;strong&gt;activities&lt;/strong&gt; array, which afterwards is joined and added to the containing DOM element.&lt;/p&gt;
 
 &lt;h2 id=&quot;thats-it&quot;&gt;That’s it&lt;/h2&gt;
 
