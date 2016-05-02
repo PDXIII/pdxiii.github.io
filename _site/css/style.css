@@ -220,27 +220,18 @@ body {
   line-height: 1.5;
   letter-spacing: 0.1em; }
 
-pre, code {
-  font-family: "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
-  line-height: 1.5;
-  letter-spacing: 0.1em; }
-
-pre {
-  padding: 1rem;
-  background-color: white;
-  overflow: hidden;
-  white-space: pre-wrap; }
-
-a {
-  color: currentColor; }
-
 h1,
 .header-link {
   font-family: "XXIIGroberPinsel-Regular", "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
   line-height: 1.3;
   letter-spacing: 0.1em; }
 
+a {
+  color: currentColor; }
+
 a,
+b,
+strong,
 .repoName,
 .repoOwner,
 .read-on-link {
@@ -263,6 +254,22 @@ a,
   .header-link:hover {
     color: #e8c047;
     border-color: #333; }
+
+p img {
+  display: block;
+  margin: auto;
+  border: 1px solid #333; }
+
+pre, code {
+  font-family: "CamingoCode-Regular", Consolas, Monaco, "Lucida Console", "Lucida Sans Typewriter", "Courier New", Courier, monospace;
+  line-height: 1.5;
+  letter-spacing: 0.1em; }
+
+pre {
+  padding: 1rem;
+  background-color: white;
+  overflow: hidden;
+  white-space: pre-wrap; }
 
 .left-align {
   text-align: left; }

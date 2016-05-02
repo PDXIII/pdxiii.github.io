@@ -6,13 +6,13 @@
 </description>
     <link>https://pdxiii.github.io/</link>
     <atom:link href="https://pdxiii.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 May 2016 12:31:16 +0200</pubDate>
-    <lastBuildDate>Mon, 02 May 2016 12:31:16 +0200</lastBuildDate>
+    <pubDate>Mon, 02 May 2016 13:00:03 +0200</pubDate>
+    <lastBuildDate>Mon, 02 May 2016 13:00:03 +0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
         <title>Custom Tab View</title>
-        <description>&lt;p&gt;Recently, I had the chance to applied for a job as ui designer and  creative coder at a SAAS start up. Instead of an long interview and asking for my diploma,
+        <description>&lt;p&gt;Recently, I had the chance to apply for a job as ui designer and  creative coder at a SAAS start up. Instead of an long interview and asking for my diploma,
 the head of design gave my the opportunity to proof my design and coding skills in a small challenge.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-task&quot;&gt;The Task&lt;/h2&gt;
@@ -35,11 +35,10 @@ the head of design gave my the opportunity to proof my design and coding skills 
 
 &lt;h2 id=&quot;the-result&quot;&gt;The Result&lt;/h2&gt;
 
-&lt;!-- [See the Demo](http://s.codepen.io/PDXIII/debug/XdxbYw)  
-[Try the CodePen](http://codepen.io/PDXIII/pen/XdxbYw)  
-[Get the Gist](https://gist.github.com/PDXIII/6ebeffaa42ef53cf04b3a1112893598e) --&gt;
+&lt;p data-height=&quot;296&quot; data-theme-id=&quot;light&quot; data-slug-hash=&quot;XdxbYw&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;PDXIII&quot; data-embed-version=&quot;2&quot; data-preview=&quot;true&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/PDXIII/pen/XdxbYw/&quot;&gt;Custom Tab View&lt;/a&gt; by Peter Sekan (&lt;a href=&quot;http://codepen.io/PDXIII&quot;&gt;@PDXIII&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;//assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;The result used to be a &lt;strong&gt;CodePen&lt;/strong&gt; which temporarly does not work, because CodePen blocked the data import. But if you like to try it, you can get the &lt;a href=&quot;https://gist.github.com/PDXIII/6ebeffaa42ef53cf04b3a1112893598e&quot;&gt;Gist&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://s.codepen.io/PDXIII/debug/XdxbYw&quot;&gt;See the Demo!&lt;/a&gt; &lt;a href=&quot;http://codepen.io/PDXIII/pen/XdxbYw&quot;&gt;Try the CodePen!&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/PDXIII/6ebeffaa42ef53cf04b3a1112893598e&quot;&gt;Get the Gist!&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;What you see is a &lt;strong&gt;customized tab view with a search field&lt;/strong&gt; above. 
 The &lt;strong&gt;search field&lt;/strong&gt; responses immediately to the given input. So, if you start typing, items in the tab views not matching the given string are sorted out.
@@ -53,7 +52,7 @@ So, you see an icon, the name and the size for each file in a row.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-tile-view&quot;&gt;The Tile View&lt;/h3&gt;
 
-&lt;p&gt;The tile view uses random background images of birds delivered by Lorem Flickr, that is the reason why it takes some time until all images are visible. Additional to that the tiles provide the same information like the list items, the file icon is just a little bit larger. For the background images I used css blend mode, which isn’t all browser compatible but looks pretty cool!&lt;/p&gt;
+&lt;p&gt;The tile view uses random background images of birds delivered by Lorem Flickr, that is the reason why it takes some time until all images are visible. Additional to that the tiles provide the same information like the list items, the file icon is just a little bit larger. For the background images I used CSS blend mode, which isn’t all browser compatible but looks pretty cool!&lt;/p&gt;
 
 &lt;h2 id=&quot;the-process&quot;&gt;The Process&lt;/h2&gt;
 
@@ -75,7 +74,7 @@ So, you see an icon, the name and the size for each file in a row.&lt;/p&gt;
 
 &lt;p&gt;After I have chosen a color theme which was influenced by this sneaker:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://i.ebayimg.com/images/g/WBsAAOSw-RRXBsuG/s-l1600.jpg&quot; alt=&quot;Nike Dunk SB Tiffany&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.sneakernews.com/wp-content/uploads/2014/01/diamond-nike-sb-dunk-high-tiffany.jpg&quot; alt=&quot;Nike Dunk SB Tiffany&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I moved the code back to &lt;strong&gt;CodePen&lt;/strong&gt; just to have another good looking experiment in my portfolio.&lt;/p&gt;
 
@@ -109,7 +108,7 @@ So, you see an icon, the name and the size for each file in a row.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;I really enjoyed the task! Even if Makis doesn’t, but like this kind of testing more then looking into CVs or diplomas. I don’t know if the style is »… if Microsoft had a baby with Apple«, I would describe it more like »Edward Tufte discovered the fun of colors«, but anyway I would like to thank you for this opportunity!&lt;/p&gt;
+&lt;p&gt;I really enjoyed the task! I don’t know if the style is »… if Microsoft had a baby with Apple«, I would describe it more like »Edward Tufte discovered the fun of colors«, but anyway I would like to thank you for this opportunity!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Best regards,&lt;/strong&gt;&lt;br /&gt;
 &lt;em&gt;Pete&lt;/em&gt;&lt;/p&gt;

@@ -6,7 +6,7 @@ subtitle: with hide and seek search
 categories: update
 ---
 
-Recently, I had the chance to applied for a job as ui designer and  creative coder at a SAAS start up. Instead of an long interview and asking for my diploma,
+Recently, I had the chance to apply for a job as ui designer and  creative coder at a SAAS start up. Instead of an long interview and asking for my diploma,
 the head of design gave my the opportunity to proof my design and coding skills in a small challenge.
  
 
@@ -26,11 +26,10 @@ the head of design gave my the opportunity to proof my design and coding skills 
 
 ## The Result
 
-<!-- [See the Demo](http://s.codepen.io/PDXIII/debug/XdxbYw)  
-[Try the CodePen](http://codepen.io/PDXIII/pen/XdxbYw)  
-[Get the Gist](https://gist.github.com/PDXIII/6ebeffaa42ef53cf04b3a1112893598e) -->
+<p data-height="296" data-theme-id="light" data-slug-hash="XdxbYw" data-default-tab="css,result" data-user="PDXIII" data-embed-version="2" data-preview="true" class="codepen">See the Pen <a href="http://codepen.io/PDXIII/pen/XdxbYw/">Custom Tab View</a> by Peter Sekan (<a href="http://codepen.io/PDXIII">@PDXIII</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-The result used to be a **CodePen** which temporarly does not work, because CodePen blocked the data import. But if you like to try it, you can get the [Gist](https://gist.github.com/PDXIII/6ebeffaa42ef53cf04b3a1112893598e).
+[See the Demo!](http://s.codepen.io/PDXIII/debug/XdxbYw) [Try the CodePen!](http://codepen.io/PDXIII/pen/XdxbYw) [Get the Gist!](https://gist.github.com/PDXIII/6ebeffaa42ef53cf04b3a1112893598e)
 
 What you see is a **customized tab view with a search field** above. 
 The **search field** responses immediately to the given input. So, if you start typing, items in the tab views not matching the given string are sorted out.
@@ -44,7 +43,7 @@ So, you see an icon, the name and the size for each file in a row.
 
 ### The Tile View
 
-The tile view uses random background images of birds delivered by Lorem Flickr, that is the reason why it takes some time until all images are visible. Additional to that the tiles provide the same information like the list items, the file icon is just a little bit larger. For the background images I used css blend mode, which isn’t all browser compatible but looks pretty cool!
+The tile view uses random background images of birds delivered by Lorem Flickr, that is the reason why it takes some time until all images are visible. Additional to that the tiles provide the same information like the list items, the file icon is just a little bit larger. For the background images I used CSS blend mode, which isn’t all browser compatible but looks pretty cool!
 
 ## The Process
 
@@ -66,7 +65,7 @@ In this task **Less** is the CSS preprocessor of choice. I wrote some mixins for
 
 After I have chosen a color theme which was influenced by this sneaker:
 
-![Nike Dunk SB Tiffany](http://i.ebayimg.com/images/g/WBsAAOSw-RRXBsuG/s-l1600.jpg)
+![Nike Dunk SB Tiffany](http://cdn.sneakernews.com/wp-content/uploads/2014/01/diamond-nike-sb-dunk-high-tiffany.jpg)
 
 I moved the code back to **CodePen** just to have another good looking experiment in my portfolio.
 
@@ -95,7 +94,7 @@ I moved the code back to **CodePen** just to have another good looking experimen
 
 ## Conclusion
 
-I really enjoyed the task! Even if Makis doesn’t, but like this kind of testing more then looking into CVs or diplomas. I don’t know if the style is »… if Microsoft had a baby with Apple«, I would describe it more like »Edward Tufte discovered the fun of colors«, but anyway I would like to thank you for this opportunity!
+I really enjoyed the task! I don’t know if the style is »… if Microsoft had a baby with Apple«, I would describe it more like »Edward Tufte discovered the fun of colors«, but anyway I would like to thank you for this opportunity!
 
 **Best regards,**  
 *Pete*
