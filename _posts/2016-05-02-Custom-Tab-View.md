@@ -38,8 +38,7 @@ Finally under the buttons you find the **tab views**. The first one is **the lis
 
 ### The List View
 
-The list view is represented by a classic table. In your briefing you asked for thumbnail images in the list view. I could have done that, but in my opinion it isn’t suitable in this context (I mean what would a thumbnail of an excel file look like?) and I found it more challenging to pick a matching file icon for the particular file type. 
-So, you see an icon, the name and the size for each file in a row.
+The list view is represented by a classic table. In in the briefing I was asked for thumbnail images in the list view. I could have done that, but in my opinion it isn’t suitable in this context (I mean what would a thumbnail of an excel file look like?) and I found it more challenging to pick a matching file icon for the particular file type. So, you see an icon, the name and the size for each file in a row.
 
 ### The Tile View
 
@@ -94,7 +93,7 @@ I moved the code back to **CodePen** just to have another good looking experimen
 
 ## Conclusion
 
-I really enjoyed the task! I don’t know if the style is »… if Microsoft had a baby with Apple«, I would describe it more like »Edward Tufte discovered the fun of colors«, but anyway I would like to thank you for this opportunity!
+I really enjoyed the task! I don’t know if the style is »… if Microsoft had a baby with Apple«, I would describe it more like »Edward Tufte discovered the fun of colors«.
 
 **Best regards,**  
 *Pete*
