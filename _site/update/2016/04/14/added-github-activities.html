@@ -83,9 +83,9 @@
 
 <h3 id="get-the-data">Get the Data</h3>
 
-<p>In my code, the function which handles the task to display my GitHub activities caries the soundfull name  <code class="highlighter-rouge">displayActivities</code>. It receives two arguments. First is the user name, the other is a DOM element selected with <a href="https://jquery.com">jQuery</a>, that will later contain the activities as HTML code.</p>
+<p>In my code, the function which handles the task to display my GitHub activities carries the sound full name  <code class="highlighter-rouge">displayActivities</code>. It receives two arguments. First is the username, the other is a DOM element selected with <a href="https://jquery.com">jQuery</a>, that will later contain the activities as HTML code.</p>
 
-<p>First of all, a AJAX call is made against GitHub’s User Event Stream <code class="highlighter-rouge">https://api.github.com/users/[GITHUB_USER_NAME]/events/public</code>.</p>
+<p>First of all, an AJAX call is made against GitHub’s User Event Stream <code class="highlighter-rouge">https://api.github.com/users/[GITHUB_USER_NAME]/events/public</code>.</p>
 
 <p>If the AJAX call is successful, the received data is limited to the latest five events. Each event is passed to the function <code class="highlighter-rouge">parseActivityJSON</code>.</p>
 
@@ -121,7 +121,7 @@
 
 <h3 id="handle-the-data">Handle the Data</h3>
 
-<p>The purpose of the function <code class="highlighter-rouge">parseActivityJSON</code> is to uniform the event data and make it easier to handle. For example there is some some string split and concat going on, to build URLs to the repository or the repository owner.</p>
+<p>The purpose of the function <code class="highlighter-rouge">parseActivityJSON</code> is to uniform the event data and make it easier to handle. For example, there is some string split and concat going on, to build URLs to the repository or the repository owner.</p>
 
 <p>At least the function returns an object, which can be imagined like this:</p>
 
@@ -137,11 +137,11 @@
   <span class="nx">issueNumber</span> <span class="o">=</span> <span class="nx">integer</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Before we follow this objects return to the <code class="highlighter-rouge">displayActivities</code> function, we take a look what happen to the timestamp.</p>
+<p>Before we follow this object returning back to the <code class="highlighter-rouge">displayActivities</code> function, we take a look what happen to the timestamp.</p>
 
-<h3 id="nicer-timestamps-with-momentjsmomentjs">Nicer timestamps with [Moment.js][moment.js]</h3>
+<h3 id="nicer-timestamps-with-momentjsmomentjs">Nicer timestamps with <a href="http://momentjs.com">Moment.js</a></h3>
 
-<p>Of course I could have just used the given format of the event’s timestamp, but I trying to create messages that can be read most human as possible. The right library for this job is <a href="http://momentjs.com">moment.js</a>, especially with its <code class="highlighter-rouge">calendar()</code> function.</p>
+<p>Of course, I could have just used the given format of the event’s timestamp, but I trying to create messages that can be read most human as possible. The right library for this job is <a href="http://momentjs.com">moment.js</a>, especially with its <code class="highlighter-rouge">calendar()</code> function.</p>
 
 <p>The desired format can be defined in a kind of dictionary:</p>
 
@@ -158,7 +158,7 @@
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">formatedTime</span> <span class="o">=</span> <span class="nx">moment</span><span class="p">(</span><span class="nx">givenTimestamp</span><span class="p">).</span><span class="nx">calendar</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="nx">momentFormatSettings</span> <span class="p">);</span></code></pre></figure>
 
-<p>We can now return to the <code class="highlighter-rouge">displayActivities</code> function with our nicely formated <strong>activityObj</strong>.</p>
+<p>We can now return to the <code class="highlighter-rouge">displayActivities</code> function with our nicely formatted <strong>activityObj</strong>.</p>
 
 <h3 id="templating-with-underscorejsunderscorejs">Templating with <a href="http://underscorejs.org">Underscore.js</a></h3>
 
@@ -198,7 +198,7 @@
 </span>  <span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/script&gt; </span></code></pre></figure>
 
-<p>By looking at the <strong>type</strong> of thes object, the <code class="highlighter-rouge">selectTemplate</code> function picks the right template from the HTML.</p>
+<p>By looking at the <strong>type</strong> of the object, the <code class="highlighter-rouge">selectTemplate</code> function picks the right template from the HTML.</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">selectTemplate</span> <span class="p">(</span><span class="nx">_activity</span><span class="p">)</span> <span class="p">{</span>
   
@@ -229,7 +229,7 @@
 
 <h3 id="displaying-data-in-html">Displaying Data in HTML</h3>
 
-<p>Finally the HTML of our <strong>activityObj</strong> returns to the <code class="highlighter-rouge">displayActivities</code> function and is added to the <strong>activites</strong> array, which afterwards is joined and added to the containing DOM element.</p>
+<p>Finally the HTML of our <strong>activityObj</strong> returns to the <code class="highlighter-rouge">displayActivities</code> function and is added to the <strong>activities</strong> array, which afterwards is joined and added to the containing DOM element.</p>
 
 <h2 id="thats-it">That’s it</h2>
 

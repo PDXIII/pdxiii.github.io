@@ -22,9 +22,9 @@ Because I can! No, just kidding. I always thought about my personal GitHub page 
 
 ### Get the Data
 
-In my code, the function which handles the task to display my GitHub activities caries the soundfull name  ```displayActivities```. It receives two arguments. First is the user name, the other is a DOM element selected with [jQuery][jQuery], that will later contain the activities as HTML code.
+In my code, the function which handles the task to display my GitHub activities carries the sound full name  ```displayActivities```. It receives two arguments. First is the username, the other is a DOM element selected with [jQuery][jQuery], that will later contain the activities as HTML code.
  
-First of all, a AJAX call is made against GitHub’s User Event Stream ```https://api.github.com/users/[GITHUB_USER_NAME]/events/public```. 
+First of all, an AJAX call is made against GitHub’s User Event Stream ```https://api.github.com/users/[GITHUB_USER_NAME]/events/public```. 
 
 If the AJAX call is successful, the received data is limited to the latest five events. Each event is passed to the function ```parseActivityJSON```.
 
@@ -60,9 +60,10 @@ function displayActivities (_username, _$container) {
 }
 {% endhighlight %}
 
+
 ### Handle the Data
 
-The purpose of the function ```parseActivityJSON``` is to uniform the event data and make it easier to handle. For example there is some some string split and concat going on, to build URLs to the repository or the repository owner.
+The purpose of the function ```parseActivityJSON``` is to uniform the event data and make it easier to handle. For example, there is some string split and concat going on, to build URLs to the repository or the repository owner.
 
 At least the function returns an object, which can be imagined like this:
 
@@ -80,11 +81,11 @@ var activityObj = {
 }
 {% endhighlight %}
 
-Before we follow this objects return to the ```displayActivities``` function, we take a look what happen to the timestamp.
+Before we follow this object returning back to the ```displayActivities``` function, we take a look what happen to the timestamp.
 
-### Nicer timestamps with [Moment.js][moment.js]
+### Nicer timestamps with [Moment.js][momentjs]
 
-Of course I could have just used the given format of the event’s timestamp, but I trying to create messages that can be read most human as possible. The right library for this job is [moment.js][momentjs], especially with its ```calendar()``` function.
+Of course, I could have just used the given format of the event’s timestamp, but I trying to create messages that can be read most human as possible. The right library for this job is [moment.js][momentjs], especially with its ```calendar()``` function.
 
 The desired format can be defined in a kind of dictionary:
 
@@ -105,7 +106,7 @@ And later the given timestamp will be parsed with the ```calendar``` function:
 var formatedTime = moment(givenTimestamp).calendar(null,momentFormatSettings );
 {% endhighlight %}
 
-We can now return to the ```displayActivities``` function with our nicely formated **activityObj**.
+We can now return to the ```displayActivities``` function with our nicely formatted **activityObj**.
 
 ### Templating with [Underscore.js][underscorejs]
 
@@ -147,7 +148,7 @@ One big advantage of [underscore.js][underscore] is, that you can store your tem
 </script> 
 {% endhighlight %}
 
-By looking at the **type** of thes object, the ```selectTemplate``` function picks the right template from the HTML.
+By looking at the **type** of the object, the ```selectTemplate``` function picks the right template from the HTML.
 
 {% highlight javascript %}
 function selectTemplate (_activity) {
@@ -180,7 +181,7 @@ function selectTemplate (_activity) {
 
 ### Displaying Data in HTML
 
-Finally the HTML of our **activityObj** returns to the ```displayActivities``` function and is added to the **activites** array, which afterwards is joined and added to the containing DOM element.
+Finally the HTML of our **activityObj** returns to the ```displayActivities``` function and is added to the **activities** array, which afterwards is joined and added to the containing DOM element.
 
 ## That’s it
 
