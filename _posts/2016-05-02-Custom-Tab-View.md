@@ -1,9 +1,10 @@
 ---
 layout: post
-title: 'Custom Tab View'
-date: 2016-05-02 11:10:10 +0200
+title: Custom Tab View
+date: '2016-05-02 11:10:10 +0200'
 subtitle: with hide and seek search
 categories: update
+published: true
 ---
 
 Recently, I had the chance to apply for a job as ui designer and  creative coder at a SAAS start up. Instead of an long interview and asking for my diploma,
@@ -23,6 +24,8 @@ the head of design gave my the opportunity to proof my design and coding skills 
 7. Layout as you think best
 8. Style as you wish
 9. Namespacing things… it’s important
+10. Kleine Preview für Seba
+
 
 ## The Result
 
@@ -97,5 +100,3 @@ I really enjoyed the task! I don’t know if the style is »… if Microsoft had
 
 **Best regards,**  
 *Pete*
-
-
