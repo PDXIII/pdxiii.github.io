@@ -24,8 +24,6 @@ the head of design gave my the opportunity to proof my design and coding skills 
 7. Layout as you think best
 8. Style as you wish
 9. Namespacing things… it’s important
-10. Kleine Preview für Seba
-
 
 ## The Result
 
