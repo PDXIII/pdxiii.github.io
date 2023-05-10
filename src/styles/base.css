@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* increasing sizes by increasing base font-size */
+
+  html {
+    font-size: 24px;
+  }
+
+  /* Camingo Code  */
+  @font-face {
+    font-family: "CamingoCode";
+    font-weight: 400;
+    src: url("/fonts/CamingoCode/CamingoCode-Regular.woff") format("woff"),
+      url("/fonts/CamingoCode/CamingoCode-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "CamingoCode";
+    font-weight: 400;
+    font-style: italic;
+    src: url("/fonts/CamingoCode/CamingoCode-Italic.woff") format("woff"),
+      url("/fonts/CamingoCode/CamingoCode-Italic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "CamingoCode";
+    font-weight: 600;
+    src: url("/fonts/CamingoCode/CamingoCode-Bold.woff") format("woff"),
+      url("/fonts/CamingoCode/CamingoCode-Bold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "CamingoCode";
+    font-weight: 600;
+    font-style: italic;
+    src: url("/fonts/CamingoCode/CamingoCode-BoldItalic.woff") format("woff"),
+      url("/fonts/CamingoCode/CamingoCode-BoldItalic.woff2") format("woff2");
+  }
+  /* Fabrikat Kompakt */
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 100;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Hairline.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 200;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Thin.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 300;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Light.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 400;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Regular.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 500;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Medium.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 700;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Bold.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 900;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Black.otf")
+      format("opentype");
+  }
+
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 100;
+    font-style: italic;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-HairlineItalic.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 200;
+    font-style: italic;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-ThinItalic.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 300;
+    font-style: italic;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-LightItalic.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 400;
+    font-style: italic;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-RegularItalic.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 500;
+    font-style: italic;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-MediumItalic.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 700;
+    font-style: italic;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-BoldItalic.otf")
+      format("opentype");
+  }
+  @font-face {
+    font-family: "FabrikatKompakt";
+    font-weight: 900;
+    font-style: italic;
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-BlackItalic.otf")
+      format("opentype");
+  }
+}
