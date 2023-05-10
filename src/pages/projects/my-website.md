@@ -15,4 +15,4 @@ I’ve added Anime.js to the project, and it works nicely. About Astro I’ve le
 
 The website looks currently like this:
 
-![my website on 10 May 2023](../images/my-website/website-screenshot-2023-05-10_21-26-27.png)
+![my website on 10 May 2023](/images/my-website/website-screenshot-2023-05-10_21-26-27.png)
