@@ -4,7 +4,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://pdxiii.github.io",
+  site: "http://petersekan.de",
   integrations: [
     tailwind({
       // Example: Disable injecting a basic `base.css` import on every page.
