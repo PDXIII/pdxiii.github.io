@@ -1,7 +1,9 @@
 ---
 title: Hi, my name is Pete
-layout: ../layouts/MarkdownContainer.astro
+layout: ../layouts/IndexLayout.astro
 ---
+
+## Hi, my name is Pete
 
 > I am a UX engineer and creative technologist with a stong love for thought-through design systems and well-crafted frontend component libraries.
 

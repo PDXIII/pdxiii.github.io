@@ -1,7 +1,9 @@
 ---
 title: About Me!
-layout: ../layouts/MarkdownContainer.astro
+layout: ../layouts/ProjectLayout.astro
 ---
+
+## About Me
 
 > I am a UX engineer with over a decade of experience in software design, and I love well-crafted design systems and component libraries.
 
