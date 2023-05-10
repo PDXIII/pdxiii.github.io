@@ -11,6 +11,4 @@ As a proud father of three fantastic girls, I live in the vivid city of Berlin. 
 
 Nice to meet you! 😃
 
-If you’d like to know more about me you can visit [my about page](/about) or you’ll revisit this site again, when I have added my projects here.
-
-Don’t hesitate to reach out via [GitHub](https://github.com/PDXIII) or [LinkedIn](https://www.linkedin.com/in/pdxiii/).
+If you’d like to know more about me please visit [my about page.](/about)

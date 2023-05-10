@@ -9,6 +9,8 @@ layout: ../layouts/ProjectLayout.astro
 
 I enjoy having a family, being resourceful, and living in the vivid city of Berlin. Seeing myself also as a creative coder, I strongly believe that good design already starts with well-written source code and that the best user experience results from the combination of both. My former colleagues would probably say, that I am a team player and an eager learner.
 
+Don’t hesitate to reach out via [GitHub](https://github.com/PDXIII) or [LinkedIn](https://www.linkedin.com/in/pdxiii/).
+
 ## Experience
 
 ### Associate Director Product Design at [Marketlogic Software](https://marketlogicsoftware.com/)

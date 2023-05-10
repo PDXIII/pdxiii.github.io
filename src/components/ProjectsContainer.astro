@@ -1,0 +1,16 @@
+---
+const { projects } = Astro.props;
+---
+
+<section class="projects mx-auto p-8 bg-slate-200">
+  <h2 class="text-xl mb-4">My most recent projects</h2>
+  <div class="w-full grid gap-4 grid-cols-3">
+    {
+      projects.map((proj) => (
+        <article>
+          <a href={proj.url}>{proj.frontmatter.title}</a>
+        </article>
+      ))
+    }
+  </div>
+</section>

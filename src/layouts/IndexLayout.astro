@@ -1,0 +1,15 @@
+---
+import Default from "./Default.astro";
+import MarkdownContainer from "../components/MarkdownContainer.astro";
+import ProjectsContainer from "../components/ProjectsContainer.astro";
+
+const { title } = Astro.props;
+const projects = await Astro.glob("../pages/projects/*.md");
+---
+
+<Default title={title}>
+  <MarkdownContainer>
+    <slot />
+  </MarkdownContainer>
+  <ProjectsContainer projects={projects} />
+</Default>

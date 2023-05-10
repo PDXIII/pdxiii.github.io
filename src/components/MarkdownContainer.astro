@@ -1,0 +1,17 @@
+---
+---
+
+<section class="markdown-container prose prose-lg container mx-auto mb-8">
+  <slot />
+</section>
+
+<script>
+  import anime from "animejs/lib/anime.es.js";
+  anime({
+    targets: ".markdown-container *",
+    opacity: [0, 1],
+    translateY: [50, 0],
+    delay: anime.stagger(100, { start: 800 }),
+    // direction: "reverse",
+  });
+</script>
