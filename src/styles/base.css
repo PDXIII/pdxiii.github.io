@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  /* increasing sizes by increasing base font-size */
-
-  html {
-    font-size: 24px;
-  }
-
   /* Camingo Code  */
   @font-face {
     font-family: "CamingoCode";
