@@ -1,6 +1,7 @@
 ---
 title: Building My Website
 layout: ../../layouts/ProjectLayout.astro
+titleImg: /images/placeholder.png
 ---
 
 ## Tuesday, 09 May 2023

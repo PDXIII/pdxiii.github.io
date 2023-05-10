@@ -1,6 +1,7 @@
 ---
 title: Autsch’n
 layout: ../../layouts/ProjectLayout.astro
+titleImg: /images/placeholder.png
 ---
 
 ## Autsch’n

@@ -1,6 +1,7 @@
 ---
 title: The Cyrano Service
 layout: ../../layouts/ProjectLayout.astro
+titleImg: /images/placeholder.png
 ---
 
 ## Cyrano
@@ -38,7 +39,7 @@ Cyrano is a learning project by [hilarious potato](https://github.com/hilarious-
 
 If you have any feedback, please [create an issue](https://github.com/hilarious-potato/cyrano-server/issues/new/)
 
-### Hilarious Potato are:
+### Hilarious Potato are
 
 - [@PDXIII](https://www.github.com/PDXIII)
 - [@denefi](https://www.github.com/denefi)

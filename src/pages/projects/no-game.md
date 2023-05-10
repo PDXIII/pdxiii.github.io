@@ -1,6 +1,7 @@
 ---
 title: No Game
 layout: ../../layouts/ProjectLayout.astro
+titleImg: /images/placeholder.png
 ---
 
 ## No Game
@@ -42,10 +43,10 @@ It was deployed on:
 
 ## Learning Achievements
 
-### Alexandre:
+### Alexandre
 
 > Game logic, secure routes and synchrosity of the stats between front and back end.
 
-### Pete:
+### Pete
 
 > Don’t use custom CSS, only Bootstrap. Learn about using Mongo DB and Handlebars.

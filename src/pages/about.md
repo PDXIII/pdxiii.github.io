@@ -1,6 +1,7 @@
 ---
 title: About Me!
 layout: ../layouts/ProjectLayout.astro
+titleImg: /images/placeholder.png
 ---
 
 ## About Me
