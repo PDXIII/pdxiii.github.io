@@ -25,16 +25,6 @@ const { projects } = Astro.props;
 <script>
   import anime from "animejs/lib/anime.es.js";
 
-  const target = document.querySelector(".projects");
-
-  const handleIntersection = (entries) => {
-    entries.map((entry) => {
-      if (entry.isIntersecting) {
-        animation.play();
-      }
-    });
-  };
-
   const animation = anime({
     targets: ".projects article",
     opacity: [0, 1],
@@ -45,7 +35,15 @@ const { projects } = Astro.props;
     easing: "easeOutQuint",
   });
 
+  const handleIntersection = (entries) => {
+    entries.map((entry) => {
+      if (entry.isIntersecting) {
+        animation.play();
+      }
+    });
+  };
+
   let observer = new IntersectionObserver(handleIntersection);
 
-  observer.observe(target);
+  observer.observe(document.querySelector(".projects"));
 </script>
