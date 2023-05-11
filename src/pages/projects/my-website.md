@@ -22,3 +22,11 @@ The website looks currently like this:
 ## Thursday, 11 May 2023
 
 Yay, my custom domain is working! This page is now available under [peterekan.de](https://peterekan.de). That’s pretty great and would have made my day, if today wasn’t already awesome!
+
+A few hours have passed and I’ve worked on the website. I have added a dash of color and fixed the default type styling for Markdown content.
+
+The website looks like this right now:
+
+![my website on 11 May 2023](/images/my-website/website-screenshot-2023-05-11_15-42-50.png)
+
+I think it is at a point where I can show it and focus again on the projects, because the things I’ve learned about Astro.js and Anime.js want me to apply them. But it would be a total overload for this here. The game project is the right thing for this and would apreciate a re-write.

@@ -4,14 +4,14 @@ const { projects } = Astro.props;
 
 <section class="projects w-screen bg-amber-100">
   <div class="w-full grid grid-cols-2 p-8 gap-4 pb-16">
-    <h2 class="text-3xl font-medium col-span-2">Recent Projects</h2>
+    <h2 class="text-3xl col-span-2">Recent Projects</h2>
     {
       projects.map((proj) => (
         <a
           class="hover:scale-110 transition-transform ease-in-out hover:z-10"
           href={proj.url}
         >
-          <article class="bg-amber-100/10 backdrop-blur-sm">
+          <article>
             <h3 class="text-3xl font-light border-slate-900 border-b hover:border-primary">
               {proj.frontmatter.title}
             </h3>
