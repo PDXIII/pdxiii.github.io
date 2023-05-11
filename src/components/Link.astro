@@ -1,0 +1,10 @@
+---
+const { to, classList } = Astro.props;
+---
+
+<a
+  class={`underline decoration-1 hover:decoration-primary underline-offset-2 ${classList}`}
+  href={to}
+>
+  <slot />
+</a>

@@ -2,6 +2,7 @@
 title: The Cyrano Service
 layout: ../../layouts/ProjectLayout.astro
 titleImg: /images/placeholder.png
+teaser: A service for your encrypted messages.
 ---
 
 ## Cyrano

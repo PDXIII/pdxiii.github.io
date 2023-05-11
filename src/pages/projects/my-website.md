@@ -2,6 +2,7 @@
 title: Building My Website
 layout: ../../layouts/ProjectLayout.astro
 titleImg: /images/placeholder.png
+teaser: The journey to this website.
 ---
 
 ## Tuesday, 09 May 2023
@@ -17,3 +18,7 @@ I’ve added Anime.js to the project, and it works nicely. About Astro I’ve le
 The website looks currently like this:
 
 ![my website on 10 May 2023](/images/my-website/website-screenshot-2023-05-10_21-26-27.png)
+
+## Thursday, 11 May 2023
+
+Yay, my custom domain is working! This page is now available under [peterekan.de](https://peterekan.de). That’s pretty great and would have made my day, if today wasn’t already awesome!

@@ -2,11 +2,12 @@
 title: No Game
 layout: ../../layouts/ProjectLayout.astro
 titleImg: /images/placeholder.png
+teaser: A simple adaption of OGame.
 ---
 
 ## No Game
 
-Was built by [Aleandre Benat](https://github.com/ABenat1988) and [Peter Sekan](https://github.com/PDXIII) during the [Ironhack](https://www.ironhack.com/) Web Dev RMT Bootcamp Feb. 2023 as a learning project.
+Was built by [Alexandre Benat](https://github.com/ABenat1988) and [Peter Sekan](https://github.com/PDXIII) during the [Ironhack](https://www.ironhack.com/) Web Dev RMT Bootcamp Feb. 2023 as a learning project.
 It is a simple adaption of the famous [OGame](https://gameforge.com/en-GB/play/ogame). One of the most popular browser games ever.
 
 Here is the link to try it: [https://nogame.adaptable.app/](https://nogame.adaptable.app/)
@@ -43,10 +44,8 @@ It was deployed on:
 
 ## Learning Achievements
 
-### Alexandre
-
 > Game logic, secure routes and synchrosity of the stats between front and back end.
-
-### Pete
+> _— Alexandre_
 
 > Don’t use custom CSS, only Bootstrap. Learn about using Mongo DB and Handlebars.
+> _— Pete_

@@ -2,6 +2,7 @@
 title: Autsch’n
 layout: ../../layouts/ProjectLayout.astro
 titleImg: /images/placeholder.png
+teaser: A game anout colorblindness. Not seriously!
 ---
 
 ## Autsch’n
