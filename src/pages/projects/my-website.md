@@ -30,3 +30,7 @@ The website looks like this right now:
 ![my website on 11 May 2023](/images/my-website/website-screenshot-2023-05-11_15-42-50.png)
 
 I think it is at a point where I can show it and focus again on the projects, because the things I’ve learned about Astro.js and Anime.js want me to apply them. But it would be a total overload for this here. The game project is the right thing for this and would apreciate a re-write.
+
+## Wednesday, 17 May 2023
+
+Today, I’ve added a license to the repository and a [now page][http://petersekan.de/now] to the website. Now, I will take a look into an Astro tutorial about structuring content better. Let’s see if I will do that.
