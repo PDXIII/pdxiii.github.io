@@ -11,6 +11,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["FabrikatKompakt", ...defaultTheme.fontFamily.sans],
+        serif: ["Rowan-Variable", ...defaultTheme.fontFamily.serif],
         mono: ["CamingoCode", ...defaultTheme.fontFamily.mono],
       },
       typography: {
@@ -38,7 +39,10 @@ module.exports = {
               "font-weight": 400,
             },
             blockquote: {
-              "font-weight": 400,
+              "font-weight": 300,
+              "font-size": "1.25rem",
+              "line-height": "2rem",
+              "font-family": "Rowan-Variable",
               "border-left-color": "rgb(var(--color-primary))",
               "border-left-width": "0.125rem",
             },
@@ -49,6 +53,12 @@ module.exports = {
             },
             "blockquote p:last-of-type::after": {
               content: "",
+            },
+            i: {
+              "font-family": "Rowan-Variable",
+            },
+            em: {
+              "font-family": "Rowan-Variable",
             },
           },
         },

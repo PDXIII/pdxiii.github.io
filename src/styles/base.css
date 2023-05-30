@@ -77,7 +77,6 @@
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Black.otf")
       format("opentype");
   }
-
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 100;
@@ -126,5 +125,47 @@
     font-style: italic;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-BlackItalic.otf")
       format("opentype");
+  }
+
+  /**
+* This is a variable font
+* You can controll variable axes as shown below:
+* font-variation-settings: 'wght' 700.0;
+*
+* available axes:
+
+* 'wght' (range from 300.0 to 700.0)
+
+*/
+
+  @font-face {
+    font-family: "Rowan-Variable";
+    src: url("/fonts/Rowan/Rowan-Variable.woff2") format("woff2"),
+      url("/fonts/Rowan/Rowan-Variable.woff") format("woff"),
+      url("/fonts/Rowan/Rowan-Variable.ttf") format("truetype");
+    font-weight: 300 700;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  /**
+* This is a variable font
+* You can controll variable axes as shown below:
+* font-variation-settings: 'wght' 700.0;
+*
+* available axes:
+
+* 'wght' (range from 300.0 to 700.0)
+
+*/
+
+  @font-face {
+    font-family: "Rowan-Variable";
+    src: url("/fonts/Rowan/Rowan-VariableItalic.woff2") format("woff2"),
+      url("/fonts/Rowan/Rowan-VariableItalic.woff") format("woff"),
+      url("/fonts/Rowan/Rowan-VariableItalic.ttf") format("truetype");
+    font-weight: 300 700;
+    font-display: swap;
+    font-style: italic;
   }
 }
