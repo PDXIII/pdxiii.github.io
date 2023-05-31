@@ -11,9 +11,13 @@ const allThoughts = await getCollection("thoughts");
     <h2>Thoughts</h2>
 
     {
-      allThoughts.map((thought) => (
-        <a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a>
-      ))
+      allThoughts
+        .sort(
+          (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+        )
+        .map((thought) => (
+          <a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a>
+        ))
     }
   </section>
 </DefaultLayout>
