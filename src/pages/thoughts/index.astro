@@ -9,15 +9,20 @@ const allThoughts = await getCollection("thoughts");
 <DefaultLayout title={title}>
   <section class="prose prose-lg px-8 mx-auto mb-8 min-h-[75vh]">
     <h2>Thoughts</h2>
-
-    {
-      allThoughts
-        .sort(
-          (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
-        )
-        .map((thought) => (
-          <a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a>
-        ))
-    }
+    <ul>
+      {
+        allThoughts
+          .sort(
+            (a, b) =>
+              b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+          )
+          .map((thought) => (
+            <li>
+              <a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a> –{" "}
+              <small>{thought.data.publishedAt.toDateString()}</small>
+            </li>
+          ))
+      }
+    </ul>
   </section>
 </DefaultLayout>

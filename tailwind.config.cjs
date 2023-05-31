@@ -23,14 +23,17 @@ module.exports = {
                 "text-decoration-color": "rgb(var(--color-primary))",
               },
             },
+            h1: {
+              "font-weight": 200,
+            },
             h2: {
-              "font-weight": 400,
+              "font-weight": 300,
             },
             h3: {
-              "font-weight": 400,
+              "font-weight": 300,
             },
             h4: {
-              "font-weight": 400,
+              "font-weight": 300,
             },
             h5: {
               "font-weight": 400,

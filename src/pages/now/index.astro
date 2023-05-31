@@ -5,7 +5,7 @@ import DefaultLayout from "../../layouts/DefaultLayout.astro";
 const title = "Now";
 const allNows = await getCollection("now");
 const { Content } = await allNows[allNows.length - 1].render();
-const lastDate = allNows[allNows.length - 1].data.date;
+const lastDate = allNows[allNows.length - 1].data.publishedAt;
 ---
 
 <DefaultLayout title={title}>
@@ -17,11 +17,14 @@ const lastDate = allNows[allNows.length - 1].data.date;
     <ul>
       {
         allNows
-          .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+          .sort(
+            (a, b) =>
+              b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+          )
           .map((now) => (
             <li>
               <a href={`/now/${now.slug}`}>{now.data.title}</a> –{" "}
-              <small>{now.data.date.toDateString()}</small>
+              <small>{now.data.publishedAt.toDateString()}</small>
             </li>
           ))
       }
