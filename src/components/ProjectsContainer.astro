@@ -43,8 +43,10 @@ const { projects } = Astro.props;
       }
     });
   };
-
+  // observe when projects intersect viewport and play animation
   let observer = new IntersectionObserver(handleIntersection);
-
-  observer.observe(document.querySelector(".projects"));
+  const target = document.querySelector(".projects");
+  if (target) {
+    observer.observe(target);
+  }
 </script>

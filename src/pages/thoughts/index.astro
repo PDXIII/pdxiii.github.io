@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+const title = "Thoughts";
+const allThoughts = await getCollection("thoughts");
+---
+
+<DefaultLayout title={title}>
+  <section class="prose prose-lg px-8 mx-auto mb-8 min-h-[75vh]">
+    <h2>Thoughts</h2>
+
+    {
+      allThoughts.map((thought) => (
+        <a href={`/thoughts/${thought.slug}`}>{thought.data.title}</a>
+      ))
+    }
+  </section>
+</DefaultLayout>

@@ -4,6 +4,7 @@ image: ./images/thoughts/should-designers-code.jpg
 isDraft: false,
 publishedAt: 2021-12-07
 updatedAt: 2023-05-31
+tags: [design, coding, learning]
 ---
 
 ## Should designers code?

@@ -1,11 +1,11 @@
 ---
-import Default from "./Default.astro";
+import DefaultLayout from "./DefaultLayout.astro";
 import MarkdownContainer from "../components/MarkdownContainer.astro";
 const { title } = Astro.props;
 ---
 
-<Default title={title}>
+<DefaultLayout title={title}>
   <MarkdownContainer>
     <slot />
   </MarkdownContainer>
-</Default>
+</DefaultLayout>

@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+const title = "Now";
+const allNows = await getCollection("now");
+const { Content } = await allNows[allNows.length - 1].render();
+const lastDate = allNows[allNows.length - 1].data.date;
+---
+
+<DefaultLayout title={title}>
+  <section class="prose prose-lg px-8 mx-auto mb-8 min-h-[75vh]">
+    <h2>What am I doing <a href="https://nownownow.com/about">now?</a></h2>
+    <small>{lastDate.toDateString()}</small>
+    <Content />
+    <h3>What have I done recently?</h3>
+    <ul>
+      {
+        allNows
+          .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+          .map((now) => (
+            <li>
+              <a href={`/now/${now.slug}`}>{now.data.title}</a> –{" "}
+              <small>{now.data.date.toDateString()}</small>
+            </li>
+          ))
+      }
+    </ul>
+  </section>
+</DefaultLayout>

@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+import MarkdownContainer from "../../components/MarkdownContainer.astro";
+
+export async function getStaticPaths() {
+  const thoughtEntries = await getCollection("thoughts");
+  return thoughtEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<DefaultLayout title={entry.data}>
+  <MarkdownContainer>
+    <Content />
+  </MarkdownContainer>
+</DefaultLayout>
