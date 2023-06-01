@@ -9,25 +9,29 @@ const lastDate = allNows[allNows.length - 1].data.publishedAt;
 ---
 
 <DefaultLayout title={title}>
-  <section class="prose prose-lg px-8 mx-auto mb-8 min-h-[75vh]">
+  <section class="prose prose-lg px-8 mx-auto mb-8">
     <h2>What am I doing <a href="https://nownownow.com/about">now?</a></h2>
     <small>{lastDate.toDateString()}</small>
     <Content />
-    <h3>What have I done recently?</h3>
-    <ul>
-      {
-        allNows
-          .sort(
-            (a, b) =>
-              b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
-          )
-          .map((now) => (
-            <li>
-              <a href={`/now/${now.slug}`}>{now.data.title}</a> –{" "}
-              <small>{now.data.publishedAt.toDateString()}</small>
-            </li>
-          ))
-      }
-    </ul>
+  </section>
+  <section class="p-8 pb-16 bg-amber-100">
+    <div class="prose prose-lg px-8 mx-auto">
+      <h3>What have I done recently?</h3>
+      <ul>
+        {
+          allNows
+            .sort(
+              (a, b) =>
+                b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+            )
+            .map((now) => (
+              <li>
+                <a href={`/now/${now.slug}`}>{now.data.title}</a> –{" "}
+                <small>{now.data.publishedAt.toDateString()}</small>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
   </section>
 </DefaultLayout>

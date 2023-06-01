@@ -24,10 +24,11 @@ the head of design gave my the opportunity to proof my design and coding skills 
 
 ## The Result
 
-<p data-height="296" data-theme-id="light" data-slug-hash="XdxbYw" data-default-tab="css,result" data-user="PDXIII" data-embed-version="2" data-preview="true" class="codepen">See the Pen <a href="http://codepen.io/PDXIII/pen/XdxbYw/">Custom Tab View</a> by Peter Sekan (<a href="http://codepen.io/PDXIII">@PDXIII</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-[See the Demo!](http://s.codepen.io/PDXIII/debug/XdxbYw) [Try the CodePen!](http://codepen.io/PDXIII/pen/XdxbYw) [Get the Gist!](https://gist.github.com/PDXIII/6ebeffaa42ef53cf04b3a1112893598e)
+<iframe height="300" style="width: 100%;" scrolling="no" title="Custom Tab View" src="https://codepen.io/PDXIII/embed/preview/XdxbYw?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/PDXIII/pen/XdxbYw">
+  Custom Tab View</a> by Peter Sekan (<a href="https://codepen.io/PDXIII">@PDXIII</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 What you see is a **customized tab view with a search field** above.
 The **search field** responses immediately to the given input. So, if you start typing, items in the tab views not matching the given string are sorted out.
@@ -62,7 +63,7 @@ In this task **Less** is the CSS preprocessor of choice. I wrote some mixins for
 
 After I have chosen a color theme which was influenced by this sneaker:
 
-![Nike Dunk SB Tiffany](http://cdn.sneakernews.com/wp-content/uploads/2014/01/diamond-nike-sb-dunk-high-tiffany.jpg)
+![Nike Dunk SB Tiffany](/images/thoughts/nike-dunk-tiffany.jpg)
 
 I moved the code back to **CodePen** just to have another good looking experiment in my portfolio.
 
