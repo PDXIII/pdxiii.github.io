@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+const title = "Projects";
+const allProjects = await getCollection("projects");
+---
+
+<DefaultLayout title={title}>
+  <section class="prose prose-lg px-8 mx-auto mb-8 min-h-[75vh]">
+    <h2>Projects</h2>
+    <ul>
+      {
+        allProjects
+          .sort(
+            (a, b) =>
+              b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+          )
+          .map((project) => (
+            <li>
+              <a href={`/projects/${project.slug}`}>{project.data.title}</a> –{" "}
+              <small>{project.data.publishedAt.toDateString()}</small>
+            </li>
+          ))
+      }
+    </ul>
+  </section>
+</DefaultLayout>

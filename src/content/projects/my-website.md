@@ -1,8 +1,10 @@
 ---
 title: Building My Website
-layout: ../../layouts/ProjectLayout.astro
-titleImg: /images/placeholder.png
+image: /images/placeholder.png
+tags: [development, design, ux, game]
 teaser: The journey to this website.
+publishedAt: 2023-05-09
+updatedAt: 2023-06-01
 ---
 
 ## Tuesday, 09 May 2023
@@ -33,4 +35,4 @@ I think it is at a point where I can show it and focus again on the projects, be
 
 ## Wednesday, 17 May 2023
 
-Today, I’ve added a license to the repository and a [now page][http://petersekan.de/now] to the website. Now, I will take a look into an Astro tutorial about structuring content better. Let’s see if I will do that.
+Today, I’ve added a license to the repository and a [now page](http://petersekan.de/now) to the website. Now, I will take a look into an Astro tutorial about structuring content better. Let’s see if I will do that.

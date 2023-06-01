@@ -1,8 +1,10 @@
 ---
 title: The Cyrano Service
-layout: ../../layouts/ProjectLayout.astro
-titleImg: /images/placeholder.png
+image: /images/placeholder.png
+tags: [development, design, ux, encryption]
 teaser: A service for your encrypted messages.
+publishedAt: 2023-03-01
+updatedAt: 2023-06-01
 ---
 
 ## Cyrano

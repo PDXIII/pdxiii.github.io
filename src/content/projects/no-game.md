@@ -1,8 +1,10 @@
 ---
 title: No Game
-layout: ../../layouts/ProjectLayout.astro
-titleImg: /images/placeholder.png
+image: /images/placeholder.png
+tags: [development, design, ux, game]
 teaser: A simple adaption of OGame.
+publishedAt: 2023-03-01
+updatedAt: 2023-06-01
 ---
 
 ## No Game

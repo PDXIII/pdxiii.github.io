@@ -1,21 +1,23 @@
 ---
-const { projects } = Astro.props;
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
 ---
 
 <section class="projects w-screen bg-amber-100">
   <div class="w-full grid grid-cols-2 p-8 gap-4 pb-16">
     <h2 class="text-3xl col-span-2">Recent Projects</h2>
     {
-      projects.map((proj) => (
+      projects.map((project) => (
         <a
           class="hover:scale-110 transition-transform ease-in-out hover:z-10"
-          href={proj.url}
+          href={`/projects/${project.slug}`}
         >
           <article>
             <h3 class="text-3xl font-light border-slate-900 border-b hover:border-primary">
-              {proj.frontmatter.title}
+              {project.data.title}
             </h3>
-            <p>{proj.frontmatter.teaser}</p>
+            <p>{project.data.teaser}</p>
           </article>
         </a>
       ))

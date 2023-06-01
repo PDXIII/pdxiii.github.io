@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+import MarkdownContainer from "../../components/MarkdownContainer.astro";
+
+export async function getStaticPaths() {
+  const projectEntries = await getCollection("projects");
+  return projectEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<DefaultLayout title={entry.data}>
+  <div class="prose prose-lg px-8 mx-auto mb-8">
+    <h1>{entry.data.title}</h1>
+    <small>{entry.data.publishedAt.toDateString()}</small>
+  </div>
+  <MarkdownContainer>
+    <Content />
+  </MarkdownContainer>
+</DefaultLayout>

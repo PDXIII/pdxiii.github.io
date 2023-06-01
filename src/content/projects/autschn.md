@@ -1,8 +1,10 @@
 ---
 title: Autsch’n
-layout: ../../layouts/ProjectLayout.astro
-titleImg: /images/placeholder.png
-teaser: A game anout colorblindness. Not seriously!
+image: /images/placeholder.png
+tags: [development, design, ux, game]
+teaser: A game about colorblindness. Not seriously!
+publishedAt: 2023-03-01
+updatedAt: 2023-03-01
 ---
 
 ## Autsch’n
