@@ -6,6 +6,8 @@ publishedAt: 2023-03-20
 updatedAt: 2023-06-01
 ---
 
+![Browsing Daft Punk titles in my app](/images/thoughts/express-spotify-1.png)
+
 ## Building An ExpressJS App
 
 That was our boot camp cohort’s homework for the weekend. For the first time, I had to write an [ExpressJS](https://expressjs.com) app from scratch. And it wasn’t actually from scratch. [Ironhack](https://www.ironhack.com) has given us very detailed [information](https://github.com/ironhack-labs/lab-express-spotify) about what they were expecting and how to achieve it. Spotify offers an [API](https://developer.spotify.com/web-api/) that allows us to fetch data and songs, and basically, we had to build a search interface for it with the option to listen to some snippets.
