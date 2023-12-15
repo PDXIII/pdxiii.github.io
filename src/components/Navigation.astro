@@ -1,0 +1,38 @@
+---
+import Link from "./Link.astro";
+---
+
+<nav
+  class="flex justify-between sm:justify-start w-screen sm:col-span-2 sm:border-primary sm:border-t sm:col-start-1 fixed bottom-0 sm:relative px-8 py-4 bg-primary/80 sm:bg-transparent text-amber-50 sm:text-black z-10"
+>
+  <Link
+    classList="me-2 sm:me-4 hover:text-black no-underline sm:underline sm:hover:text-primary transition-colors "
+    to="/"
+  >
+    Index
+  </Link>
+  <Link
+    classList="me-2 sm:me-4 hover:text-black no-underline sm:underline sm:hover:text-primary transition-colors "
+    to="/projects"
+  >
+    Projects
+  </Link>
+  <Link
+    classList="me-2 sm:me-4 hover:text-black no-underline sm:underline sm:hover:text-primary transition-colors "
+    to="/thoughts"
+  >
+    Thoughts
+  </Link>
+  <Link
+    classList="me-2 sm:me-4 hover:text-black no-underline sm:underline sm:hover:text-primary transition-colors "
+    to="/about"
+  >
+    About Me
+  </Link>
+  <Link
+    classList="me-2 sm:me-4 hover:text-black no-underline sm:underline sm:hover:text-primary transition-colors "
+    to="/now"
+  >
+    Now
+  </Link>
+</nav>

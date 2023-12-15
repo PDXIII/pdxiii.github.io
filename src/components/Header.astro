@@ -1,20 +1,17 @@
 ---
-import Link from "./Link.astro";
+import Navigation from "./Navigation.astro";
 ---
 
-<header class="w-screen p-8">
-  <div class="grid md:grid-cols-3 gap-4">
-    <a href="/">
-      <h1 class="text-2xl">Peter Sekan</h1>
+<header class="w-screen mb-8 border-primary border-b">
+  <div class="grid sm:grid-cols-3 gap-2 sm:gap-4">
+    <a class="sm:col-span-1 px-8 pt-4 sm:pb-4 text-2xl" href="/">
+      <h1>Peter Sekan</h1>
     </a>
-    <p class="tag-line font-light text-2xl md:col-span-2 md:text-right">
+    <p
+      class="tag-line font-light text-2xl sm:col-span-2 sm:text-right 2xl px-8 sm:pt-4 pb-4"
+    >
       ux & frontend engineer • creative&nbsp;technologist
     </p>
-    <nav class="flex col-span-1 col-start-1">
-      <Link classList="me-2" to="/">Index</Link>
-      <Link classList="me-2" to="/thoughts">Thoughts</Link>
-      <Link classList="me-2" to="/about">About Me</Link>
-      <Link classList="me-2" to="/now">Now</Link>
-    </nav>
+    <Navigation />
   </div>
 </header>
