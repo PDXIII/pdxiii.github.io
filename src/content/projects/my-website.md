@@ -36,3 +36,17 @@ I think it is at a point where I can show it and focus again on the projects, be
 ## Wednesday, 17 May 2023
 
 Today, I’ve added a license to the repository and a [now page](http://petersekan.de/now) to the website. Now, I will take a look into an Astro tutorial about structuring content better. Let’s see if I will do that.
+
+## Friday, 15 December 2023
+
+> Look, mum, I made an responsive navigation bar!
+
+Finally, I’ve built it. Instead of using the hamburger menu pattern, the mobile navigation sits at the bottom of the page. Always revealing its full content. I know this pattern might not applicable for all use case, but it works here pretty well.
+
+The website looks like this:
+
+![my website on 15 December 2023 on a desktop](/images/my-website/website-screenshot-2023-12-15-responsive-large.png)
+
+![my website on 15 December 2023 on a mobile](/images/my-website/website-screenshot-2023-12-15-responsive-mobile.png)
+
+A little bit of tweeking the links’ style was also a minor improvement.

@@ -73,6 +73,11 @@ module.exports = {
             em: {
               "font-family": "Rowan-Variable",
             },
+            "img, video": {
+              width: "auto",
+              "max-width": "100%",
+              height: "auto",
+            },
           },
         },
       },
