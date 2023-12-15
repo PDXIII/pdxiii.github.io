@@ -57,6 +57,9 @@ module.exports = {
             "blockquote p:last-of-type::after": {
               content: "",
             },
+            "blockquote p:first-of-type::before": {
+              content: "",
+            },
             i: {
               "font-family": "Rowan-Variable",
             },

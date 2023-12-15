@@ -127,17 +127,7 @@
       format("opentype");
   }
 
-  /**
-* This is a variable font
-* You can controll variable axes as shown below:
-* font-variation-settings: 'wght' 700.0;
-*
-* available axes:
-
-* 'wght' (range from 300.0 to 700.0)
-
-*/
-
+  /* Rowan */
   @font-face {
     font-family: "Rowan-Variable";
     src: url("/fonts/Rowan/Rowan-Variable.woff2") format("woff2"),
@@ -148,17 +138,6 @@
     font-style: normal;
   }
 
-  /**
-* This is a variable font
-* You can controll variable axes as shown below:
-* font-variation-settings: 'wght' 700.0;
-*
-* available axes:
-
-* 'wght' (range from 300.0 to 700.0)
-
-*/
-
   @font-face {
     font-family: "Rowan-Variable";
     src: url("/fonts/Rowan/Rowan-VariableItalic.woff2") format("woff2"),
@@ -168,4 +147,15 @@
     font-display: swap;
     font-style: italic;
   }
+
+  /**
+  * Rowan is a variable font
+  * You can controll variable axes as shown below:
+  * font-variation-settings: 'wght' 700.0;
+  *
+  * available axes:
+
+  * 'wght' (range from 300.0 to 700.0)
+
+  **/
 }

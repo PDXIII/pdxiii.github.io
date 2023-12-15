@@ -100,10 +100,11 @@ If you need to build an Express JS app, try [Ironlauncher](https://github.com/ir
 
 > Game logic, safe and secure routes, and synchronicity of the stats between the front and back end.
 > _— Alexandre_
-> Don’t use custom CSS, only Bootstrap. Learn about using Mongo DB and Handlebars.
-> _— Pete_
 
 Alex did a great job figuring out the logic regarding how much facilities cost and how many resources they generate and took especially care of the synchronicity of the data between the front and the back end.
+
+> Don’t use custom CSS, only Bootstrap. Learn about using Mongo DB and Handlebars.
+> _— Pete_
 
 I have fulfilled my goal as well. This project has only two custom CSS rules. One defines the used font, and the other adjusts the size of the icons a bit.
 
