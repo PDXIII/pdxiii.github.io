@@ -4,7 +4,7 @@ image: /images/placeholder.png
 tags: [development, design, ux, game]
 teaser: The journey to this website.
 publishedAt: 2023-05-09
-updatedAt: 2023-06-01
+updatedAt: 2023-12-15
 ---
 
 ## Tuesday, 09 May 2023
