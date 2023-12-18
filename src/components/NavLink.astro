@@ -1,0 +1,12 @@
+---
+import Link from "./Link.astro";
+
+const { to } = Astro.props;
+---
+
+<a
+  class="font-serif font-light italic text-sm sm:text-xl text-primary me-4 hover:text-black transition-colors"
+  href={to}
+>
+  <slot />
+</a>

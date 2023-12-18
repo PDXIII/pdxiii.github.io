@@ -72,11 +72,13 @@ const { title } = Astro.props;
     </script>
     <!-- Analytics end -->
   </head>
-  <body class="bg-amber-50">
-    <Header />
-    <main class="w-screen min-h-screen">
-      <slot />
-    </main>
+  <body class="bg-amber-50 w-screen">
+    <div class="container max-w-7xl mx-auto">
+      <Header />
+      <main class="w-100 min-h-screen">
+        <slot />
+      </main>
+    </div>
+    <Footer />
   </body>
-  <Footer />
 </html>
