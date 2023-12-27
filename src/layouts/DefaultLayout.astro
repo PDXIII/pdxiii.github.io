@@ -1,5 +1,6 @@
 ---
 import "../styles/base.css";
+import NavigationBar from "../components/NavigationBar.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -75,7 +76,8 @@ const { title } = Astro.props;
   <body class="bg-amber-50 w-screen">
     <div class="container max-w-7xl mx-auto">
       <Header />
-      <main class="w-100 min-h-screen">
+      <main class="w-100 min-h-screen relative">
+        <NavigationBar />
         <slot />
       </main>
     </div>
