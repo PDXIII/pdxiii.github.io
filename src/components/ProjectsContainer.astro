@@ -4,8 +4,8 @@ import { getCollection } from "astro:content";
 const projects = await getCollection("projects");
 ---
 
-<section class="projects w-screen bg-amber-100">
-  <div class="w-full grid grid-cols-2 p-8 gap-4 pb-16">
+<section class="projects bg-amber-100">
+  <div class="grid grid-cols-2 p-8 gap-4 pb-16">
     <h2 class="text-3xl col-span-2">Recent Projects</h2>
     {
       projects.map((project) => (
