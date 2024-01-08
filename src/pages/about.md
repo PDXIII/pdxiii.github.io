@@ -1,7 +1,7 @@
 ---
 title: About Me!
 layout: ../layouts/ProjectLayout.astro
-titleImg: /images/PeterSekan.png
+titleImg: /images/PeterSekan-2024.jpg
 ---
 
 ## About Me
