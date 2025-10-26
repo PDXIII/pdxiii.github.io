@@ -1,7 +1,7 @@
 ---
 title: "Job Profile: UX Engineer"
 image: "/images/thoughts/ux-unicorn.jpg"
-isDraft: false
+isDraft: true
 publishedAt: 2021-05-18
 updatedAt: 2023-05-31
 tags: [design, ux, coding, development]

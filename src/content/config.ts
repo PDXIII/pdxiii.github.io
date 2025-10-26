@@ -20,11 +20,13 @@ const projectsCollection = defineCollection({
     undefined: z.date().optional(),
   }),
 });
-const thoughtsCollection = defineCollection({
+const articlesCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
+    isDraft: z.boolean(),
+    isFeatured: z.boolean().optional(),
     image: z.string().optional(),
     publishedAt: z.date(),
     updatedAt: z.date().optional(),
@@ -35,5 +37,5 @@ const thoughtsCollection = defineCollection({
 export const collections = {
   now: nowCollection,
   projects: projectsCollection,
-  thoughts: thoughtsCollection,
+  articles: articlesCollection,
 };

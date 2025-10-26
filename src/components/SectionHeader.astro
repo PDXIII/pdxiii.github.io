@@ -1,0 +1,7 @@
+---
+const { title, image } = Astro.props;
+---
+
+<h2 class="text-2xl font-bold">
+    <img class="h-24 w-auto m-auto" src={`/images/headlines/${image}`} alt={title}>
+</h2>

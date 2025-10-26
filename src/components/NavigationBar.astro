@@ -3,11 +3,21 @@ import NavLink from "./NavLink.astro";
 ---
 
 <nav
-  class="fixed w-full bottom-0 flex justify-between z-10 px-8 pt-2 pb-8 border-primary border-y backdrop-blur-sm bg-amber-50/25 sm:sticky sm:top-0 sm:justify-start sm:pb-2 sm:mb-8"
+  class="fixed w-full bottom-0 flex justify-center z-10 px-8 pt-2 pb-8 border-primary border-y backdrop-blur-sm bg-amber-50/25 sm:sticky sm:top-0 sm:pb-2 sm:mb-8"
 >
-  <NavLink to="/">Index</NavLink>
-  <NavLink to="/projects">Projects</NavLink>
-  <NavLink to="/thoughts">Thoughts</NavLink>
-  <NavLink to="/about">About Me</NavLink>
-  <NavLink to="/now">Now</NavLink>
+<ul class="flex justify-between">
+  <li>
+    <NavLink to="/">Start</NavLink>
+  </li>
+  <li>
+    <NavLink to="/mein-angebot">Angebot</NavLink>
+  </li>
+  <li>
+    <NavLink to="/articles">Artikel</NavLink>
+  </li>
+  <li>
+    <NavLink to="/about">Über Mich</NavLink>
+  </li>
+</ul>
+  
 </nav>

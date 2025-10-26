@@ -4,6 +4,7 @@ image: /images/thoughts/express-spotify.png
 tags: [development, design, ux, ironhack, css, ExpressJS, API]
 publishedAt: 2023-03-20
 updatedAt: 2023-06-01
+isDraft: true
 ---
 
 ![Browsing Daft Punk titles in my app](/images/thoughts/express-spotify-1.png)

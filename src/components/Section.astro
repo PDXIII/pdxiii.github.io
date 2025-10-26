@@ -1,0 +1,16 @@
+<section class="section prose prose-lg px-8 mx-auto mb-8">
+  <slot />
+</section>
+
+<script>
+  import anime from "animejs/lib/anime.es.js";
+
+  const animation = anime({
+    targets: ".section *",
+    opacity: [0, 1],
+    translateY: [50, 0],
+    delay: anime.stagger(100, { start: 600 }),
+    // autoplay: false,
+    easing: "easeOutQuint",
+  });
+</script>

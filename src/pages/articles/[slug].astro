@@ -2,11 +2,11 @@
 import { getCollection } from "astro:content";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
 
-import MarkdownContainer from "../../components/MarkdownContainer.astro";
+import Section from "../../components/Section.astro";
 
 export async function getStaticPaths() {
-  const thoughtEntries = await getCollection("thoughts");
-  return thoughtEntries.map((entry) => ({
+  const articleEntries = await getCollection("articles");
+  return articleEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
@@ -17,11 +17,9 @@ const { Content } = await entry.render();
 ---
 
 <DefaultLayout title={entry.data}>
-  <div class="prose prose-lg px-8 mx-auto mb-8">
+  <Section>
     <h1>{entry.data.title}</h1>
     <small>{entry.data.publishedAt.toDateString()}</small>
-  </div>
-  <MarkdownContainer>
     <Content />
-  </MarkdownContainer>
+  </Section>
 </DefaultLayout>

@@ -1,0 +1,25 @@
+---
+const { articles } = Astro.props;
+---
+
+<ul class="list-none p-0">
+  {
+    articles
+      .sort(
+        (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+      )
+      .map((article) => (
+        <li class="w-full text-center block p-0">
+          <a
+            class="font-serif font-light italic text-2xl text-primary  hover:text-black transition-colors block"
+            href={`/articles/${article.slug}`}
+          >
+            {article.data.title}
+          </a>
+          <small class="block">
+            {article.data.publishedAt.toLocaleDateString("de-DE")}
+          </small>
+        </li>
+      ))
+  }
+</ul>
