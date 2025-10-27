@@ -11,7 +11,7 @@ const { frontmatter } = Astro.props;
     
     <header class="prose prose-lg px-8 mx-auto mb-8 p-8">
 
-        {frontmatter.image && <img class="m-auto rounded-full w-80 mb-8" src={frontmatter.image} alt="Bild von Peter Sekan" />}
+        {frontmatter.image && <img class="m-auto rounded-full w-80 mb-8 drop-shadow-2xl border border-amber-50 outline outline-2 outline-black outline-offset-2 " src={frontmatter.image} alt="Bild von Peter Sekan" />}
 
         
             {frontmatter.titleImg ?  <img class="h-24 w-auto m-auto" src={frontmatter.titleImg} alt={frontmatter.title} /> : <h1>{frontmatter.title}</h1>}

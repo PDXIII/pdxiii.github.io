@@ -1,23 +1,25 @@
 ---
 import Link from "./Link.astro";
+
+const year = new Date().getFullYear();
 ---
 
 <footer
-  class="w-full px-8 pt-8 pb-16 grid grid-cols-3 gap-4 sm:grid-cols-4 bg-amber-200"
+  class="w-full px-8 pt-8 pb-16 grid grid-cols-3 gap-4 sm:grid-cols-4 border-primary border-t bg-amber-100"
 >
   <div>
-    <h2 class="font-medium">Content</h2>
+    <h2 class="font-medium">Inhalt</h2>
     <ul>
-      <li><Link classList="me-2" to="/">Index</Link></li>
-      <li><Link classList="me-2" to="/projects">Projects</Link></li>
-      <li><Link classList="me-2" to="/thoughts">Thoughts</Link></li>
-      <li><Link classList="me-2" to="/about">About Me</Link></li>
-      <li><Link classList="me-2" to="/now">Now</Link></li>
+      <li><Link classList="me-2" to="/">Start</Link></li>
+      <li><Link classList="me-2" to="/mein-angebot">Mein Angebot</Link></li>
+      <li><Link classList="me-2" to="/articles">Artikel</Link></li>
+      <li><Link classList="me-2" to="/about">Über Mich</Link></li>
+      <li><Link classList="me-2" to="/impressum">Impressum</Link></li>
       <!-- <li class=""><Link to="/imprint">Imprint</Link></li> -->
     </ul>
   </div>
   <div>
-    <h2 class="font-medium">Find me on</h2>
+    <h2 class="font-medium">Social Networks</h2>
     <ul>
       <li class=""><Link to="https://github.com/PDXIII">GitHub</Link></li>
       <li class="">
@@ -28,8 +30,8 @@ import Link from "./Link.astro";
   </div>
   <div class="sm:col-start-4">
     <p>
-      Made with ❤️ in Berlin! <br />
-      &copy; 2023 by <Link to="/">Peter&nbsp;Sekan.</Link>
+      Mit ❤️ jemacht in Berlin! <br />
+      &copy; {year} by <Link to="/">Peter&nbsp;Sekan.</Link>
     </p>
   </div>
 </footer>

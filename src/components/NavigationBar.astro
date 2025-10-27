@@ -1,23 +1,67 @@
 ---
 import NavLink from "./NavLink.astro";
+import Section from "./Section.astro";
+import SectionHeader from "./SectionHeader.astro";
+
 ---
 
 <nav
   class="fixed w-full bottom-0 flex justify-center z-10 px-8 pt-2 pb-8 border-primary border-y backdrop-blur-sm bg-amber-50/25 sm:sticky sm:top-0 sm:pb-2 sm:mb-8"
 >
-<ul class="flex justify-between">
-  <li>
-    <NavLink to="/">Start</NavLink>
-  </li>
-  <li>
-    <NavLink to="/mein-angebot">Angebot</NavLink>
-  </li>
-  <li>
-    <NavLink to="/articles">Artikel</NavLink>
-  </li>
-  <li>
-    <NavLink to="/about">Über Mich</NavLink>
-  </li>
-</ul>
-  
+  <ul class="w-full sm:w-auto flex justify-between">
+    <li>
+      <NavLink to="/">Start</NavLink>
+    </li>
+    <li>
+      <NavLink to="/mein-angebot">Angebot</NavLink>
+    </li>
+    <li>
+      <NavLink to="/articles">Artikel</NavLink>
+    </li>
+    <li>
+      <NavLink to="/about">Über Mich</NavLink>
+    </li>
+    <li>
+      <button id="contact-button"class="font-serif font-light italic text-sm sm:text-xl text-primary me-4 hover:text-black transition-colors">Kontakt</button>
+    </li>
+  </ul>
+  <dialog id="contact-modal" class="modal  border-primary bg-amber-50 border p-0 drop-shadow-lg  backdrop:backdrop-blur-sm backdrop:bg-amber-50/25 0">
+    <Section>
+      <SectionHeader title="Kontakt" image="Kontakt-black.png" />
+      <blockquote>
+        Ich freue mich sehr von Dir zu hören!
+        <br />
+        Liebe Grüße,
+        <br />
+        Pete
+      </blockquote>
+      <p>
+        <a href="tel:+4917647102342">+49 (0) 176 4710 2342</a>
+        <br>
+        <a href="mailto:sekan.pete@gmail.com">sekan.pete@gmail.com</a>
+        <br>
+        <br>
+        Karl-Kunger-Straße 5
+        <br>
+        12435 Berlin
+
+      </p>
+      <div class="flex justify-center w-full">        
+        <button id="close-button" class="py-2 px-8 mt-8 text-primary font-serif no-underline border border-black italic transition-all ease-in-out">Schließen</button>
+      </div>
+    </Section>
+  </dialog>
 </nav>
+
+<script>
+  const contactButton = document.getElementById("contact-button");
+  const contactModal = document.getElementById("contact-modal");
+  const closeButton = document.getElementById("close-button");
+  contactButton.addEventListener("click", () => {
+    contactModal.showModal();
+  });
+
+  closeButton.addEventListener("click", () => {
+    contactModal.close();
+  });
+</script>
