@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Base from "../../layouts/Base.astro";
 
 import MarkdownContainer from "../../components/MarkdownContainer.astro";
 
@@ -16,8 +16,8 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<DefaultLayout title={entry.data.title}>
+<Base title={entry.data.title}>
   <MarkdownContainer>
     <Content />
   </MarkdownContainer>
-</DefaultLayout>
+</Base>

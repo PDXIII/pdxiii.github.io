@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
-import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Base from "../../layouts/Base.astro";
 
 const title = "Projects";
 const allProjects = await getCollection("projects");
 ---
 
-<DefaultLayout title={title}>
+<Base title={title}>
   <section class="prose prose-lg px-8 mx-auto mb-8 min-h-[75vh]">
     <h2>Projects</h2>
     <ul>
@@ -25,4 +25,4 @@ const allProjects = await getCollection("projects");
       }
     </ul>
   </section>
-</DefaultLayout>
+</Base>

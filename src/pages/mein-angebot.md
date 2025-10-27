@@ -2,10 +2,8 @@
 title: "Was kostet eine Website?"
 isDraft: false
 publishedAt: 2025-10-25
-layout: ../layouts/ProjectLayout.astro
+layout: ../layouts/DefaultLayout.astro
 ---
-
-# Was kostet eine Website?
 
 ## Bei mir ab 1.500 Euro!
 

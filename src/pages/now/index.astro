@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Base from "../../layouts/Base.astro";
 
 const title = "Now";
 const allNows = await getCollection("now");
@@ -8,7 +8,7 @@ const { Content } = await allNows[allNows.length - 1].render();
 const lastDate = allNows[allNows.length - 1].data.publishedAt;
 ---
 
-<DefaultLayout title={title}>
+<Base title={title}>
   <section class="prose prose-lg px-8 mx-auto mb-8">
     <h2>What am I doing <a href="https://nownownow.com/about">now?</a></h2>
     <small>{lastDate.toDateString()}</small>
@@ -34,4 +34,4 @@ const lastDate = allNows[allNows.length - 1].data.publishedAt;
       </ul>
     </div>
   </section>
-</DefaultLayout>
+</Base>

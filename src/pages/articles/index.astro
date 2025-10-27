@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Base from "../../layouts/Base.astro";
 import { imageConfig } from "astro:assets";
 import SectionHeader from "../../components/SectionHeader.astro";
 import ArticleList from "../../components/ArticleList.astro";
@@ -9,7 +9,7 @@ const title = "Artikel";
 const allArticles = await getCollection("articles");
 ---
 
-<DefaultLayout title={title}>
+<Base title={title}>
   <section class="prose prose-lg px-8 mx-auto mb-8 min-h-[75vh]">
     <SectionHeader title="Artikel" image="Artikel-black.png" />
     
@@ -18,4 +18,4 @@ const allArticles = await getCollection("articles");
     </p>
     <ArticleList articles={allArticles} />
   </section>
-</DefaultLayout>
+</Base>

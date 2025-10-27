@@ -1,7 +1,8 @@
 ---
-title: About Me!
-layout: ../layouts/ProjectLayout.astro
-titleImg: /images/PeterSekan-2024.jpg
+title: Über Mich
+layout: ../layouts/AboutLayout.astro
+image: /images/PeterSekan-2025.jpeg
+titleImg: /images/headlines/UberMich-black.png
 ---
 
 ## About Me

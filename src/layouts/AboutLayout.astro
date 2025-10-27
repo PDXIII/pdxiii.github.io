@@ -1,0 +1,26 @@
+---
+import Base from "./Base.astro";
+import MarkdownContainer from "../components/MarkdownContainer.astro";
+import Section from "../components/Section.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title}>
+    
+    <header class="prose prose-lg px-8 mx-auto mb-8 p-8">
+
+        {frontmatter.image && <img class="m-auto rounded-full w-80 mb-8" src={frontmatter.image} alt="Bild von Peter Sekan" />}
+
+        
+            {frontmatter.titleImg ?  <img class="h-24 w-auto m-auto" src={frontmatter.titleImg} alt={frontmatter.title} /> : <h1>{frontmatter.title}</h1>}
+
+    </header>
+    <Section>
+        <MarkdownContainer>
+
+            <slot />
+        </MarkdownContainer>
+    </Section>
+</Base>

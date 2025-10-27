@@ -1,8 +1,9 @@
 ---
-import DefaultLayout from "./DefaultLayout.astro";
+import Base from "./Base.astro";
 import Section from "../components/Section.astro";
 import ProjectsContainer from "../components/ProjectsContainer.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+import SectionFooter from "../components/SectionFooter.astro";
 
 import {Content as IntroAngebot } from '../content/md-snippets/intro-Angebot.md';
 import {Content as IntroArtikel } from '../content/md-snippets/intro-Artikel.md';
@@ -18,19 +19,22 @@ const featuredArticles = allArticles.filter((article) => article.data.isFeatured
 const { title } = Astro.props;
 ---
 
-<DefaultLayout title={title}>
+<Base title={title}>
   <Section>
     <SectionHeader title="Hallo" image="Hallo-black.png" />
     <slot />
+    <SectionFooter target="/about" label="Mehr über mich…"/>
   </Section>
   <Section>
     <SectionHeader title="Angebot" image="Angebot-black.png" />
     <IntroAngebot />
+    <SectionFooter target="/mein-angebot" label="Zu meinem Angebot…"/>
   </Section>
   <Section>
     <SectionHeader title="Lesenswertes" image="Lesenswertes-black.png" />
     <IntroArtikel />
     <ArticleList articles={featuredArticles} />
+    <SectionFooter target="/articles" label="Mehr Artikel…"/>
   </Section>
   <!-- <ProjectsContainer /> -->
-</DefaultLayout>
+</Base>

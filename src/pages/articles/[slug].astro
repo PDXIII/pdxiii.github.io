@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Base from "../../layouts/Base.astro";
 
 import Section from "../../components/Section.astro";
 
@@ -16,10 +16,10 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<DefaultLayout title={entry.data}>
+<Base title={entry.data}>
   <Section>
     <h1>{entry.data.title}</h1>
-    <small>{entry.data.publishedAt.toDateString()}</small>
+    <small>{entry.data.publishedAt.toLocaleDateString("de-DE")}</small>
     <Content />
   </Section>
-</DefaultLayout>
+</Base>
