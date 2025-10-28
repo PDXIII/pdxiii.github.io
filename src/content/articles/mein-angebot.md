@@ -3,13 +3,14 @@ title: "Was kostet eine Website?"
 isDraft: false
 publishedAt: 2025-10-25
 layout: ../layouts/DefaultLayout.astro
+tags: [service]
 ---
 
 ## Bei mir ab 1.500 Euro!
 
 Das klingt vielleicht erstmal viel – und oft höre ich dann den Hinweis auf Plattformen wie [Squarespace.com](http://squarespace.com/) und [Wix.com](http://wix.com/). Dort bekommt man ja schon eine Website für unter 20 Euro im Monat.
 
-Diese Plattformen sind toll! Sie bieten viele Möglichkeiten für Design und Funktionen. Ich persönlich finde [Ghost.org](http://ghost.org/) besonders spannend und empfehle es auch gern – wenn es zu den Bedürfnissen meiner Kund*innen passt.
+Diese Plattformen sind toll! Sie bieten viele Möglichkeiten für Design und Funktionen. Ich persönlich finde [Ghost.org](http://ghost.org/) besonders spannend und empfehle es auch gern – wenn es zu den Bedürfnissen meiner Kund\*innen passt.
 
 Aber: Diese günstigen Preise sind **laufende Kosten**. Mein Einstiegspreis von 1.500 Euro bezieht sich auf die **Einrichtung** Deiner Website. Und den würde ich auch berechnen, wenn Du Deine Seite später auf einer Plattform wie Wix oder Squarespace betreibst – und mich darum bittest, Dich bei der Umsetzung zu unterstützen.
 
@@ -44,7 +45,7 @@ Wenn Du mehr möchtest, kostet es entsprechend mehr. Ein Beispiel: [NovaElsayed
 
 Noch ein Beispiel: [PraxisLarsWerner.de](http://praxislarswerner.de/) – diese Seite nutzt sechs Inhaltstypen, hat ein Kontaktformular und eine gestaltete Straßenkarte. Sie war daher etwas aufwendiger: ca. 3.500 Euro.
 
-Die Zusammenarbeit mit beiden Kund*innen war besonders schön – sie haben mir im Gestaltungsprozess viel Vertrauen geschenkt.
+Die Zusammenarbeit mit beiden Kund\*innen war besonders schön – sie haben mir im Gestaltungsprozess viel Vertrauen geschenkt.
 
 ## Und was kostet das monatlich?
 

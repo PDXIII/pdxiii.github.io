@@ -23,9 +23,15 @@ const { title } = Astro.props;
   <Section>
     <SectionHeader title="Hallo" image="Hallo-black.png" />
     <slot />
-    <SectionFooter target="/about" label="Mehr über mich…"/>
+    <!-- <SectionFooter target="/about" label="Mehr über mich…"/> -->
+  
+  <div class="border-b border-black flex justify-center w-full flex-col">
+    <a class="block text-center py-2 px-8 mt-8 mb-8 font-serif no-underline border border-black italic hover:scale-110 transition-all ease-in-out" href="/about">Mehr über mich…</a>
+    <a class="block text-center py-2 px-8 mt-8 mb-8 font-serif no-underline border border-black italic hover:scale-110 transition-all ease-in-out" href="/angebot">Zu meinem Angebot…</a>
+    <a class="block text-center py-2 px-8 mt-8 mb-8 font-serif no-underline border border-black italic hover:scale-110 transition-all ease-in-out" href="/articles">Mehr zu lesen…</a>
+</div>
   </Section>
-  <Section>
+  <!-- <Section>
     <SectionHeader title="Angebot" image="Angebot-black.png" />
     <IntroAngebot />
     <SectionFooter target="/mein-angebot" label="Zu meinem Angebot…"/>
@@ -35,6 +41,6 @@ const { title } = Astro.props;
     <IntroArtikel />
     <ArticleList articles={featuredArticles} />
     <SectionFooter target="/articles" label="Mehr Artikel…"/>
-  </Section>
+  </Section> -->
   <!-- <ProjectsContainer /> -->
 </Base>

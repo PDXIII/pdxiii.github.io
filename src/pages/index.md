@@ -3,12 +3,12 @@ title: Hi, my name is Pete
 layout: ../layouts/IndexLayout.astro
 ---
 
-## Hi, my name is Pete
+## Hi, ich bin Pete
 
-> I am a UX & frontend engineer with a strong focus on implementing and maintaining design systems and frontend component libraries. With over a decade of experience in software design covering different roles, I am able to design and build great user interfaces, create and develop awesome teams, implement and improve processes that speed up the production cycle, and still make it feel fun!
+Ich unterstütze kleine und mittelständische Unternehmer\*innen bei der Konzeption, Gestaltung und Umsetzung ihres Webauftritts.
 
-As a proud father of three fantastic girls, I live in the vivid city of Berlin. In my spare time, I like to visit exhibitions, meet friends, and learn about new things.
+Ein besonderes Anliegen ist mir die sexpositive und Awareness-orientierte Szene, zu der ich mich verbunden fühle.
 
-Nice to meet you! 😃
+Es ist mir ein besonderes Anliegen, die Sichtbarkeit von Menschen im Netz zu stärken, deren Arbeit ich für wertvoll halte und somit auch eine Verbundenheit spüre.
 
-If you’d like to know more about me please visit [my about page.](/about)
+Wenn du dich angesprochen fühlst und über eine eigene Website nachdenkst, lass uns darüber sprechen — auf Augenhöhe!
