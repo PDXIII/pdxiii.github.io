@@ -2,7 +2,6 @@
 title: "Was kostet eine Website?"
 isDraft: false
 publishedAt: 2025-10-25
-layout: ../layouts/DefaultLayout.astro
 tags: [service]
 ---
 
