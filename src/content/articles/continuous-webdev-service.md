@@ -3,7 +3,7 @@ title: "Continuous WebDev Service"
 publishedAt: 2025-10-23
 isDraft: false
 isFeatured: false
-tags: [web, desig, development, internet, service]
+tags: [web, design, development, service]
 ---
 
 Mir ist wichtig, dass Deine Website auch langfristig gut funktioniert. Deshalb biete ich auf Wunsch einen sogenannten **Continuous WebDev Service** an – ein flexibles Abo, das alle drei Monate kündbar ist.

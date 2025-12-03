@@ -1,25 +1,178 @@
 ---
-const { articles } = Astro.props;
----
+import {countWords, getReadingTime} from '../lib/wordCount.ts'
+const { allArticles } = Astro.props;
 
-<ul class="list-none p-0">
+// Extrahiere alle einzigartigen Tags
+const allTags = [...new Set(allArticles.flatMap(article => article.data.tags || []))].sort();
+
+
+const articles = allArticles.map(article => ({
+  title: article.data.title,
+  description: article.data.description,
+  tags: article.data.tags || [],
+  slug: article.slug,
+  date: article.data.publishedAt,
+  wordCount: countWords(article.body)
+}));
+console.log(allTags);
+---
+<>
+<!-- Filter Section -->
+    <div class="mb-8">
+      <h2 class="text-lg font-semibold mb-4">Nach Tags filtern:</h2>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <button 
+          data-filter="all" 
+          class="filter-btn px-4 py-2 text-primary hover:text-black  transition-colors"
+        >
+          Alle
+        </button>
+        {allTags.map(tag => (
+          <button 
+            data-filter={tag}
+            class="filter-btn px-4 py-2 text-primary hover:text-black transition-colors"
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+      <div id="active-filters" class="text-sm"></div>
+
+<ul id="articles-grid"   class="list-none p-0">
   {
     articles
       .sort(
-        (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+        (a, b) => b.date.getTime() - a.date.getTime()
       )
       .map((article) => (
-        <li class="w-full text-center block p-0">
+        <li data-tags={JSON.stringify(article.tags)}  class="article-card w-full text-center block p-0">
           <a
             class="font-serif font-light italic text-2xl text-primary  hover:text-black transition-colors block"
             href={`/articles/${article.slug}`}
           >
-            {article.data.title}
+            {article.title}
           </a>
           <small class="block">
-            {article.data.publishedAt.toLocaleDateString("de-DE")}
+            {article.date.toLocaleDateString("de-DE")} 
+            • {article.wordCount} Worte 
+            {/* • Lesezeit { getReadingTime(article.wordCount) } min */}
+            
           </small>
+          <div class="flex flex-wrap gap-2">
+            {article.tags.map(tag => (
+              <span class="text-xs px-2 py-1 ">
+                {tag}
+              </span>
+            ))}
+          </div>
         </li>
       ))
   }
+
+
+    <!-- Keine Ergebnisse -->
+    <div id="no-results" class="hidden text-center py-12 text-gray-500">
+      <p class="text-xl">Keine Artikel gefunden für die ausgewählten Tags.</p>
+    </div>
+
 </ul>
+</>
+ <script>
+    // Filter Logik
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+    const noResults = document.getElementById('no-results');
+    const activeFiltersDiv = document.getElementById('active-filters');
+    
+    let activeFilters = new Set();
+
+    function updateArticles() {
+      let visibleCount = 0;
+      
+      articleCards.forEach(card => {
+        const cardTags = JSON.parse(card.getAttribute('data-tags') || '[]');
+        
+        // Wenn keine Filter aktiv sind oder "Alle" gewählt ist, zeige alle
+        if (activeFilters.size === 0 || activeFilters.has('all')) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          // Zeige Artikel, der mindestens einen der aktiven Tags hat
+          const hasMatchingTag = cardTags.some(tag => activeFilters.has(tag));
+          if (hasMatchingTag) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        }
+      });
+
+      // Zeige "Keine Ergebnisse" wenn nötig
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+
+      // Update active filters display
+      updateActiveFiltersDisplay();
+    }
+
+    function updateActiveFiltersDisplay() {
+      if (activeFilters.size === 0 || activeFilters.has('all')) {
+        activeFiltersDiv.textContent = 'Alle Artikel werden angezeigt';
+      } else {
+        activeFiltersDiv.textContent = `Aktive Filter: ${Array.from(activeFilters).join(', ')}`;
+      }
+    }
+
+    function updateButtonStyles() {
+      filterButtons.forEach(btn => {
+        const filter = btn.getAttribute('data-filter');
+        if (filter === 'all' && (activeFilters.size === 0 || activeFilters.has('all'))) {
+          btn.classList.add('bg-blue-500', 'text-white');
+          btn.classList.remove('bg-gray-200', 'text-gray-800');
+        } else if (activeFilters.has(filter) && filter !== 'all') {
+          btn.classList.add('bg-blue-500', 'text-white');
+          btn.classList.remove('bg-gray-200', 'text-gray-800');
+        } else {
+          btn.classList.remove('bg-blue-500', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-800');
+        }
+      });
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        if (filter === 'all') {
+          activeFilters.clear();
+          activeFilters.add('all');
+        } else {
+          activeFilters.delete('all');
+          
+          // Toggle: Wenn Tag schon aktiv ist, entferne ihn
+          if (activeFilters.has(filter)) {
+            activeFilters.delete(filter);
+          } else {
+            activeFilters.add(filter);
+          }
+          
+          // Wenn keine Filter mehr aktiv, setze auf "Alle"
+          if (activeFilters.size === 0) {
+            activeFilters.add('all');
+          }
+        }
+        
+        updateButtonStyles();
+        updateArticles();
+      });
+    });
+
+    // Initial state
+    activeFilters.add('all');
+    updateButtonStyles();
+    updateActiveFiltersDisplay();
+  </script>

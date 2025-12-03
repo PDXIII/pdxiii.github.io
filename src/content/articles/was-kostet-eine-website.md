@@ -2,7 +2,7 @@
 title: "Was kostet eine Website?"
 isDraft: false
 publishedAt: 2025-10-25
-tags: [service]
+tags: [service, web, development, design]
 ---
 
 ## Bei mir ab 1.500 Euro!

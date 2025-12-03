@@ -1,7 +1,7 @@
 ---
 title: Custom Tab View
 publishedAt: 2016-05-02
-tags: [challenge, coding, ux]
+tags: [design, development]
 isDraft: true
 ---
 

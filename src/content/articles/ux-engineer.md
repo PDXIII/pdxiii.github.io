@@ -4,7 +4,7 @@ image: "/images/thoughts/ux-unicorn.jpg"
 isDraft: true
 publishedAt: 2021-05-18
 updatedAt: 2023-05-31
-tags: [design, ux, coding, development]
+tags: [design, ux, development]
 ---
 
 ![Here you’ll find the unicorn](https://miro.medium.com/max/680/0*oSjlCLBw6D7D-22U)

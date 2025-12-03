@@ -1,7 +1,7 @@
 ---
 title: Browsing Spotify
 image: /images/thoughts/express-spotify.png
-tags: [development, design, ux, ironhack, css, ExpressJS, API]
+tags: [development, design, learning]
 publishedAt: 2023-03-20
 updatedAt: 2023-06-01
 isDraft: true

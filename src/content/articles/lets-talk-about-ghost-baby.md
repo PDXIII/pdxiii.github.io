@@ -2,7 +2,7 @@
 title: "Let’s talk about Ghost, Baby!"
 isDraft: false
 publishedAt: 2025-10-26
-tags: [internet, web, development, platform]
+tags: [web, development]
 ---
 
 ## Warum nicht einfach mal eine Lösung von der Stange?

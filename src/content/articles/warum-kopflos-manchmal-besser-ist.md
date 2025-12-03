@@ -3,7 +3,7 @@ title: "Warum kopflos manchmal besser ist!"
 publishedAt: 2025-10-26
 isDraft: false
 isFeatured: true
-tags: [web, development, coding]
+tags: [web, development]
 ---
 
 **Warum Headless-Architekturen klassischen CMS wie WordPress und Joomla überlegen sind**

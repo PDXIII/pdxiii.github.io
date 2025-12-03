@@ -7,6 +7,7 @@ import ArticleList from "../../components/ArticleList.astro";
 
 const title = "Artikel";
 const allArticles = await getCollection("articles");
+
 ---
 
 <Base title={title}>
@@ -16,6 +17,6 @@ const allArticles = await getCollection("articles");
     <p>
       Hier findest Du eine Sammlung von Artikel, die ich über die Jahre geschrieben habe. Manche beinhalten UX Design Experimente, andere sind gar politisch.
     </p>
-    <ArticleList articles={allArticles} />
+    <ArticleList allArticles={allArticles} />
   </section>
 </Base>

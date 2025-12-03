@@ -3,7 +3,7 @@ title: "Du bietest ein sex-positives Angebot? Du solltest eine eigene Website ha
 isDraft: false
 isFeatured: true
 publishedAt: 2025-10-26
-tags: [internet, coding, development, design, politics, sexpositive]
+tags: [service, development, design, politics, sex positive]
 ---
 **Deine Arbeit verdient eine Bühne, die dich nicht zensiert.**
 

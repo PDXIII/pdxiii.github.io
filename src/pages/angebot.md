@@ -13,3 +13,11 @@ Ein besonderes Anliegen ist mir die sexpositive und Awareness-orientierte Szene,
 Es ist mir ein besonderes Anliegen, die Sichtbarkeit von Menschen im Netz zu stärken, deren Arbeit ich für wertvoll halte und somit auch eine Verbundenheit spüre.
 
 Wenn du dich angesprochen fühlst und über eine eigene Website nachdenkst, lass uns darüber sprechen — auf Augenhöhe!
+
+[Schreib mir…](mailto:sekan.pete@gamil.com)
+
+### Artikel zu dem Thema:
+
+- [Was kostet eine Website?](/articles/was-kostet-eine-website)
+- [Du bietest ein sex-positives Angebot? Du solltest eine eigene Website haben!](/articles/website-sex-positive)
+- [Continuous Web Dev Service](/articles/continuous-webdev-service)
