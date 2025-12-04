@@ -14,6 +14,21 @@ import ArticleList from "../components/ArticleList.astro";
 const allArticles = await getCollection("articles");
 const featuredArticles = allArticles.filter((article) => article.data.isFeatured);
 
+const miniNavigationArray = [
+  {
+    title: "Mehr über mich…",
+    slug: "/about",
+  },
+  {
+    title: "Zu meinem Angebot…",
+    slug: "/angebot",
+  },
+  {
+    title: "Mehr zu lesen…",
+    slug: "/articles",
+  } 
+];
+
 
 
 const { title } = Astro.props;
@@ -25,10 +40,10 @@ const { title } = Astro.props;
     <slot />
     <!-- <SectionFooter target="/about" label="Mehr über mich…"/> -->
   
-  <div class="border-b border-black flex justify-center w-full flex-col">
-    <a class="block text-center py-2 px-8 mt-8 mb-8 font-serif no-underline border border-black italic hover:scale-110 transition-all ease-in-out" href="/about">Mehr über mich…</a>
-    <a class="block text-center py-2 px-8 mt-8 mb-8 font-serif no-underline border border-black italic hover:scale-110 transition-all ease-in-out" href="/angebot">Zu meinem Angebot…</a>
-    <a class="block text-center py-2 px-8 mt-8 mb-8 font-serif no-underline border border-black italic hover:scale-110 transition-all ease-in-out" href="/articles">Mehr zu lesen…</a>
+  <div class="flex justify-around w-full flex-wrap gap-2 mt-12">
+    {miniNavigationArray.map((item) => (
+      <a class="px-4 py-2 font-serif italic  mt-4 text-primary border-black hover:text-black hover:border-primary  transition-colors ease-in-out" href={item.slug}>{item.title}</a>
+    ))}
 </div>
   </Section>
   <!-- <Section>

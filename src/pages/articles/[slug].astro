@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { countWords, getReadingTime } from "../../lib/wordCount";
 import Base from "../../layouts/Base.astro";
 
 import Section from "../../components/Section.astro";
@@ -13,13 +14,27 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+entry.wordCount = countWords(entry.body);
+entry.readingTime = getReadingTime(entry.body);
 const { Content } = await entry.render();
 ---
 
-<Base title={entry.data}>
+<Base title={entry.data.title}>
   <Section>
     <h1>{entry.data.title}</h1>
-    <small>{entry.data.publishedAt.toLocaleDateString("de-DE")}</small>
+              <small class="block text-center">
+            {entry.data.publishedAt.toLocaleDateString("de-DE")} 
+            • {entry.wordCount} Worte 
+            • Lesezeit { entry.readingTime } min
+            
+          </small>
+          <div class="flex justify-center gap-2">
+            {entry.data.tags.map(tag => (
+              <span class="text-xs px-2 py-1 ">
+                {tag}
+              </span>
+            ))}
+          </div>
     <Content />
   </Section>
 </Base>
