@@ -47,7 +47,7 @@ import SectionHeader from "./SectionHeader.astro";
 
       </p>
       <div class="flex justify-center w-full">        
-        <button id="close-button" class="py-2 px-8 mt-8 text-primary font-serif no-underline border border-black italic transition-all ease-in-out">Schließen</button>
+        <button id="close-button" class="py-2 px-8 mt-8 text-primary font-serif no-underline border border-black hover:border-primary hover:text-black italic transition-all ease-in-out">Schließen</button>
       </div>
     </Section>
   </dialog>
@@ -63,5 +63,11 @@ import SectionHeader from "./SectionHeader.astro";
 
   closeButton.addEventListener("click", () => {
     contactModal.close();
+  });
+
+    contactModal.addEventListener("click", (event) => {
+    if (event.target === contactModal) {
+      contactModal.close();
+    }
   });
 </script>

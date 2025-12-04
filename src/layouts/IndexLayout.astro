@@ -5,14 +5,16 @@ import ProjectsContainer from "../components/ProjectsContainer.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import SectionFooter from "../components/SectionFooter.astro";
 
-import {Content as IntroAngebot } from '../content/md-snippets/intro-Angebot.md';
-import {Content as IntroArtikel } from '../content/md-snippets/intro-Artikel.md';
+import { Content as IntroAngebot } from "../content/md-snippets/intro-Angebot.md";
+import { Content as IntroArtikel } from "../content/md-snippets/intro-Artikel.md";
 
 import { getCollection } from "astro:content";
 import ArticleList from "../components/ArticleList.astro";
 
 const allArticles = await getCollection("articles");
-const featuredArticles = allArticles.filter((article) => article.data.isFeatured);
+const featuredArticles = allArticles.filter(
+  (article) => article.data.isFeatured
+);
 
 const miniNavigationArray = [
   {
@@ -26,25 +28,50 @@ const miniNavigationArray = [
   {
     title: "Mehr zu lesen…",
     slug: "/articles",
-  } 
+  },
 ];
 
-
-
-const { title } = Astro.props;
+const { title, titleImg } = Astro.props;
 ---
 
 <Base title={title}>
   <Section>
-    <SectionHeader title="Hallo" image="Hallo-black.png" />
+    <header class="w-full items-center grid grid-cols-2 mb-4">
+      <img
+      class="order-2 rounded-full mb-8 drop-shadow-2xl border border-amber-50 outline outline-2 outline-black outline-offset-2"
+      src="/images/PeterSekan-2025.jpeg"
+    }
+    alt="Bild von Peter Sekan"
+    />
+    <h1 class="order-1 text-center text-4xl">
+      <!-- <img
+        class="h-24 m-auto"
+        src="/images/headlines/Hi-black.png"
+        alt="Hi, ich bin"
+      /> -->
+      Hi, ich bin
+      <img
+        class="h-24 m-auto"
+        src="/images/headlines/Pete-black.png"
+        alt="Pete"
+      />
+    </h1>
+    </header>
     <slot />
     <!-- <SectionFooter target="/about" label="Mehr über mich…"/> -->
-  
-  <div class="flex justify-around w-full flex-wrap gap-2 mt-12">
-    {miniNavigationArray.map((item) => (
-      <a class="px-4 py-2 font-serif italic  mt-4 text-primary border-black hover:text-black hover:border-primary  transition-colors ease-in-out" href={item.slug}>{item.title}</a>
-    ))}
-</div>
+
+    <div class="flex justify-around w-full flex-wrap gap-2 mt-12">
+      {
+        miniNavigationArray.map((item) => (
+          <a
+            class="px-4 py-2 font-serif italic  mt-4 text-primary border-black hover:text-black hover:border-primary  transition-colors ease-in-out"
+            href={item.slug}
+          >
+            {item.title}
+          </a>
+        ))
+      }
+    </div>
   </Section>
   <!-- <Section>
     <SectionHeader title="Angebot" image="Angebot-black.png" />

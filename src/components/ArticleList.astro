@@ -19,7 +19,7 @@ const articles = allArticles.map(article => ({
 <>
 <!-- Filter Section -->
     <div class="mb-8">
-      <h2 class="text-lg font-semibold mb-4 text-center">Filtere nach Themen, die Dich interessieren:</h2>
+      <h2 class="text-lg mb-4 text-center">Filtere nach Themen, die Dich interessieren:</h2>
       <div class="flex flex-wrap gap-2 mb-4 justify-center">
         <button 
           data-filter="all" 
@@ -135,14 +135,14 @@ const articles = allArticles.map(article => ({
       filterButtons.forEach(btn => {
         const filter = btn.getAttribute('data-filter');
         if (filter === 'all' && (activeFilters.size === 0 || activeFilters.has('all'))) {
-          btn.classList.add('bg-primary', 'text-amber-50');
-          btn.classList.remove('bg-amber-50', 'text-gray-800');
+          btn.classList.add('bg-primary', 'text-amber-50', 'hover:border-black');
+          btn.classList.remove('bg-amber-50', 'text-primary', 'border-black', 'hover:border-primary');
         } else if (activeFilters.has(filter) && filter !== 'all') {
-          btn.classList.add('bg-primary', 'text-amber-50');
-          btn.classList.remove('bg-amber-50', 'text-gray-800');
+          btn.classList.add('bg-primary', 'text-amber-50', 'hover:border-black');
+          btn.classList.remove('bg-amber-50', 'text-primary', 'border-black', 'hover:border-primary');
         } else {
-          btn.classList.remove('bg-primary', 'text-amber-50');
-          btn.classList.add('bg-amber-50', 'text-gray-800');
+          btn.classList.remove('bg-primary', 'text-amber-50', 'hover:border-black');
+          btn.classList.add('bg-amber-50', 'text-primary', 'border-black', 'hover:border-primary');
         }
       });
     }

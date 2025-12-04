@@ -54,4 +54,4 @@ Das bedeutet: Wenn Deine neue Website fertig ist, bezahlst Du meine Rechnung, be
 
 ## Und Weiter?
 
-Mir ist daran gelegen, dass Du erfolgreich mit Deiner Website arbeiten kannst. Darum biete ich den **Continuous WebDev Service** an. Das ist ein flexibles Abonnement, dass Monitoring, Updates und Support für Deine Website bietet.
+Mir ist daran gelegen, dass Du erfolgreich mit Deiner Website arbeiten kannst. Darum biete ich den [Continuous WebDev Service](/articles/continuous-webdev-service/) an. Das ist ein flexibles Abonnement, dass Monitoring, Updates und Support für Deine Website bietet.
