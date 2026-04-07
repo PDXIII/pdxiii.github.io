@@ -38,42 +38,49 @@
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 100;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Hairline.otf")
       format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 200;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Thin.otf")
       format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 300;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Light.otf")
       format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 400;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Regular.otf")
       format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 500;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Medium.otf")
       format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 700;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Bold.otf")
       format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 900;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Black.otf")
       format("opentype");
   }
@@ -81,6 +88,7 @@
     font-family: "FabrikatKompakt";
     font-weight: 100;
     font-style: italic;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-HairlineItalic.otf")
       format("opentype");
   }
@@ -88,6 +96,7 @@
     font-family: "FabrikatKompakt";
     font-weight: 200;
     font-style: italic;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-ThinItalic.otf")
       format("opentype");
   }
@@ -95,6 +104,7 @@
     font-family: "FabrikatKompakt";
     font-weight: 300;
     font-style: italic;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-LightItalic.otf")
       format("opentype");
   }
@@ -102,6 +112,7 @@
     font-family: "FabrikatKompakt";
     font-weight: 400;
     font-style: italic;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-RegularItalic.otf")
       format("opentype");
   }
@@ -109,6 +120,7 @@
     font-family: "FabrikatKompakt";
     font-weight: 500;
     font-style: italic;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-MediumItalic.otf")
       format("opentype");
   }
@@ -116,6 +128,7 @@
     font-family: "FabrikatKompakt";
     font-weight: 700;
     font-style: italic;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-BoldItalic.otf")
       format("opentype");
   }
@@ -123,6 +136,7 @@
     font-family: "FabrikatKompakt";
     font-weight: 900;
     font-style: italic;
+    font-display: swap;
     src: url("/fonts/FabrikatKompakt/FabrikatKompakt-BlackItalic.otf")
       format("opentype");
   }

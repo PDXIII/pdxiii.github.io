@@ -16,7 +16,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Base title={entry.data}>
+<Base title={entry.data.title}>
   <div class="prose prose-lg px-8 mx-auto mb-8">
     <h1>{entry.data.title}</h1>
     <small>{entry.data.publishedAt.toDateString()}</small>

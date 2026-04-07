@@ -22,12 +22,12 @@ import SectionHeader from "./SectionHeader.astro";
       <NavLink to="/about">Über Mich</NavLink>
     </li>
     <li>
-      <button id="contact-button"class="font-serif font-light italic text-sm sm:text-xl text-primary me-4 hover:text-black transition-colors">Kontakt</button>
+      <button id="contact-button" aria-haspopup="dialog" aria-expanded="false" class="font-serif font-light italic text-sm sm:text-xl text-primary me-4 hover:text-black transition-colors">Kontakt</button>
     </li>
   </ul>
-  <dialog id="contact-modal" class="modal  border-primary bg-amber-50 border p-0 drop-shadow-lg  backdrop:backdrop-blur-sm backdrop:bg-amber-50/25 0">
+  <dialog id="contact-modal" aria-labelledby="contact-modal-title" aria-modal="true" class="modal  border-primary bg-amber-50 border p-0 drop-shadow-lg  backdrop:backdrop-blur-sm backdrop:bg-amber-50/25 0">
     <Section>
-      <SectionHeader title="Kontakt" image="Kontakt-black.png" />
+      <SectionHeader title="Kontakt" image="Kontakt-black.png" id="contact-modal-title" />
       <blockquote>
         Ich freue mich sehr von Dir zu hören!
         <br />
@@ -47,7 +47,7 @@ import SectionHeader from "./SectionHeader.astro";
 
       </p>
       <div class="flex justify-center w-full">        
-        <button id="close-button" class="py-2 px-8 mt-8 text-primary font-serif no-underline border border-black hover:border-primary hover:text-black italic transition-all ease-in-out">Schließen</button>
+        <button id="close-button" aria-label="Dialog schließen" class="py-2 px-8 mt-8 text-primary font-serif no-underline border border-black hover:border-primary hover:text-black italic transition-all ease-in-out">Schließen</button>
       </div>
     </Section>
   </dialog>
@@ -59,15 +59,19 @@ import SectionHeader from "./SectionHeader.astro";
   const closeButton = document.getElementById("close-button");
   contactButton.addEventListener("click", () => {
     contactModal.showModal();
+    contactButton.setAttribute("aria-expanded", "true");
   });
 
-  closeButton.addEventListener("click", () => {
+  const closeModal = () => {
     contactModal.close();
-  });
+    contactButton.setAttribute("aria-expanded", "false");
+  };
 
-    contactModal.addEventListener("click", (event) => {
+  closeButton.addEventListener("click", closeModal);
+
+  contactModal.addEventListener("click", (event) => {
     if (event.target === contactModal) {
-      contactModal.close();
+      closeModal();
     }
   });
 </script>

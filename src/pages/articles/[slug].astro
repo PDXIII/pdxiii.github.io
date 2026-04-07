@@ -6,7 +6,7 @@ import Base from "../../layouts/Base.astro";
 import Section from "../../components/Section.astro";
 
 export async function getStaticPaths() {
-  const articleEntries = await getCollection("articles");
+  const articleEntries = await getCollection("articles", ({ data }) => !data.isDraft);
   return articleEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -14,8 +14,8 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-entry.wordCount = countWords(entry.body);
-entry.readingTime = getReadingTime(entry.body);
+const wordCount = countWords(entry.body);
+const readingTime = getReadingTime(entry.body);
 const { Content } = await entry.render();
 ---
 
@@ -24,8 +24,8 @@ const { Content } = await entry.render();
     <h1>{entry.data.title}</h1>
               <small class="block text-center">
             {entry.data.publishedAt.toLocaleDateString("de-DE")} 
-            • {entry.wordCount} Worte 
-            • Lesezeit { entry.readingTime } min
+            • {wordCount} Worte
+            • Lesezeit { readingTime } min
             
           </small>
           <div class="flex justify-center gap-2">

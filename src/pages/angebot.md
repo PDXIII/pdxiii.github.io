@@ -14,7 +14,7 @@ Es ist mir ein besonderes Anliegen, die Sichtbarkeit von Menschen im Netz zu st�
 
 Wenn du dich angesprochen fühlst und über eine eigene Website nachdenkst, lass uns darüber sprechen — auf Augenhöhe!
 
-[Schreib mir…](mailto:sekan.pete@gamil.com)
+[Schreib mir…](mailto:sekan.pete@gmail.com)
 
 ### Artikel zu dem Thema:
 

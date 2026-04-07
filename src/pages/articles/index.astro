@@ -1,12 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "../../layouts/Base.astro";
-import { imageConfig } from "astro:assets";
 import SectionHeader from "../../components/SectionHeader.astro";
 import ArticleList from "../../components/ArticleList.astro";
 
 const title = "Artikel";
-const allArticles = await getCollection("articles");
+const allArticles = await getCollection("articles", ({ data }) => !data.isDraft);
 
 ---
 

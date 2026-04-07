@@ -1,7 +1,7 @@
 ---
-const { title, image } = Astro.props;
+const { title, image, id } = Astro.props;
 ---
 
-<h2 class="text-2xl font-bold">
+<h2 id={id} class="text-2xl font-bold">
     {image ? <img class="h-24 w-auto m-auto" src={`/images/headlines/${image}`} alt={title}> : {title}}
 </h2>

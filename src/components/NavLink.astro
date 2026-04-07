@@ -1,12 +1,12 @@
 ---
-import Link from "./Link.astro";
-
 const { to } = Astro.props;
+const isCurrent = Astro.url.pathname === to || (to !== "/" && Astro.url.pathname.startsWith(to));
 ---
 
 <a
   class="font-serif font-light italic text-sm sm:text-xl text-primary me-4 hover:text-black transition-colors"
   href={to}
+  aria-current={isCurrent ? "page" : undefined}
 >
   <slot />
 </a>

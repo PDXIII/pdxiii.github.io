@@ -17,7 +17,7 @@ const projectsCollection = defineCollection({
     image: z.string().optional(),
     teaser: z.string(),
     publishedAt: z.date(),
-    undefined: z.date().optional(),
+    updatedAt: z.date().optional(),
   }),
 });
 const articlesCollection = defineCollection({
