@@ -2,15 +2,13 @@
   <slot />
 </section>
 
-<!-- <script>
-  import anime from "animejs/lib/anime.es.js";
+<script>
+  import { animate, stagger } from "animejs";
 
-  const animation = anime({
-    targets: ".section *",
+  animate(".section *", {
     opacity: [0, 1],
     translateY: [50, 0],
-    delay: anime.stagger(100, { start: 600 }),
-    // autoplay: false,
+    delay: stagger(100, { start: 600 }),
     easing: "easeOutQuint",
   });
-</script> -->
+</script>

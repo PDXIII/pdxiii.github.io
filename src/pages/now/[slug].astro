@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 
 import MarkdownContainer from "../../components/MarkdownContainer.astro";
@@ -7,13 +7,13 @@ import MarkdownContainer from "../../components/MarkdownContainer.astro";
 export async function getStaticPaths() {
   const nowEntries = await getCollection("now");
   return nowEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id.replace(/\.mdx?$/, "") },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Base title={entry.data.title}>

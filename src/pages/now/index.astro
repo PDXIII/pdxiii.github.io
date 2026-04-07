@@ -1,11 +1,12 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 
 const title = "Now";
 const allNows = await getCollection("now");
-const { Content } = await allNows[allNows.length - 1].render();
-const lastDate = allNows[allNows.length - 1].data.publishedAt;
+const sorted = allNows.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const { Content } = await render(sorted[0]);
+const lastDate = sorted[0].data.publishedAt;
 ---
 
 <Base title={title}>
@@ -19,17 +20,12 @@ const lastDate = allNows[allNows.length - 1].data.publishedAt;
       <h3>What have I done recently?</h3>
       <ul>
         {
-          allNows
-            .sort(
-              (a, b) =>
-                b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
-            )
-            .map((now) => (
-              <li>
-                <a href={`/now/${now.slug}`}>{now.data.title}</a> –{" "}
-                <small>{now.data.publishedAt.toDateString()}</small>
-              </li>
-            ))
+          sorted.map((now) => (
+            <li>
+              <a href={`/now/${now.id.replace(/\.mdx?$/, "")}`}>{now.data.title}</a> –{" "}
+              <small>{now.data.publishedAt.toDateString()}</small>
+            </li>
+          ))
         }
       </ul>
     </div>

@@ -1,13 +1,16 @@
-:root {
-  --color-primary: 255 85 11;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary: rgb(255 85 11);
+
+  --font-sans: "FabrikatKompakt", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Rowan-Variable", ui-serif, Georgia, Cambria, serif;
+  --font-mono: "CamingoCode", ui-monospace, "Cascadia Code", monospace;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
-  /* Camingo Code  */
+  /* Camingo Code */
   @font-face {
     font-family: "CamingoCode";
     font-weight: 400;
@@ -34,111 +37,98 @@
     src: url("/fonts/CamingoCode/CamingoCode-BoldItalic.woff") format("woff"),
       url("/fonts/CamingoCode/CamingoCode-BoldItalic.woff2") format("woff2");
   }
+
   /* Fabrikat Kompakt */
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 100;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Hairline.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Hairline.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 200;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Thin.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Thin.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 300;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Light.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Light.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 400;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Regular.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Regular.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 500;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Medium.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Medium.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 700;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Bold.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Bold.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 900;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Black.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-Black.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 100;
     font-style: italic;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-HairlineItalic.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-HairlineItalic.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 200;
     font-style: italic;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-ThinItalic.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-ThinItalic.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 300;
     font-style: italic;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-LightItalic.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-LightItalic.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 400;
     font-style: italic;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-RegularItalic.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-RegularItalic.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 500;
     font-style: italic;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-MediumItalic.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-MediumItalic.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 700;
     font-style: italic;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-BoldItalic.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-BoldItalic.otf") format("opentype");
   }
   @font-face {
     font-family: "FabrikatKompakt";
     font-weight: 900;
     font-style: italic;
     font-display: swap;
-    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-BlackItalic.otf")
-      format("opentype");
+    src: url("/fonts/FabrikatKompakt/FabrikatKompakt-BlackItalic.otf") format("opentype");
   }
 
   /* Rowan */
@@ -151,7 +141,6 @@
     font-display: swap;
     font-style: normal;
   }
-
   @font-face {
     font-family: "Rowan-Variable";
     src: url("/fonts/Rowan/Rowan-VariableItalic.woff2") format("woff2"),
@@ -161,15 +150,54 @@
     font-display: swap;
     font-style: italic;
   }
+}
 
-  /**
-  * Rowan is a variable font
-  * You can controll variable axes as shown below:
-  * font-variation-settings: 'wght' 700.0;
-  *
-  * available axes:
+@layer components {
+  .prose :where(a) {
+    font-weight: 400;
+    color: rgb(255 85 11);
+    text-decoration-color: black;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  .prose :where(a):hover {
+    color: black;
+    text-decoration-color: rgb(255 85 11);
+  }
 
-  * 'wght' (range from 300.0 to 700.0)
+  .prose :where(h1) { font-weight: 200; }
+  .prose :where(h2) { font-weight: 300; }
+  .prose :where(h3) { font-weight: 300; }
+  .prose :where(h4) { font-weight: 300; }
+  .prose :where(h5) { font-weight: 400; }
+  .prose :where(h6) { font-weight: 400; }
 
-  **/
+  .prose :where(blockquote) {
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-family: "Rowan-Variable";
+    border-left-color: rgb(255 85 11);
+    border-left-width: 0.125rem;
+  }
+  .prose :where(blockquote p > em) {
+    display: block;
+    text-align: right;
+    padding-right: 1rem;
+  }
+  .prose :where(blockquote p:last-of-type)::after { content: ""; }
+  .prose :where(blockquote p:first-of-type)::before { content: ""; }
+
+  .prose :where(i),
+  .prose :where(em) {
+    font-family: "Rowan-Variable";
+  }
+
+  .prose :where(img),
+  .prose :where(video) {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+  }
 }

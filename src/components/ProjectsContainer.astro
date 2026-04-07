@@ -11,7 +11,7 @@ const projects = await getCollection("projects");
       projects.map((project) => (
         <a
           class="hover:scale-110 transition-transform ease-in-out hover:z-10"
-          href={`/projects/${project.slug}`}
+          href={`/projects/${project.id.replace(/\.mdx?$/, "")}`}
         >
           <article>
             <h3 class="text-3xl font-light border-slate-900 border-b hover:border-primary">
@@ -26,27 +26,26 @@ const projects = await getCollection("projects");
 </section>
 
 <script>
-  import anime from "animejs/lib/anime.es.js";
+  import { animate, stagger } from "animejs";
 
-  const animation = anime({
-    targets: ".projects article",
+  const animation = animate(".projects article", {
     opacity: [0, 1],
     translateY: [50, 0],
     duration: 500,
-    delay: anime.stagger(300, { start: 600 }),
+    delay: stagger(300, { start: 600 }),
     autoplay: false,
     easing: "easeOutQuint",
   });
 
   const handleIntersection = (entries) => {
-    entries.map((entry) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         animation.play();
       }
     });
   };
-  // observe when projects intersect viewport and play animation
-  let observer = new IntersectionObserver(handleIntersection);
+
+  const observer = new IntersectionObserver(handleIntersection);
   const target = document.querySelector(".projects");
   if (target) {
     observer.observe(target);
