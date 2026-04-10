@@ -3,6 +3,9 @@
   "type": "module",
   "version": "2.1.0",
   "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
