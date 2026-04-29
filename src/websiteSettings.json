@@ -1,0 +1,23 @@
+{
+  "navigation": {
+    "links": [
+      { "to": "/", "label": "Start" },
+      { "to": "/angebot", "label": "Angebot" },
+      { "to": "/articles", "label": "Artikel" },
+      { "to": "/about", "label": "Über Mich" }
+    ],
+    "contact": {
+      "label": "Kontakt",
+      "modalTitle": "Kontakt",
+      "modalImage": "Kontakt-black.png",
+      "greeting": "Ich freue mich sehr von Dir zu hören!",
+      "signOff": "Liebe Grüße,\nPete",
+      "phone": "+49 (0) 176 4710 2342",
+      "phoneHref": "tel:+4917647102342",
+      "email": "sekan.pete@gmail.com",
+      "emailHref": "mailto:sekan.pete@gmail.com",
+      "address": "Karl-Kunger-Straße 5\n12435 Berlin",
+      "closeLabel": "Schließen"
+    }
+  }
+}

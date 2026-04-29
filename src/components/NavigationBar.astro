@@ -2,52 +2,42 @@
 import NavLink from "./NavLink.astro";
 import Section from "./Section.astro";
 import SectionHeader from "./SectionHeader.astro";
+import settings from "../websiteSettings.json";
 
+const { links, contact } = settings.navigation;
 ---
 
 <nav
   class="fixed w-full bottom-0 flex justify-center z-10 px-8 pt-2 pb-8 border-primary border-y backdrop-blur-sm bg-amber-50/25 sm:sticky sm:top-0 sm:pb-2 sm:mb-8"
 >
   <ul class="w-full sm:w-auto flex justify-between">
+    {links.map((link) => (
+      <li>
+        <NavLink to={link.to}>{link.label}</NavLink>
+      </li>
+    ))}
     <li>
-      <NavLink to="/">Start</NavLink>
-    </li>
-    <li>
-      <NavLink to="/angebot">Angebot</NavLink>
-    </li>
-    <li>
-      <NavLink to="/articles">Artikel</NavLink>
-    </li>
-    <li>
-      <NavLink to="/about">Über Mich</NavLink>
-    </li>
-    <li>
-      <button id="contact-button" aria-haspopup="dialog" aria-expanded="false" class="font-serif font-light italic text-sm sm:text-xl text-primary me-4 hover:text-black transition-colors">Kontakt</button>
+      <button id="contact-button" aria-haspopup="dialog" aria-expanded="false" class="font-serif font-light italic text-sm sm:text-xl text-primary me-4 hover:text-black transition-colors">{contact.label}</button>
     </li>
   </ul>
   <dialog id="contact-modal" aria-labelledby="contact-modal-title" aria-modal="true" class="modal  border-primary bg-amber-50 border p-0 drop-shadow-lg  backdrop:backdrop-blur-sm backdrop:bg-amber-50/25 0">
     <Section>
-      <SectionHeader title="Kontakt" image="Kontakt-black.png" id="contact-modal-title" />
+      <SectionHeader title={contact.modalTitle} image={contact.modalImage} id="contact-modal-title" />
       <blockquote>
-        Ich freue mich sehr von Dir zu hören!
+        {contact.greeting}
         <br />
-        Liebe Grüße,
-        <br />
-        Pete
+        {contact.signOff.split("\n").map((line) => <>{line}<br /></>)}
       </blockquote>
       <p>
-        <a href="tel:+4917647102342">+49 (0) 176 4710 2342</a>
+        <a href={contact.phoneHref}>{contact.phone}</a>
         <br>
-        <a href="mailto:sekan.pete@gmail.com">sekan.pete@gmail.com</a>
+        <a href={contact.emailHref}>{contact.email}</a>
         <br>
         <br>
-        Karl-Kunger-Straße 5
-        <br>
-        12435 Berlin
-
+        {contact.address.split("\n").map((line) => <>{line}<br /></>)}
       </p>
-      <div class="flex justify-center w-full">        
-        <button id="close-button" aria-label="Dialog schließen" class="py-2 px-8 mt-8 text-primary font-serif no-underline border border-black hover:border-primary hover:text-black italic transition-all ease-in-out">Schließen</button>
+      <div class="flex justify-center w-full">
+        <button id="close-button" aria-label="Dialog schließen" class="py-2 px-8 mt-8 text-primary font-serif no-underline border border-black hover:border-primary hover:text-black italic transition-all ease-in-out">{contact.closeLabel}</button>
       </div>
     </Section>
   </dialog>
